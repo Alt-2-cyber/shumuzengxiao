@@ -1,0 +1,16 @@
+{
+  "completed_utc": "2026-10-26T02:37:59.876904+00:00",
+  "elapsed_seconds": 756.1734308,
+  "epochs_completed": 13,
+  "epochs_requested": 30,
+  "patience": 8,
+  "selection_metric": "validation accuracy_top1",
+  "maximum_validation_top1": 0.88862,
+  "first_epoch_with_maximum_validation_top1": 5,
+  "selected_checkpoint_epoch": 12,
+  "best_checkpoint_sha256": "5e6bacdc82bbc129b516f3f9656a03078ab522dd20c9a7f9ecf87ad90f16361b",
+  "peak_cuda_memory_allocated_bytes": 379515392,
+  "run_directory": "D:\\table\\shumuzengxiao\\vision-training-data\\yolov8-disease-research-20261026\\runs\\train",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "train_images": 1926
+}

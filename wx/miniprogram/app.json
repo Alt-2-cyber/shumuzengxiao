@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/diagnosis/diagnosis",
+    "pages/records/records",
+    "pages/admin/admin",
+    "pages/assistant/assistant",
+    "pages/consultation/consultation",
+    "pages/support-settings/support-settings",
+    "pages/news/news",
+    "pages/news-detail/news-detail"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "数牧增效",
+    "navigationBarBackgroundColor": "#07110B",
+    "backgroundColor": "#07110B",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#87917F",
+    "selectedColor": "#72E38B",
+    "backgroundColor": "#08120C",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "总览"
+      },
+      {
+        "pagePath": "pages/diagnosis/diagnosis",
+        "text": "AI识牛"
+      },
+      {
+        "pagePath": "pages/records/records",
+        "text": "记录"
+      },
+      {
+        "pagePath": "pages/admin/admin",
+        "text": "管理"
+      }
+    ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "lazyCodeLoading": "requiredComponents"
+}

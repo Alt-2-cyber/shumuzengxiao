@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "kaggle-asc24-v1",
+      "status": "approved_for_baseline_only",
+      "sourcePage": "https://www.kaggle.com/datasets/haithammoh/sounds-of-animals",
+      "downloadUrl": "https://www.kaggle.com/api/v1/datasets/download/haithammoh/sounds-of-animals",
+      "version": "1",
+      "license": "CC0-1.0",
+      "licenseDisplay": "CC0: Public Domain",
+      "expectedArchiveSha256": "651b58457d66a96ff0ced2139926935242d816f6396a31cab83c745c0df34670",
+      "expectedSourceClassCounts": {
+        "Cow": 114,
+        "Dog": 156,
+        "Frog": 104
+      },
+      "classPathIndex": 1,
+      "classMapping": {
+        "Cow": "cow_vocalization",
+        "Dog": "non_cattle_audio",
+        "Frog": "non_cattle_audio"
+      },
+      "labelProvenance": "public_species_label",
+      "clinicalVerified": false,
+      "allowForDiseaseLabels": false,
+      "allowedUse": "Pretraining or validation of cattle-vocalization and non-cattle-audio filters only. It must not be mapped to cough, wheeze, respiratory disease, or any veterinary diagnosis.",
+      "grouping": "The final dash suffix in a source filename is removed so related A/B takes stay in one split."
+    },
+    {
+      "id": "sinc-grazing-jaw-movements",
+      "status": "blocked_license_unverified",
+      "sourcePage": "https://github.com/sinc-lab/dataset-jaw-movements",
+      "license": "unverified",
+      "clinicalVerified": false,
+      "allowForDiseaseLabels": false,
+      "allowedUse": "Do not download, train, or redistribute until the owner provides a usable written license. The public GitHub repository has no declared license as checked on 2026-07-19."
+    }
+  ]
+}

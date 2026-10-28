@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://api.github.com/search/repositories",
+    "params": {
+      "q": "cattle disease dataset",
+      "per_page": 8
+    },
+    "utc": "2026-10-26T11:11:06.659789+00:00",
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/datasets",
+    "params": {
+      "search": "cattle",
+      "limit": 15
+    },
+    "utc": "2026-10-26T11:11:00.283194+00:00",
+    "failure_type": "SSLError",
+    "reason": "Public endpoint unavailable via configured system proxy; no bypass attempted"
+  },
+  {
+    "url": "https://huggingface.co/api/datasets",
+    "params": {
+      "search": "lumpy",
+      "limit": 15
+    },
+    "utc": "2026-10-26T11:11:05.287018+00:00",
+    "failure_type": "SSLError",
+    "reason": "Public endpoint unavailable via configured system proxy; no bypass attempted"
+  },
+  {
+    "url": "https://www.kaggle.com/api/v1/datasets/list",
+    "params": {
+      "search": "cattle disease",
+      "page": 1,
+      "pageSize": 20
+    },
+    "utc": "2026-10-26T11:10:54.571411+00:00",
+    "status": 200
+  },
+  {
+    "url": "https://www.kaggle.com/api/v1/datasets/list",
+    "params": {
+      "search": "foot and mouth",
+      "page": 1,
+      "pageSize": 20
+    },
+    "utc": "2026-10-26T11:10:55.262294+00:00",
+    "status": 200
+  },
+  {
+    "url": "https://www.kaggle.com/api/v1/datasets/list",
+    "params": {
+      "search": "lumpy skin",
+      "page": 1,
+      "pageSize": 20
+    },
+    "utc": "2026-10-26T11:10:54.875306+00:00",
+    "status": 200
+  },
+  {
+    "url": "https://zenodo.org/api/records",
+    "params": {
+      "q": "\"lumpy skin\" AND images",
+      "size": 5
+    },
+    "utc": "2026-10-26T11:11:08.389106+00:00",
+    "status": 200
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "elapsed_seconds": 146.9060000000004,
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "best_pt_sha256": "e4bdd511dbf12375ecab667d805e92b9907bfeb2dfbdcd02a21f6ee113b80092",
+  "selection": "Validation macro-F1 only, one predetermined candidate run",
+  "test_consulted": false,
+  "best_fitness": 0.8899317536998698
+}

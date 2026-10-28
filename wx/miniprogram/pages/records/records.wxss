@@ -1,0 +1,168 @@
+.records-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18rpx;
+  width: 100%;
+  margin-bottom: 28rpx;
+}
+
+.records-title-block {
+  flex: 1;
+  min-width: 0;
+  padding-right: 8rpx;
+}
+
+.clear-btn {
+  width: 150rpx;
+  min-width: 150rpx;
+  min-height: 64rpx;
+  margin-top: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rpx solid rgba(240, 94, 73, 0.46);
+  border-radius: 999rpx;
+  color: #f05e49;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.empty-records {
+  margin-top: 18rpx;
+  padding: 54rpx 28rpx;
+}
+
+.empty-btn {
+  width: 360rpx;
+  max-width: 100%;
+  margin: 30rpx auto 0;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 22rpx;
+}
+
+.record-card {
+  padding: 20rpx;
+}
+
+.record-content {
+  display: flex;
+  gap: 20rpx;
+  min-width: 0;
+}
+
+.record-image {
+  width: 188rpx;
+  height: 220rpx;
+  flex: 0 0 188rpx;
+  border-radius: 16rpx;
+  background: rgba(247, 242, 222, 0.08);
+}
+
+.record-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.record-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12rpx;
+  min-width: 0;
+}
+
+.cow-id {
+  flex: 1;
+  min-width: 0;
+  color: #fff7df;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.score-line {
+  display: flex;
+  align-items: baseline;
+  gap: 12rpx;
+  margin-top: 14rpx;
+}
+
+.score {
+  color: #72e38b;
+  font-size: 58rpx;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.score-label {
+  color: #aeb7a7;
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+.record-conclusion {
+  display: block;
+  margin-top: 8rpx;
+  color: #d4decf;
+  font-size: 25rpx;
+  line-height: 1.45;
+}
+
+.record-time {
+  display: block;
+  margin-top: 12rpx;
+  color: #758071;
+  font-size: 22rpx;
+}
+
+.finding-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 12rpx;
+  overflow-x: auto;
+  max-width: 100%;
+  margin-top: 18rpx;
+  padding-bottom: 4rpx;
+}
+
+.finding-chip {
+  flex: 0 0 auto;
+  max-width: 460rpx;
+  padding: 12rpx 16rpx;
+  border-radius: 999rpx;
+  color: #d4decf;
+  background: rgba(247, 242, 222, 0.08);
+  font-size: 22rpx;
+  white-space: nowrap;
+}
+
+@media (max-width: 360px) {
+  .records-head {
+    gap: 12rpx;
+  }
+
+  .clear-btn {
+    width: 132rpx;
+    min-width: 132rpx;
+    font-size: 22rpx;
+  }
+
+  .record-content {
+    flex-direction: column;
+  }
+
+  .record-image {
+    width: 100%;
+    height: 320rpx;
+    flex-basis: auto;
+  }
+
+  .finding-chip {
+    max-width: 320rpx;
+  }
+}

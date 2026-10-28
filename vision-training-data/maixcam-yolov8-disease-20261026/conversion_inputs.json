@@ -1,0 +1,985 @@
+{
+  "status": "prepared_for_conversion",
+  "scope": "research_only",
+  "source_onnx_sha256": "16fd1030f052638e69ec624bce4fb332c2eabe2aae8c30ba2a263d421138401b",
+  "logit_onnx_sha256": "0cae1e5a64c672205a847eaab1175e76cf63b37e7049b7caad8c0ca055cf11d1",
+  "input_name": "images",
+  "output_name": "/model.9/linear/Gemm_output_0",
+  "input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "labels": [
+    "foot-and-mouth",
+    "healthy",
+    "lumpy"
+  ],
+  "classifier_softmax": true,
+  "calibration_records": [
+    {
+      "file": "image-000.png",
+      "source_id": "82383ae1da433a4cc517",
+      "group_id": "g-51cc84016421d97c1861",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "b6c18e47c912b4a9503b57dfc38ba24c2c6aeda1a8dbc28fae015e36f0f79280"
+    },
+    {
+      "file": "image-001.png",
+      "source_id": "f5324c322fb6a28c47ed",
+      "group_id": "g-cab464d255320e4c59a6",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "0e5399c8995758c5df0e6389673f8b9ecca516dc83bc3fc22eef693d174aca8f"
+    },
+    {
+      "file": "image-002.png",
+      "source_id": "d01b8260007047a0436a",
+      "group_id": "g-530e23c79c776ab72e62",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "f108c4af8218c1cdac4bf12716df5c278c42b172081704841afae47a67fa863d"
+    },
+    {
+      "file": "image-003.png",
+      "source_id": "5af3d551c6ef0eee45d4",
+      "group_id": "g-2bead09b2723b75101e2",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "0a533e139ee702f477a95e1c9602f553f48e3a6773ca990f09ecf0b36377a419"
+    },
+    {
+      "file": "image-004.png",
+      "source_id": "b30540db1e34afc49b96",
+      "group_id": "g-5472aed43b34f16d85a7",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "9be6471b61be7b7cc23590ef4164eca3cbe975db5ac5cc3613c458a34480d927"
+    },
+    {
+      "file": "image-005.png",
+      "source_id": "5d50aeeced7e3f49373a",
+      "group_id": "g-852c7216ca3820215bac",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "03f4b5fd72c101ecd82eec7f7edb9c0cb0206fd8af75c582fc7523ba205e25b8"
+    },
+    {
+      "file": "image-006.png",
+      "source_id": "f9ff62e49110eb91ca62",
+      "group_id": "g-8d7a1900d077dde7c6dc",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "cceb755ffb9229e0b7cb8c58b30fc3c41bc28d82887836e1d9d8b7eed1042080"
+    },
+    {
+      "file": "image-007.png",
+      "source_id": "73383357636024258795",
+      "group_id": "g-936777082cd044fb2009",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "b9100c275beab312e33e178504a4a218b3605e96106353101bbe4b20ea53897b"
+    },
+    {
+      "file": "image-008.png",
+      "source_id": "fb1620a79dfb11f85bfd",
+      "group_id": "g-f61ccf7759eab539d848",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "ea26cc930d7f8389a5b855cc2c2db8a31e57a2bf1b849de1740b208c9a94e378"
+    },
+    {
+      "file": "image-009.png",
+      "source_id": "250074d69b2b6a318eb5",
+      "group_id": "g-c3001a7fc67fce51de1e",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "f1ea3dffbcb14c0528ac989f81fd5f305168b2935bd2eb1d7350d784f8bc1ab5"
+    },
+    {
+      "file": "image-010.png",
+      "source_id": "fe6526c6aa6e928bcbf2",
+      "group_id": "g-a52190451b8c8d26fa78",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "3b00370b818f45fcba0f51d15a69f7bddaf8438ef00639a2a6b2f4560e59179b"
+    },
+    {
+      "file": "image-011.png",
+      "source_id": "b76b2221ba62344c0866",
+      "group_id": "g-a180a6bcb38ffd351c05",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "cd8ebb8792cde9babf4b028d1add58ab96c12c8fa2ff14c2654ed9ccc03ebdce"
+    },
+    {
+      "file": "image-012.png",
+      "source_id": "e0349094779964d70eda",
+      "group_id": "g-d75fa3c8c3daa3ed0eab",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "fa74d1a7b33e2f8bd13029aa51debdf5941c888be6911d71a690260fefd8145c"
+    },
+    {
+      "file": "image-013.png",
+      "source_id": "f0b9011341f39159ea07",
+      "group_id": "g-4c94c0e0019b9016b614",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "63975aa25f770bc38d5555608ccb593737cdc009be9aa304f5714ad2444f1a94"
+    },
+    {
+      "file": "image-014.png",
+      "source_id": "b477bf4a038a07eb486e",
+      "group_id": "g-7874e219ba40c00fc813",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "fc520019ccca1869871e75155b7c32a52b2d22130bf509b6706cb26dfcaa8785"
+    },
+    {
+      "file": "image-015.png",
+      "source_id": "8bdec7a02d487cc151b3",
+      "group_id": "g-5c36daec9f447a7979d8",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "d3db07e7e9d2769339952923821cfa0bddff999a747ef3fc2da5961a6431c6c6"
+    },
+    {
+      "file": "image-016.png",
+      "source_id": "ac540480b66665166186",
+      "group_id": "g-7fcbad5524abb8febce0",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "73d2f15f247f6b6374e037cdd98762be130bf8b0c318444db41f36dfbea399c4"
+    },
+    {
+      "file": "image-017.png",
+      "source_id": "60804e2ce4d64fe472df",
+      "group_id": "g-f7f8c11b375c6d8b97c5",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "b8edd3557615a1f1efe974a119828c50d01d0e63f7608085f20a693aba12305f"
+    },
+    {
+      "file": "image-018.png",
+      "source_id": "a2da151ad098dde0b877",
+      "group_id": "g-3c6d1df024a2f99cc266",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "fbab826da77ac9d4451029dde6789c4d72dc0e649b3e0e4503095f66788bcafd"
+    },
+    {
+      "file": "image-019.png",
+      "source_id": "a470ac43441c8e42031b",
+      "group_id": "g-a75b9f8481b2afed9372",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "885c13ec29718a893e3e8f2b4a7a4a6ded30a3c78e221a9f0f8cb929ec7fcc39"
+    },
+    {
+      "file": "image-020.png",
+      "source_id": "285c313f027b8f43c68c",
+      "group_id": "g-3d88ae0902020eb5a09f",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "3eee2bd247bf95ce1a914492c7179377b4062f13d9c06b551b813d13a6e9f384"
+    },
+    {
+      "file": "image-021.png",
+      "source_id": "699620fa477ee700deb1",
+      "group_id": "g-dad624cdc719c788a210",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "b12c1dbfe3c19388ad56124146183c9bbadbdef65d16bd4d4d8d6fed20c33c82"
+    },
+    {
+      "file": "image-022.png",
+      "source_id": "98472577d3051a9d74c7",
+      "group_id": "g-047c02dd415aa94faf7e",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "4540e253a2e976201c0e11d91f98b0b791095e27f5ffa8b775147dd37064232b"
+    },
+    {
+      "file": "image-023.png",
+      "source_id": "4e939c583622a3a6820a",
+      "group_id": "g-912e33ba1614821a43f7",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "cde86afac156c610159972134d89835577039085517f96aa3858369d14140a2f"
+    },
+    {
+      "file": "image-024.png",
+      "source_id": "6b5a25a03dc29cc69e03",
+      "group_id": "g-0439af715a134d602162",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "e0e9360a7dccffd4dd805557d980b620de9eea6f978a23c72d41acf7d92577d8"
+    },
+    {
+      "file": "image-025.png",
+      "source_id": "cc9a22ed56c3548e01e7",
+      "group_id": "g-cd2413d753930a972773",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "bfd7c31984e41081321396d45c0f8c87b7e1fb6fa8468d9223302f1ef7b46c01"
+    },
+    {
+      "file": "image-026.png",
+      "source_id": "17181d33bee022215c5a",
+      "group_id": "g-a113af0ace1737247e42",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "3d42091ef0ce3541e67606636d67f38bd6deddfb30e894d5f3af327d10c6b84a"
+    },
+    {
+      "file": "image-027.png",
+      "source_id": "c8db1cd59a283363dbb1",
+      "group_id": "g-ab32e764273fcc167a6c",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "14e2f18abc28147b89001038db43faed6b9903cbbb5b5626b6eb9bc57c528a26"
+    },
+    {
+      "file": "image-028.png",
+      "source_id": "b38a08bcf3ca606b90b3",
+      "group_id": "g-97e13fc5eb6b7ba1d4b9",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "4c83398b2c25c3ed2fca078d3f965ebc883e143accce00dc3d56c2e791b0b775"
+    },
+    {
+      "file": "image-029.png",
+      "source_id": "a532d60df19b85d8bc14",
+      "group_id": "g-9f20dfb3104b0dc576fc",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "82815f6804c5af276be4b6fdb61172cae0d9c59a9b355918a8c4352a6af0a102"
+    },
+    {
+      "file": "image-030.png",
+      "source_id": "e4ae84c75694899a011f",
+      "group_id": "g-b75b601f662530b270f8",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "7bbf6a144c5b751c6e552a5862e8a834262a155e149e6bb649a872c6b4fbf556"
+    },
+    {
+      "file": "image-031.png",
+      "source_id": "50df53ba2e2d7698c7ba",
+      "group_id": "g-12dcc57f92fb46fccff2",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "343e7cd5e14d09a7bc3983c3995d0b2dcb59d75806e18cdb57b3c23424be1b4c"
+    },
+    {
+      "file": "image-032.png",
+      "source_id": "da2a204701cdff487c35",
+      "group_id": "g-05d309536797d53fad86",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "359d212bb7f534dad36a6e327d92c31ba5453788e512484c1af5bd2cf9bd8864"
+    },
+    {
+      "file": "image-033.png",
+      "source_id": "ff3f1d18447bfc62c9e2",
+      "group_id": "g-d2c4fdd9fc8b78fd4c17",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "c0b99fe3f74fb9235e38f09d9aa8465ae6c8895666f2c1ea076d790c9610ba2b"
+    },
+    {
+      "file": "image-034.png",
+      "source_id": "32ce4e4b3d6d42cc61d7",
+      "group_id": "g-d5a7d6f8ae41266e7a46",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "f6a468defa7c8a479004e22878c823cd541ed177d7aa6d599f4058b02b36eb55"
+    },
+    {
+      "file": "image-035.png",
+      "source_id": "f438b0080c2e4ef69bd3",
+      "group_id": "g-461149e55d12acf44293",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "dea0828a6532c6a0952eb45b2c90786ccdaddf8a0b75c130bd6a02c278534d3c"
+    },
+    {
+      "file": "image-036.png",
+      "source_id": "9617005620ff602b5e52",
+      "group_id": "g-83cb2753c2e58a89feb2",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "c8e196e2994841245b8ba66933a294bb13d7b109b7ccf52221a0290daa139c75"
+    },
+    {
+      "file": "image-037.png",
+      "source_id": "0ecd9885368dc6d261ca",
+      "group_id": "g-156b045fc6a30bce55a7",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "4397fe209bc3e3dbd9f37c55053f54e9c52eb093e841280d502324dd6c34054c"
+    },
+    {
+      "file": "image-038.png",
+      "source_id": "5afc443f03814a52fc8d",
+      "group_id": "g-fe53027622d1572c963c",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "e2ca8cecee64e5f16ac9cd73e5fd40d72df8819552bc9166b4d7c0df6d58bded"
+    },
+    {
+      "file": "image-039.png",
+      "source_id": "f5d157433ed6599ec480",
+      "group_id": "g-922d9f8cbcb0bed95c27",
+      "split": "train",
+      "source_label": "foot-and-mouth",
+      "source_sha256": "f2e0553e3a02bd5119b1dd93d11ce3124612ea86a527c31d4ec239b1a559d666"
+    },
+    {
+      "file": "image-040.png",
+      "source_id": "67c6e07ee86f2e7768ee",
+      "group_id": "g-0b862527f631647f2eb6",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "2438f1d8f607bbf989c7e35a97fd01dd7974efc5377383b1529b13255b324433"
+    },
+    {
+      "file": "image-041.png",
+      "source_id": "a54aea0187baafc768b1",
+      "group_id": "g-181b888841608245dd32",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "09e5d82024486b612aea4e8327b41c907ea516be7e44a918bf062d1a6c92510d"
+    },
+    {
+      "file": "image-042.png",
+      "source_id": "ada8dc46fe586e6b0b00",
+      "group_id": "g-1a42d1be72e31972d0f0",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "9c60416d325bba05d9c571ec0a2ace0a317c1df12d2b4a2eb7a3e55abeda660a"
+    },
+    {
+      "file": "image-043.png",
+      "source_id": "c8c2b1c66972cdc8a91a",
+      "group_id": "g-e573c189cd1548ddf54d",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "9dfcf79cc1719dbfc1b2fa8975b36a5b2ad2ea57194e81dc8f416fd11069a9e4"
+    },
+    {
+      "file": "image-044.png",
+      "source_id": "2c6fd62f2aa1bda2345b",
+      "group_id": "g-bb1243e4a14e1c5b695f",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "745d7e0085b0cd6f9e9a61de96950c1d54d52a3832950e0a2ceb1db951cae428"
+    },
+    {
+      "file": "image-045.png",
+      "source_id": "e35dc0b5f9581c8e23e8",
+      "group_id": "g-c6f10f357a41a2372232",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "0f4ac62c104e7b38f87527c2cb5e42b31f7cd56fd0048b95703010933b1dbae3"
+    },
+    {
+      "file": "image-046.png",
+      "source_id": "6c8f2dfcd8e0205dd8c5",
+      "group_id": "g-b9aff5538bc515b1728b",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "682012c3ae85682b5538a85ed0f984dee785e4d9f54f077d0b1e9ffd38c63f7c"
+    },
+    {
+      "file": "image-047.png",
+      "source_id": "e0b63c576f774987b537",
+      "group_id": "g-1bb8c3fedc97ab292545",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "deeeafb67131bc95b5eb7f67660c974859412f29156cde45857d4c1369d645b6"
+    },
+    {
+      "file": "image-048.png",
+      "source_id": "4f9ee0ba2da537a6f869",
+      "group_id": "g-33f81cc976e630c9e001",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "c15e74ee3aac070e84f89a46118e4f27319816a8b58ff276dfd663afb6c793a7"
+    },
+    {
+      "file": "image-049.png",
+      "source_id": "5c01ba615d0c64f87c76",
+      "group_id": "g-1733a68289e5a7552b31",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "47fe39d22ac4beb6e4d9c8008abae68c718f10d303b3f68bb6c3d2ec342c64dd"
+    },
+    {
+      "file": "image-050.png",
+      "source_id": "8574730ee25d04cc04a5",
+      "group_id": "g-eba37f7068fbaad9a497",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "ed2b060f3dac4e547b6e273c90d4bbdea9107ca9df08d902df53415a86a3f3c2"
+    },
+    {
+      "file": "image-051.png",
+      "source_id": "4a0af10dd5ea1502b88f",
+      "group_id": "g-8b0a0dc19cd2c0e2bef7",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "2b11f563181f15b74d75ff1dcf38fe36314e733700d45546bd4f543a9e90f975"
+    },
+    {
+      "file": "image-052.png",
+      "source_id": "9f91222fba5a5e280afc",
+      "group_id": "g-bed7b72dddb6eb4934c8",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "f9fd72c9a484738a25d66691b13582c21af51b903cef12997bd6dbfec049f72c"
+    },
+    {
+      "file": "image-053.png",
+      "source_id": "aacb90e076856089b6c8",
+      "group_id": "g-7edf015bbf2c0d47c0c0",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "bd7c0489db2e10f43f7105a81cdb14a10f5dafc98ad6367bb60588d16f223d6e"
+    },
+    {
+      "file": "image-054.png",
+      "source_id": "173bc3cc11ac31c5c9f9",
+      "group_id": "g-70d32386024c503b205c",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "ad7c48acfe103fa9f406c17f36c3382619c21c8d245b9d773711335b502b253d"
+    },
+    {
+      "file": "image-055.png",
+      "source_id": "2ec55d0ef3aa41fee01a",
+      "group_id": "g-433fc6e92bd479fc0dff",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "8201b6d0f941811160aa8593b6bdcf9df043c242057b2e04413603dae1e790be"
+    },
+    {
+      "file": "image-056.png",
+      "source_id": "55df973b536d5955146d",
+      "group_id": "g-d325d7c0f9f16b5096a0",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "cf1a07f03be32716f7ba27c781468623012ea1f509ee058aa5d257ab7601d45f"
+    },
+    {
+      "file": "image-057.png",
+      "source_id": "a4d3cccd4bb0858cf7c5",
+      "group_id": "g-3fbd8d7fb2533032a9b4",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "6f18a20a6221dee926f446aec2b1360ace92e485495fa3768614839cdd0c600f"
+    },
+    {
+      "file": "image-058.png",
+      "source_id": "a06dcd4adaa479db7fb9",
+      "group_id": "g-b31bc036be0cbc735140",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "005fbe29f153cd48a9bceabe6b8f8f0efa261042900f5cb8e64fea2b657858b5"
+    },
+    {
+      "file": "image-059.png",
+      "source_id": "443ea6187a088c10677d",
+      "group_id": "g-1d8e1a3637436e0ab687",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "8dab4fe90c72d070377c432df0480aa67cb9cdb271e5a2cb3ebc72a5e1150f9a"
+    },
+    {
+      "file": "image-060.png",
+      "source_id": "7d388305a99a131027af",
+      "group_id": "g-7e41a4854731730ae7b7",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "476e6a8dfcfd3aafe31884d89271642ecd31452fadc41f42ac5a8b941c9c9a73"
+    },
+    {
+      "file": "image-061.png",
+      "source_id": "ce1e749476de7d2a345d",
+      "group_id": "g-30fe154757dfea167a5c",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "2a8ca639994b88c26d8f67cabe8b3e1ef8f60d6b41f5f85db628dbeb662ad74e"
+    },
+    {
+      "file": "image-062.png",
+      "source_id": "c1a50a0991256c25ea48",
+      "group_id": "g-5937ffb40de2aa67781d",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "8d959eccc8ef069536db6afcae0cc53d9edb5b2a7f1a4e4c04b34f1f248b6ad4"
+    },
+    {
+      "file": "image-063.png",
+      "source_id": "980f6ec86dc918f5a558",
+      "group_id": "g-340457da691c393071b3",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "8d125d2eb0986faa9099b325d1676dc79982eac9267c2c9ac3ffa59b1496b7e0"
+    },
+    {
+      "file": "image-064.png",
+      "source_id": "51c9dea72325c87baf81",
+      "group_id": "g-4bbf4a660e3d625eeb1d",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "a1850c041a9f020d839feb7215f973e6bc0b8aca57c6a88030139675a0abeb09"
+    },
+    {
+      "file": "image-065.png",
+      "source_id": "1103e4eb9a76260633e3",
+      "group_id": "g-3f4462f735604705a8b1",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "46f7e4c0d54b507efedfa1e534e6f4917f1fd3abbe38a5ade7a055d99911812d"
+    },
+    {
+      "file": "image-066.png",
+      "source_id": "e5b661cd045ffe43eca8",
+      "group_id": "g-79a4cca48ef3a1327688",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "cb0262c1dba9ed9f63ca41e97466ac89ede0f338b05e7881c82a14645d35e1d2"
+    },
+    {
+      "file": "image-067.png",
+      "source_id": "da57ffb6c32fb10558fa",
+      "group_id": "g-68d8f7da5f63c0374a5e",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "d3a74fa18fa6d64332c495c41656e46eb16fb2dae2302ef5c8c9334c0725cd0b"
+    },
+    {
+      "file": "image-068.png",
+      "source_id": "0b78bb0cbc4a603f3e2b",
+      "group_id": "g-2a851f77649c328955fc",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "c1cefa1a52a98c36199510b0edeec42a4d80ce3cc69c13b1af0367b3f403151b"
+    },
+    {
+      "file": "image-069.png",
+      "source_id": "6a9cca9adb821c94d4cf",
+      "group_id": "g-a495a6bf7f0e92562904",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "fd1a8a8d7ece01e3817ac3eaff0eb5e7a04e8b18e6b2ce6c4977d47fcc3f6a1c"
+    },
+    {
+      "file": "image-070.png",
+      "source_id": "588a3e7d79a9549e42ab",
+      "group_id": "g-7474f85bacc7fb0dde97",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "6fcc1922afc06fcb0b69595c21885479899f7d3f11171f8b89423090e8c1b5a4"
+    },
+    {
+      "file": "image-071.png",
+      "source_id": "f10c4cc1b8a110b7543e",
+      "group_id": "g-1d0106e03eec670b69ad",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "43b31258e073c8cc29a7ad341b71013cc98c4c77242b054bc5977c8c568e6fe8"
+    },
+    {
+      "file": "image-072.png",
+      "source_id": "06f32abddf8890ca42ea",
+      "group_id": "g-f5542c06e82358d8cfac",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "c459838450a395f02e47a7e932c563ddf4f185bc430765a07c5117044d4587d3"
+    },
+    {
+      "file": "image-073.png",
+      "source_id": "0f5acd9c339aeaa31753",
+      "group_id": "g-10b7f98287303b2fbf14",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "e7de537b8e7f67cee045268db0e751dfb482da6ed4c05e0b34e33f44b1f40f9f"
+    },
+    {
+      "file": "image-074.png",
+      "source_id": "d68ddb3a354a3fca8f92",
+      "group_id": "g-46ef06eacdcab07dca6c",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "6b041075004138543bf1c95156ae46476411cb2059ba9156267160a94d9c54bf"
+    },
+    {
+      "file": "image-075.png",
+      "source_id": "30c073bbe5fee0c347b6",
+      "group_id": "g-e6bfec6d0a3e87f15cad",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "dc4f8df89181ff6e3c286e9d62b1a7c68b20cf9ff0307f23c1e3e57e32453b23"
+    },
+    {
+      "file": "image-076.png",
+      "source_id": "dfc61cc69e4f6374676d",
+      "group_id": "g-d009320ad59f3346cd62",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "74e2f43d3ac37f60b7b16ac668492499526815c03fc82e936d61332fcaa624f4"
+    },
+    {
+      "file": "image-077.png",
+      "source_id": "5b496d6809246e724708",
+      "group_id": "g-623d1e0d673507912695",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "271a87d4eb3dc40f1a97cddbfecb44cc035757e55fd1bd2d5f65b2aef769ce8b"
+    },
+    {
+      "file": "image-078.png",
+      "source_id": "40551a880715e05be1ed",
+      "group_id": "g-959b4d6aacf667217e3e",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "62ea308692100a156b94935456f45d71000a3c01b0caea39f52bdebb7a944d49"
+    },
+    {
+      "file": "image-079.png",
+      "source_id": "6d2509e84771dcf10e43",
+      "group_id": "g-f21cf083f6b0932343a6",
+      "split": "train",
+      "source_label": "healthy",
+      "source_sha256": "a3d671b6160be16ef5623d489fe418fd799838b736b92fc3378b0a79496bdd88"
+    },
+    {
+      "file": "image-080.png",
+      "source_id": "4fe29612db74bc775bf5",
+      "group_id": "g-3005422b137dd9b889d0",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "be997a54a993c803732073c5eab6723cdc2a3d0e4f171de11187687d75314318"
+    },
+    {
+      "file": "image-081.png",
+      "source_id": "29849b00c1e065d04dd1",
+      "group_id": "g-68f5eb5e8ff84af62de9",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "40e32f59142e0df9f4ba230ddec5ffe62fa0f48b84c4813004df42bcebc08dcd"
+    },
+    {
+      "file": "image-082.png",
+      "source_id": "91ba0818517867c4c7e3",
+      "group_id": "g-ab653cb1af2f1f90ff63",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "2f4807d04d86f37d4e02c00e34fe0e9537c0d32828487438d65083fae7c95177"
+    },
+    {
+      "file": "image-083.png",
+      "source_id": "dfaeadc776e997cb0625",
+      "group_id": "g-1f8bd14d93e6adaacb2b",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "bb9a009648b707b5e662c28c89696ba21a0865b36dd1927317432c754ef29333"
+    },
+    {
+      "file": "image-084.png",
+      "source_id": "e5962be7ea54e1b801a3",
+      "group_id": "g-d21f5e3e9a7d0ab12855",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "a914c8eb8b838b0abe64220ad3317af6a836602ae7c142de03a68a6f859e31c4"
+    },
+    {
+      "file": "image-085.png",
+      "source_id": "e2bd0ff8ba6fc660189b",
+      "group_id": "g-f8dd04be9364bbeb877b",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "249a2d4a01f9d7d48133d06e13700abc0786a5e6df6ecfb34b70beb8714fa5db"
+    },
+    {
+      "file": "image-086.png",
+      "source_id": "3515a9ae633963ff04e4",
+      "group_id": "g-2bad1318015c8789039e",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "84d08811c065f4290fee7e2516e0e0b33dc53a916169c16d00c40f3e1979d029"
+    },
+    {
+      "file": "image-087.png",
+      "source_id": "335edc38ed0e4cddf0f9",
+      "group_id": "g-488880e7fd0b4f9bef6e",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "dc8299357e2a1a428cf2f0263b25ec37746f88517f4087d2aaa31b3503bac45f"
+    },
+    {
+      "file": "image-088.png",
+      "source_id": "c23fcb034af57527b6b9",
+      "group_id": "g-26c15b0a880f65fac7e5",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "f269b7736d0633e6574f016993645e116c87f35500c7fea6a1145fccc36d0196"
+    },
+    {
+      "file": "image-089.png",
+      "source_id": "9b031ad27a320ebeab5a",
+      "group_id": "g-7b32c3b0883750094033",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "63ea7197edcb66012d64a52653573fe5266408bfcf4feba7afc1f7865b5c95ee"
+    },
+    {
+      "file": "image-090.png",
+      "source_id": "330f29a5638d4fb31e61",
+      "group_id": "g-9c3203024918ae101f8e",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "8ad8ae505d6198d500288e28c37cd513a45e77ef1f9bcc71e4f250b87dbcd8ad"
+    },
+    {
+      "file": "image-091.png",
+      "source_id": "6a48f887b879018b7067",
+      "group_id": "g-32f8cf2df5a99d8f91d5",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "52cfddd986daa7a0086a6092516ff68929af299aff2f8e6f8e45772b7d96a499"
+    },
+    {
+      "file": "image-092.png",
+      "source_id": "8169e9cb016a5542c326",
+      "group_id": "g-4fe5d3a5ad7374d57594",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "cf245be1ef96d18e666d59e3fc32aa7d8b225bf25c810e64d88ae7162b215cbf"
+    },
+    {
+      "file": "image-093.png",
+      "source_id": "470872b321f43e99afb5",
+      "group_id": "g-df23960ae22b3b7131c4",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "5172eafd6cee7bdb44f783c3c22803577494ea58479f3943fb0e645b58ec7a33"
+    },
+    {
+      "file": "image-094.png",
+      "source_id": "1d8c4277e4d0587db0de",
+      "group_id": "g-3e281fd09771a2f8fce6",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "f490776b3e7a832cd637f536d65296c73acd94e6ea162bd8dd4468cc76738119"
+    },
+    {
+      "file": "image-095.png",
+      "source_id": "029fe396e922affa9391",
+      "group_id": "g-d854139dd3a031678994",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "7e86b5666c1c6972e6cfa98e4e65821069c3b50a01893766a506d7a02dc10fb3"
+    },
+    {
+      "file": "image-096.png",
+      "source_id": "ddd7f38102d9432fda34",
+      "group_id": "g-1c6cfe95d5236df4c038",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "73e3d7e4a845ba4b4953e3a80cf7b40d40b6defb435597e243838f207fd8499d"
+    },
+    {
+      "file": "image-097.png",
+      "source_id": "484f3bdfab81dc515da1",
+      "group_id": "g-d964741584107ceebccf",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "3dda49026fc642f88f0354ffb903f6113b84b30fdba4784d5c683d2db63b5d73"
+    },
+    {
+      "file": "image-098.png",
+      "source_id": "fb25026e788716a687f3",
+      "group_id": "g-ee8aabdb4a5e77ddc6fa",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "2cd0fed9c63dcf5e5c1b43f329a8fa36f604ac715f014a4e8442f9d1bcfd4b28"
+    },
+    {
+      "file": "image-099.png",
+      "source_id": "15ecdadfd7be9d159f2a",
+      "group_id": "g-2d456f379289e735030b",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "6da2527d3bd18cee26d8deee5baf5af718ef3a28145e73e790631bbabb82f6ba"
+    },
+    {
+      "file": "image-100.png",
+      "source_id": "8e31d43fbe7fa72067c6",
+      "group_id": "g-b47efaaf8c7e6a275ed9",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "0ad3f0095f9c2dce15156f9c6bb9631e69bb2c02d59a7369cf04c04166541bcb"
+    },
+    {
+      "file": "image-101.png",
+      "source_id": "5139e14ce9d307931bfd",
+      "group_id": "g-8a305dbb2388f2a7dc26",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "e30ec8fee1fb08f661c67dcc91a722c6f495195281de3fd2b18d03a7587bc109"
+    },
+    {
+      "file": "image-102.png",
+      "source_id": "ecd986776035811c4e68",
+      "group_id": "g-3a8ee0a10f84789447c7",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "8d8b563b4e2c59ae49239ed47e84af977b2dfaefa0b506ef08a457267e73ecff"
+    },
+    {
+      "file": "image-103.png",
+      "source_id": "ba9fdd6e87480d6c3ace",
+      "group_id": "g-dbe86715be6d2bb3fdd7",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "347749ff1c34ad0cb569fb1ee8ff2aeab8942b347514570c3df5d46966b0c690"
+    },
+    {
+      "file": "image-104.png",
+      "source_id": "bd0b0fae3a9db7a3a7d8",
+      "group_id": "g-79c5e4d5cc7c26166bf3",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "5282e586423e5cbda8e9cd049496d6b15de9da98dd6ee4b92dedfcadf63c4448"
+    },
+    {
+      "file": "image-105.png",
+      "source_id": "6f3028b5afbb1d180a69",
+      "group_id": "g-f7413f622c068f84d940",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "feec78e927808e149ad9dbdb32bae50dd69f89cc176a6457cd049ae7453e1d37"
+    },
+    {
+      "file": "image-106.png",
+      "source_id": "bc26c6fad2f086d44b76",
+      "group_id": "g-7f4a456348224140c71e",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "3dc21b02674ee00e6a4ae210951f0f973aaf6cae6f794d8e3d152b75c3e104f1"
+    },
+    {
+      "file": "image-107.png",
+      "source_id": "39a29713cf4eff02607c",
+      "group_id": "g-5394c1e83001a849ac55",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "55b4007919b6a27a4d17df30d4f0ef9b75fb98a2efaad0b69cbee0f6c0b4a13f"
+    },
+    {
+      "file": "image-108.png",
+      "source_id": "ddf34e150a0b8348c194",
+      "group_id": "g-3ee4d8558e722695125d",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "33ed48811290997fccb2c19fc132b8a33592c2191935b904e1f2f9d51eba1b56"
+    },
+    {
+      "file": "image-109.png",
+      "source_id": "c01f090dc0966540ffb3",
+      "group_id": "g-06c55ab83124e5a6dcda",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "db15eb143d54ddfeecdb734e1f85385f07dcabcbf5df41fc8afed1944a9d05d8"
+    },
+    {
+      "file": "image-110.png",
+      "source_id": "d9e53769f2bfd4feb5eb",
+      "group_id": "g-1bf9ac844c9c39a0609b",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "cc3bb18c0fd92469d6555ac1152daa8b021ffc0d886e4ba9bb4aade02aa4c76b"
+    },
+    {
+      "file": "image-111.png",
+      "source_id": "7a3c01b1adcf1954f7ee",
+      "group_id": "g-bde4c065f28b3fc00a58",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "e78be8fd8ec7e7209c426f28036603ad2f8c7bce9ee7803a2dcca7b35dd7903e"
+    },
+    {
+      "file": "image-112.png",
+      "source_id": "77faa7198eb8ed99fb3c",
+      "group_id": "g-cd2c59174a3d0af50ad2",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "72777f49d9aff4d60fa9eb36421cf24130d428137f03f202dee37252b105a833"
+    },
+    {
+      "file": "image-113.png",
+      "source_id": "61737f3829aba1249422",
+      "group_id": "g-b22b3dc378e38592e3c1",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "19be0c09a4b549a8aa90287b80e316adfb04e38f4bb6f0f72c1841590bb7beba"
+    },
+    {
+      "file": "image-114.png",
+      "source_id": "9b6a352321168239f36c",
+      "group_id": "g-c4810da7cbb4c4e908f9",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "02ad217ce1004ca966fd61edf736846ac56d7c68880ff86caec5ed71053f7638"
+    },
+    {
+      "file": "image-115.png",
+      "source_id": "c1d061bfac7fb9387800",
+      "group_id": "g-ec7a088425e55d0bcc81",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "4fb7e0c5a475654de0923e94468a1a8d21264f80cca89638e0911994be35c279"
+    },
+    {
+      "file": "image-116.png",
+      "source_id": "f29c7fbf0fa4c62f052a",
+      "group_id": "g-5da89850090ca07cf49f",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "6646664a7dc4f278687c98dd59dc158765c2669603ba2532e55c729b1a31606c"
+    },
+    {
+      "file": "image-117.png",
+      "source_id": "a50b4175be3dce971c0b",
+      "group_id": "g-f4ee046678abca370433",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "63e96e8a7574b6c2113ad565e314d7bbf2a9a4982d0dd54ae11656db8703be3f"
+    },
+    {
+      "file": "image-118.png",
+      "source_id": "406716fa54eb6a55c2fb",
+      "group_id": "g-fe92970a07ddbab07c07",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "67ec61c66e335f0f60e0af0eaef8ed1e881a31b4cc3a85260c011760bc39d635"
+    },
+    {
+      "file": "image-119.png",
+      "source_id": "c63b675e4ea277779519",
+      "group_id": "g-69e41f560b26531aa557",
+      "split": "train",
+      "source_label": "lumpy",
+      "source_sha256": "f38d387e630b42413f969ca59f5aa02631cd6b4101940c067680c34f223e854a"
+    }
+  ],
+  "calibration_uses_training_only": true,
+  "source_probability_max_difference": 4.656612873077393e-10,
+  "device_execution_verified": false
+}

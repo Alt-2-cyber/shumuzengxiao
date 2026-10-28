@@ -1,0 +1,44 @@
+[
+  {
+    "id": "fb0a52724feb7de64cf0",
+    "group_id": "xg-7985ab3b1f1a7ef31c94",
+    "source_label": "foot-and-mouth",
+    "split": "train",
+    "prepared_path": "dataset/train/foot-and-mouth/fb0a52724feb7de64cf0.png",
+    "prepared_sha256": "0ba755f7211a7d23a69c68d822b6c51410bfba927d4e409cb63cc14d373c6162",
+    "source_dataset": "devang03mgr/cattle-diseases-datasets",
+    "source_path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部视觉数据\\Kaggle_CattleDiseases_2025\\raw\\Cows datasets\\foot-and-mouth\\-1-_jpg.rf.6d3e8fb103569503844b178ef99c9b16.jpg",
+    "file_sha256": "f8cbcd9f1fa1af460444358b2d5bcf55984dcf256ecdf1eeb7f716bcce3cb8ef",
+    "pixel_sha256": "a33aeb2e52c62944e11747824b5bb603fe57288b29f160b4ea4b7024595a27d4",
+    "prior_group_id": "g-5bf4fa7890bd7bf25ef4",
+    "prior_split": "train"
+  },
+  {
+    "id": "a799da29adadb5b4eb9d",
+    "group_id": "xg-494e2339a09b79421e8d",
+    "source_label": "healthy",
+    "split": "train",
+    "prepared_path": "dataset/train/healthy/a799da29adadb5b4eb9d.png",
+    "prepared_sha256": "1286ac92eaf78ce0be5b2211321fb02929ddfbded80ae0a670c9222864549c3b",
+    "source_dataset": "devang03mgr/cattle-diseases-datasets",
+    "source_path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部视觉数据\\Kaggle_CattleDiseases_2025\\raw\\Cows datasets\\healthy\\Ayrshirecattle0.jpg",
+    "file_sha256": "c94667c90290df9abb79f3fef2886d270ee5a6e156dda2c465401a56ac90f03d",
+    "pixel_sha256": "39989afb6fdaba81031202ff83313992371928aa46a16cfe8042930d1c160611",
+    "prior_group_id": "g-5d8df1212d3bf2a6d34d",
+    "prior_split": "train"
+  },
+  {
+    "id": "3b17d7bbcd0ba075526a",
+    "group_id": "xg-8fbe126ef663c5829fbd",
+    "source_label": "lumpy",
+    "split": "train",
+    "prepared_path": "dataset/train/lumpy/3b17d7bbcd0ba075526a.png",
+    "prepared_sha256": "042d66f598e74049487e8707dbf35bd49a1fef61ba6fe9ff8b1c133dc14def64",
+    "source_dataset": "devang03mgr/cattle-diseases-datasets",
+    "source_path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部视觉数据\\Kaggle_CattleDiseases_2025\\raw\\Cows datasets\\lumpy\\100_jpg.rf.5126a763111433d3c5366ec9e4840e8d.jpg",
+    "file_sha256": "4d76e4b74bf912dc862919e0c138ad4ff7e5eb729969556e5807a666bf5e4e48",
+    "pixel_sha256": "de4ab3146c495cf5d53fa3f14c951ad295844c7f3fa6f2cd76bd21f22fc8cd54",
+    "prior_group_id": "g-4cd46a702160cab36158",
+    "prior_split": "train"
+  }
+]

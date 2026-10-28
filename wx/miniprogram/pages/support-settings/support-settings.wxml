@@ -1,0 +1,8 @@
+<view class="support-page">
+  <view class="support-head"><text class="support-title">服务设置</text></view>
+  <view class="support-block"><text class="support-label">平台服务地址</text><input class="support-field" value="{{baseUrl}}" bindinput="changeUrl" maxlength="240" placeholder="https://你的服务域名" placeholder-style="color:#92a698" disabled="{{testing}}" /></view>
+  <view class="support-block"><text class="support-label">平台访问凭证（选填）</text><input class="support-field" value="{{apiKey}}" bindinput="changeKey" password maxlength="240" placeholder="已启用访问控制时填写" placeholder-style="color:#92a698" disabled="{{testing}}" /></view>
+  <text class="support-note">开发工具可使用电脑本机地址；真机使用已配置的 HTTPS 合法域名。更换设备或清除小程序数据后，本机咨询身份和会话无法自动恢复。</text>
+  <text wx:if="{{error}}" class="support-error">{{error}}</text><text wx:if="{{message}}" class="support-note">{{message}}</text>
+  <button class="support-button" bindtap="save" loading="{{testing}}" disabled="{{testing}}">保存并测试连接</button>
+</view>

@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>???? ESP32-S3 + MaixCam ??? AI ?????</title>
+  <style>
+:root { --ink:#172033; --muted:#647085; --line:#d9dee8; --soft:#f5f7fb; --brand:#1d6f5f; --accent:#0e7c86; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif; color:var(--ink); background:#eef2f6; line-height:1.72; }
+.page { max-width:1180px; margin:0 auto; background:#fff; min-height:100vh; box-shadow:0 10px 40px rgba(25,39,52,.12); }
+.cover { padding:56px 64px 40px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#ffffff 0%,#f7fbfa 100%); }
+.cover .kicker { color:var(--accent); font-weight:700; letter-spacing:.08em; font-size:14px; }
+h1.title { margin:14px 0 16px; font-size:34px; line-height:1.25; letter-spacing:0; }
+.subtitle { max-width:860px; color:var(--muted); font-size:16px; }
+.meta { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:28px; }
+.meta div { padding:12px 14px; border:1px solid var(--line); border-radius:6px; background:#fff; }
+.meta strong { display:block; color:var(--muted); font-size:12px; }
+.layout { display:grid; grid-template-columns:280px minmax(0,1fr); gap:0; }
+.toc { position:sticky; top:0; height:100vh; overflow:auto; padding:28px 20px; border-right:1px solid var(--line); background:#fbfcfe; }
+.toc h2 { margin-top:0; font-size:18px; }
+.toc a { display:block; text-decoration:none; color:#334155; padding:5px 0; font-size:13px; line-height:1.35; }
+.toc a:hover { color:var(--brand); }
+.toc-l1 { font-weight:700; }
+.toc-l2 { padding-left:10px !important; }
+.toc-l3 { padding-left:22px !important; color:var(--muted) !important; }
+.content { padding:34px 54px 72px; min-width:0; }
+h1,h2,h3,h4 { line-height:1.35; letter-spacing:0; }
+.content h1 { font-size:28px; margin:24px 0 18px; }
+.content h2 { font-size:23px; margin:38px 0 16px; padding-bottom:8px; border-bottom:2px solid #e5edea; }
+.content h3 { font-size:18px; margin:28px 0 12px; color:#123d43; }
+.content h4 { font-size:16px; margin:22px 0 10px; }
+p { margin:9px 0; }
+ul,ol { margin:8px 0 14px 24px; padding:0; }
+li { margin:4px 0; }
+code { font-family:Consolas,"Cascadia Mono",monospace; background:#f0f4f8; border:1px solid #dbe3ec; padding:1px 5px; border-radius:4px; }
+pre.code { overflow:auto; padding:14px 16px; background:#111827; color:#e5e7eb; border-radius:8px; line-height:1.55; }
+pre.code code { background:transparent; color:inherit; border:0; padding:0; }
+.table-wrap { overflow-x:auto; margin:12px 0 18px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th,td { border:1px solid var(--line); padding:8px 10px; vertical-align:top; }
+th { background:#edf5f3; text-align:left; }
+tr:nth-child(even) td { background:#fbfcfd; }
+.diagram { margin:18px 0 26px; padding:16px; border:1px solid var(--line); border-radius:8px; background:#fff; page-break-inside:avoid; }
+.diagram img { display:block; width:100%; height:auto; margin:0 auto; }
+.diagram figcaption { margin-top:10px; text-align:center; color:var(--muted); font-size:13px; }
+blockquote { margin:12px 0; padding:10px 14px; border-left:4px solid var(--accent); background:#f4fbfa; color:#27434a; }
+@media print { body{background:#fff;} .page{box-shadow:none; max-width:none;} .layout{display:block;} .toc{display:none;} .cover,.content{padding:28px 34px;} h2{page-break-after:avoid;} .diagram,table,pre{page-break-inside:avoid;} }
+@media (max-width:900px) { .layout{grid-template-columns:1fr;} .toc{position:relative; height:auto; border-right:0; border-bottom:1px solid var(--line);} .content,.cover{padding:28px 22px;} .meta{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header class="cover">
+      <div class="kicker">PROJECT PLAN</div>
+      <h1 class="title">???? ESP32-S3 ?? + MaixCam ????? AI ?????</h1>
+      <p class="subtitle">???????????????????????????????? AI???????????????????????????????</p>
+      <div class="meta">
+        <div><strong>????</strong>ESP32-S3 ????? MQTT ??</div>
+        <div><strong>????</strong>MaixCam + YOLO ????</div>
+        <div><strong>????</strong>?? + ?? + ??/?? + ???????</div>
+      </div>
+    </header>
+    <div class="layout">
+      <nav class="toc">
+        <h2>??</h2>
+        <a class="toc-l1" href="#数牧增效-ESP32-S3-主控-MaixCam-边缘-AI-完整落地方案">数牧增效 ESP32-S3 主控 + MaixCam 边缘 AI 完整落地方案</a>
+<a class="toc-l2" href="#1-结论-STM32-能不能换成-ESP32">1. 结论：STM32 能不能换成 ESP32</a>
+<a class="toc-l2" href="#2-新版系统总体架构">2. 新版系统总体架构</a>
+<a class="toc-l2" href="#3-硬件组成">3. 硬件组成</a>
+<a class="toc-l3" href="#3-1-核心硬件">3.1 核心硬件</a>
+<a class="toc-l3" href="#3-2-传感器与执行器">3.2 传感器与执行器</a>
+<a class="toc-l2" href="#4-ESP32-S3-硬件连接">4. ESP32-S3 硬件连接</a>
+<a class="toc-l3" href="#4-1-推荐接口分配">4.1 推荐接口分配</a>
+<a class="toc-l3" href="#4-2-ESP32-S3-与-MaixCam-串口连接">4.2 ESP32-S3 与 MaixCam 串口连接</a>
+<a class="toc-l3" href="#4-3-供电设计">4.3 供电设计</a>
+<a class="toc-l2" href="#5-数据传输总流程">5. 数据传输总流程</a>
+<a class="toc-l3" href="#5-1-全链路数据流">5.1 全链路数据流</a>
+<a class="toc-l3" href="#5-2-环境数据传输流程">5.2 环境数据传输流程</a>
+<a class="toc-l3" href="#5-3-视觉事件传输流程">5.3 视觉事件传输流程</a>
+<a class="toc-l3" href="#5-4-环境异常触发抓拍流程">5.4 环境异常触发抓拍流程</a>
+<a class="toc-l3" href="#5-5-断网缓存流程">5.5 断网缓存流程</a>
+<a class="toc-l3" href="#5-6-声音与疾病风险数据流">5.6 声音与疾病风险数据流</a>
+<a class="toc-l3" href="#5-7-多模态疾病风险判断流程">5.7 多模态疾病风险判断流程</a>
+<a class="toc-l2" href="#6-MQTT-Topic-与-Payload">6. MQTT Topic 与 Payload</a>
+<a class="toc-l3" href="#6-1-Topic-设计">6.1 Topic 设计</a>
+<a class="toc-l3" href="#6-2-ESP32-S3-环境数据">6.2 ESP32-S3 环境数据</a>
+<a class="toc-l3" href="#6-3-MaixCam-视觉事件">6.3 MaixCam 视觉事件</a>
+<a class="toc-l3" href="#6-4-声音事件数据">6.4 声音事件数据</a>
+<a class="toc-l3" href="#6-5-健康风险融合结果">6.5 健康风险融合结果</a>
+<a class="toc-l3" href="#6-6-ESP32-S3-发给-MaixCam-的-UART-命令">6.6 ESP32-S3 发给 MaixCam 的 UART 命令</a>
+<a class="toc-l3" href="#6-7-MaixCam-发给-ESP32-S3-的-UART-事件">6.7 MaixCam 发给 ESP32-S3 的 UART 事件</a>
+<a class="toc-l2" href="#7-开源算法选择">7. 开源算法选择</a>
+<a class="toc-l3" href="#7-1-视觉检测算法">7.1 视觉检测算法</a>
+<a class="toc-l3" href="#7-2-行为识别算法">7.2 行为识别算法</a>
+<a class="toc-l3" href="#7-3-可选开源组件">7.3 可选开源组件</a>
+<a class="toc-l3" href="#7-4-声音识别开源算法">7.4 声音识别开源算法</a>
+<a class="toc-l3" href="#7-5-疾病风险筛查算法边界">7.5 疾病风险筛查算法边界</a>
+<a class="toc-l2" href="#8-AI-训练完整流程">8. AI 训练完整流程</a>
+<a class="toc-l3" href="#8-1-数据采集">8.1 数据采集</a>
+<a class="toc-l3" href="#8-2-数据标注">8.2 数据标注</a>
+<a class="toc-l3" href="#8-3-初始训练">8.3 初始训练</a>
+<a class="toc-l3" href="#8-4-模型导出与-MaixCam-部署">8.4 模型导出与 MaixCam 部署</a>
+<a class="toc-l3" href="#8-5-自己优化算法">8.5 自己优化算法</a>
+<a class="toc-l3" href="#8-6-行为事件判定逻辑">8.6 行为事件判定逻辑</a>
+<a class="toc-l3" href="#8-7-声音-AI-训练流程">8.7 声音 AI 训练流程</a>
+<a class="toc-l3" href="#8-8-皮肤-眼睛-鼻部视觉训练流程">8.8 皮肤、眼睛、鼻部视觉训练流程</a>
+<a class="toc-l3" href="#8-9-姿态与运动异常训练流程">8.9 姿态与运动异常训练流程</a>
+<a class="toc-l3" href="#8-10-多模态融合训练与规则">8.10 多模态融合训练与规则</a>
+<a class="toc-l3" href="#8-11-健康风险标签体系">8.11 健康风险标签体系</a>
+<a class="toc-l2" href="#9-ESP32-S3-固件设计">9. ESP32-S3 固件设计</a>
+<a class="toc-l3" href="#9-1-软件框架">9.1 软件框架</a>
+<a class="toc-l3" href="#9-2-本地控制规则">9.2 本地控制规则</a>
+<a class="toc-l3" href="#9-3-远程参数配置">9.3 远程参数配置</a>
+<a class="toc-l2" href="#10-MaixCam-边缘-AI-程序设计">10. MaixCam 边缘 AI 程序设计</a>
+<a class="toc-l3" href="#10-1-程序流程">10.1 程序流程</a>
+<a class="toc-l3" href="#10-2-配置项">10.2 配置项</a>
+<a class="toc-l3" href="#10-3-健康视觉程序策略">10.3 健康视觉程序策略</a>
+<a class="toc-l2" href="#11-后端与前端适配">11. 后端与前端适配</a>
+<a class="toc-l3" href="#11-1-后端新增数据表">11.1 后端新增数据表</a>
+<a class="toc-l3" href="#11-2-前端新增功能">11.2 前端新增功能</a>
+<a class="toc-l2" href="#12-现场部署方案">12. 现场部署方案</a>
+<a class="toc-l3" href="#12-1-设备位置">12.1 设备位置</a>
+<a class="toc-l3" href="#12-2-防护要求">12.2 防护要求</a>
+<a class="toc-l2" href="#13-测试验收指标">13. 测试验收指标</a>
+<a class="toc-l3" href="#13-1-硬件与通信">13.1 硬件与通信</a>
+<a class="toc-l3" href="#13-2-AI-识别">13.2 AI 识别</a>
+<a class="toc-l3" href="#13-3-声音与健康风险筛查">13.3 声音与健康风险筛查</a>
+<a class="toc-l2" href="#14-项目阶段计划">14. 项目阶段计划</a>
+<a class="toc-l3" href="#第-1-阶段-ESP32-S3-替换验证-1-到-2-周">第 1 阶段：ESP32-S3 替换验证，1 到 2 周</a>
+<a class="toc-l3" href="#第-2-阶段-MaixCam-开源模型跑通-1-到-2-周">第 2 阶段：MaixCam 开源模型跑通，1 到 2 周</a>
+<a class="toc-l3" href="#第-3-阶段-本地牛舍数据集-3-到-6-周">第 3 阶段：本地牛舍数据集，3 到 6 周</a>
+<a class="toc-l3" href="#第-4-阶段-系统联调-2-到-4-周">第 4 阶段：系统联调，2 到 4 周</a>
+<a class="toc-l3" href="#第-5-阶段-现场试点与优化-2-到-4-周">第 5 阶段：现场试点与优化，2 到 4 周</a>
+<a class="toc-l2" href="#15-申报书替换建议">15. 申报书替换建议</a>
+<a class="toc-l3" href="#15-1-主控替换表述">15.1 主控替换表述</a>
+<a class="toc-l3" href="#15-2-MaixCam-表述">15.2 MaixCam 表述</a>
+<a class="toc-l3" href="#15-3-数据传输表述">15.3 数据传输表述</a>
+<a class="toc-l3" href="#15-4-AI-训练表述">15.4 AI 训练表述</a>
+<a class="toc-l3" href="#15-5-多模态健康风险筛查表述">15.5 多模态健康风险筛查表述</a>
+<a class="toc-l2" href="#16-最小可落地版本">16. 最小可落地版本</a>
+<a class="toc-l2" href="#17-关键落地判断">17. 关键落地判断</a>
+      </nav>
+      <article class="content">
+        <h1 id="数牧增效-ESP32-S3-主控-MaixCam-边缘-AI-完整落地方案">数牧增效 ESP32-S3 主控 + MaixCam 边缘 AI 完整落地方案</h1>
+<h2 id="1-结论-STM32-能不能换成-ESP32">1. 结论：STM32 能不能换成 ESP32</h2>
+<p>可以换，但建议换成 <code>ESP32-S3</code>，不建议换成普通 <code>ESP32-WROOM-32</code>。</p>
+<p>原因如下：</p>
+<div class="table-wrap"><table>
+<tr><th>对比项</th><th>STM32L476</th><th>普通 ESP32</th><th>ESP32-S3</th><th>建议</th></tr>
+<tr><td>环境传感器采集</td><td>稳定</td><td>可行</td><td>可行</td><td>ESP32-S3 可替代</td></tr>
+<tr><td>执行器控制</td><td>稳定</td><td>可行</td><td>可行</td><td>ESP32-S3 可替代</td></tr>
+<tr><td>WiFi/MQTT</td><td>需外接 ESP8266</td><td>原生支持</td><td>原生支持</td><td>ESP32-S3 更简洁</td></tr>
+<tr><td>蓝牙</td><td>需外接模块</td><td>支持 BLE</td><td>支持 BLE 5</td><td>ESP32-S3 更适合扩展项圈</td></tr>
+<tr><td>AI/TinyML 余量</td><td>有限</td><td>有限</td><td>更强</td><td>ESP32-S3 更适合项目叙述</td></tr>
+<tr><td>摄像头 AI</td><td>不适合</td><td>不适合</td><td>可做轻量，但不建议主做</td><td>仍由 MaixCam 负责</td></tr>
+<tr><td>低功耗</td><td>强</td><td>中等</td><td>中等</td><td>需通过分时采集控制功耗</td></tr>
+<tr><td>开发生态</td><td>STM32Cube/Keil</td><td>ESP-IDF/Arduino</td><td>ESP-IDF/Arduino</td><td>ESP32-S3 更利于联网</td></tr>
+</table></div>
+<p>推荐最终架构：</p>
+<ul>
+<li><code>ESP32-S3</code> 替代 <code>STM32L476 + ESP8266</code>，作为环境监测、执行控制、MQTT 网关和本地告警主控。</li>
+<li><code>MaixCam</code> 继续作为独立视觉边缘 AI 节点，运行开源 YOLO 模型和自优化算法。</li>
+<li>云端平台接收 ESP32-S3 的环境数据和 MaixCam 的视觉事件。</li>
+</ul>
+<p>不建议的做法：</p>
+<ul>
+<li>不建议让 ESP32-S3 同时承担摄像头视觉识别主任务。ESP32-S3 可做轻量分类或简单图像处理，但牛只检测、卧倒、打斗等视觉任务仍应交给 MaixCam。</li>
+<li>不建议把 MaixCam 当普通摄像头只上传视频。这样会增加网络压力，也失去边缘 AI 的价值。</li>
+</ul>
+<h2 id="2-新版系统总体架构">2. 新版系统总体架构</h2>
+<h2 id="3-硬件组成">3. 硬件组成</h2>
+<h3 id="3-1-核心硬件">3.1 核心硬件</h3>
+<div class="table-wrap"><table>
+<tr><th>模块</th><th>推荐器件</th><th>作用</th><th>落地说明</th></tr>
+<tr><td>主控网关</td><td>ESP32-S3-WROOM-1 / ESP32-S3-DevKitC</td><td>传感器采集、控制、MQTT、WiFi</td><td>替代 STM32 + ESP8266</td></tr>
+<tr><td>视觉 AI</td><td>Sipeed MaixCam</td><td>牛只检测、异常行为识别、事件截图</td><td>独立运行 AI，不依赖云端</td></tr>
+<tr><td>存储</td><td>microSD</td><td>MaixCam 本地保存模型、图片、日志</td><td>建议 16GB 以上</td></tr>
+<tr><td>通信</td><td>WiFi / 4G 路由器</td><td>连接 MQTT Broker</td><td>牛舍 WiFi 弱时用 4G</td></tr>
+<tr><td>本地交互</td><td>OLED/LCD + 按键</td><td>显示状态、调试参数</td><td>可选，但竞赛展示有价值</td></tr>
+</table></div>
+<h3 id="3-2-传感器与执行器">3.2 传感器与执行器</h3>
+<div class="table-wrap"><table>
+<tr><th>类别</th><th>推荐器件</th><th>接口</th><th>说明</th></tr>
+<tr><td>温湿度</td><td>AHT20 / SHT31</td><td>I2C</td><td>替代 DHT11，稳定性更好</td></tr>
+<tr><td>氨气</td><td>MQ-137 原型版 / 工业 NH3 RS485 正式版</td><td>ADC / RS485</td><td>MQ-137 做趋势，工业传感器做计量</td></tr>
+<tr><td>光照</td><td>BH1750</td><td>I2C</td><td>数字光照强度</td></tr>
+<tr><td>火情</td><td>火焰传感器 + 烟雾传感器</td><td>GPIO/ADC</td><td>单一火焰传感器容易误报</td></tr>
+<tr><td>风扇</td><td>MOSFET/继电器/SSR</td><td>GPIO/PWM</td><td>根据功率选驱动</td></tr>
+<tr><td>雾化器</td><td>继电器/MOSFET</td><td>GPIO</td><td>做强弱电隔离</td></tr>
+<tr><td>声光报警</td><td>蜂鸣器 + 警示灯</td><td>GPIO/PWM</td><td>本地即时告警</td></tr>
+<tr><td>可选项圈</td><td>ESP32-C3 + MPU6050</td><td>BLE/ESP-NOW</td><td>二期扩展单牛姿态</td></tr>
+<tr><td>声音采集</td><td>INMP441 / ICS-43434 数字 I2S 麦克风</td><td>I2S</td><td>采集咳嗽、喘鸣、异常叫声等声学特征</td></tr>
+<tr><td>定向拾音</td><td>防水驻极体麦克风 + 前置放大</td><td>ADC/I2S 模块</td><td>牛舍噪声大时用于定向采集</td></tr>
+<tr><td>局部高清巡检</td><td>MaixCam 定点抓拍 / 人工手持补拍</td><td>图像</td><td>皮肤、眼睛、鼻部疾病筛查需要近距离清晰图像</td></tr>
+</table></div>
+<h2 id="4-ESP32-S3-硬件连接">4. ESP32-S3 硬件连接</h2>
+<h3 id="4-1-推荐接口分配">4.1 推荐接口分配</h3>
+<div class="table-wrap"><table>
+<tr><th>ESP32-S3 接口</th><th>连接对象</th><th>用途</th></tr>
+<tr><td>I2C0 SDA/SCL</td><td>AHT20/SHT31、BH1750</td><td>温湿度和光照采集</td></tr>
+<tr><td>ADC1_CHx</td><td>MQ-137 模拟输出、烟雾模拟输出</td><td>氨气趋势和烟雾强度</td></tr>
+<tr><td>GPIO OUT</td><td>继电器/MOSFET</td><td>风扇、雾化器、声光报警</td></tr>
+<tr><td>PWM GPIO</td><td>风扇调速/蜂鸣器</td><td>可选</td></tr>
+<tr><td>UART1</td><td>MaixCam</td><td>接收视觉事件、发送抓拍指令</td></tr>
+<tr><td>I2S</td><td>INMP441/ICS-43434 麦克风</td><td>声音采集，识别咳嗽、喘鸣、异常叫声</td></tr>
+<tr><td>UART0/USB</td><td>调试下载</td><td>固件烧录和日志</td></tr>
+<tr><td>SPI</td><td>LCD 或扩展模块</td><td>本地显示</td></tr>
+<tr><td>RS485 UART</td><td>工业 NH3/温湿度传感器</td><td>正式版预留</td></tr>
+</table></div>
+<h3 id="4-2-ESP32-S3-与-MaixCam-串口连接">4.2 ESP32-S3 与 MaixCam 串口连接</h3>
+<div class="table-wrap"><table>
+<tr><th>ESP32-S3</th><th>MaixCam</th><th>说明</th></tr>
+<tr><td>TXD1</td><td>RX</td><td>ESP32-S3 下发命令</td></tr>
+<tr><td>RXD1</td><td>TX</td><td>MaixCam 上报事件</td></tr>
+<tr><td>GND</td><td>GND</td><td>共地</td></tr>
+<tr><td>5V/3.3V</td><td>不建议互供</td><td>两块板独立供电</td></tr>
+</table></div>
+<p>连接要求：</p>
+<ul>
+<li>UART 电平统一为 3.3V TTL。</li>
+<li>MaixCam 和 ESP32-S3 独立供电，但必须共地。</li>
+<li>串口波特率建议 <code>115200</code>，事件量大时可提高到 <code>921600</code>。</li>
+<li>串口消息使用一行一个 JSON，方便调试。</li>
+</ul>
+<h3 id="4-3-供电设计">4.3 供电设计</h3>
+<p>供电要求：</p>
+<ul>
+<li>MaixCam 单独一路 5V，建议电源能力不低于 2A。</li>
+<li>ESP32-S3 使用稳定 3.3V，瞬态电流要留余量。</li>
+<li>舵机、继电器、风扇不要直接从 ESP32-S3 板载 5V 取电。</li>
+<li>风扇、雾化器等感性负载必须加续流和浪涌保护。</li>
+</ul>
+<h2 id="5-数据传输总流程">5. 数据传输总流程</h2>
+<h3 id="5-1-全链路数据流">5.1 全链路数据流</h3>
+<h3 id="5-2-环境数据传输流程">5.2 环境数据传输流程</h3>
+<h3 id="5-3-视觉事件传输流程">5.3 视觉事件传输流程</h3>
+<h3 id="5-4-环境异常触发抓拍流程">5.4 环境异常触发抓拍流程</h3>
+<h3 id="5-5-断网缓存流程">5.5 断网缓存流程</h3>
+<h3 id="5-6-声音与疾病风险数据流">5.6 声音与疾病风险数据流</h3>
+<h3 id="5-7-多模态疾病风险判断流程">5.7 多模态疾病风险判断流程</h3>
+<h2 id="6-MQTT-Topic-与-Payload">6. MQTT Topic 与 Payload</h2>
+<h3 id="6-1-Topic-设计">6.1 Topic 设计</h3>
+<pre class="code"><code>cattle/{barnId}/{deviceId}/telemetry
+cattle/{barnId}/{deviceId}/alert
+cattle/{barnId}/{deviceId}/status
+cattle/{barnId}/{cameraId}/vision/event
+cattle/{barnId}/{cameraId}/vision/status
+cattle/{barnId}/{deviceId}/audio/event
+cattle/{barnId}/{cameraId}/health/risk
+cattle/{barnId}/{deviceId}/cmd
+cattle/{barnId}/{cameraId}/vision/config</code></pre>
+<h3 id="6-2-ESP32-S3-环境数据">6.2 ESP32-S3 环境数据</h3>
+<pre class="code"><code>{
+  &quot;deviceId&quot;: &quot;env_01&quot;,
+  &quot;barnId&quot;: &quot;barn_01&quot;,
+  &quot;ts&quot;: 1715500800,
+  &quot;temperature&quot;: 27.3,
+  &quot;humidity&quot;: 68.1,
+  &quot;nh3Raw&quot;: 1820,
+  &quot;nh3Status&quot;: &quot;high&quot;,
+  &quot;lightLux&quot;: 230,
+  &quot;smokeRaw&quot;: 310,
+  &quot;fan&quot;: true,
+  &quot;atomizer&quot;: false,
+  &quot;alarm&quot;: false,
+  &quot;rssi&quot;: -62
+}</code></pre>
+<h3 id="6-3-MaixCam-视觉事件">6.3 MaixCam 视觉事件</h3>
+<pre class="code"><code>{
+  &quot;cameraId&quot;: &quot;cam_01&quot;,
+  &quot;barnId&quot;: &quot;barn_01&quot;,
+  &quot;ts&quot;: 1715500800,
+  &quot;eventType&quot;: &quot;fall_suspect&quot;,
+  &quot;level&quot;: &quot;warning&quot;,
+  &quot;score&quot;: 0.86,
+  &quot;trackId&quot;: 3,
+  &quot;bbox&quot;: [120, 80, 260, 210],
+  &quot;durationSec&quot;: 180,
+  &quot;snapshotPath&quot;: &quot;cam_01/20260512_120000.jpg&quot;,
+  &quot;modelName&quot;: &quot;yolov8n-cattle&quot;,
+  &quot;modelVersion&quot;: &quot;v1.0.0&quot;
+}</code></pre>
+<h3 id="6-4-声音事件数据">6.4 声音事件数据</h3>
+<pre class="code"><code>{
+  &quot;deviceId&quot;: &quot;env_01&quot;,
+  &quot;barnId&quot;: &quot;barn_01&quot;,
+  &quot;ts&quot;: 1715500800,
+  &quot;eventType&quot;: &quot;cough_suspect&quot;,
+  &quot;score&quot;: 0.82,
+  &quot;durationMs&quot;: 1200,
+  &quot;snr&quot;: 14.6,
+  &quot;audioFeature&quot;: &quot;mfcc&quot;,
+  &quot;audioClipPath&quot;: &quot;audio/env_01/20260512_120000.wav&quot;,
+  &quot;modelName&quot;: &quot;cattle-audio-cnn&quot;,
+  &quot;modelVersion&quot;: &quot;v1.0.0&quot;
+}</code></pre>
+<h3 id="6-5-健康风险融合结果">6.5 健康风险融合结果</h3>
+<pre class="code"><code>{
+  &quot;barnId&quot;: &quot;barn_01&quot;,
+  &quot;targetId&quot;: &quot;track_03&quot;,
+  &quot;ts&quot;: 1715500800,
+  &quot;riskType&quot;: &quot;respiratory_risk&quot;,
+  &quot;riskLevel&quot;: &quot;warning&quot;,
+  &quot;score&quot;: 0.78,
+  &quot;evidence&quot;: {
+    &quot;audio&quot;: [&quot;cough_suspect&quot;, &quot;wheeze_suspect&quot;],
+    &quot;vision&quot;: [&quot;nasal_discharge_suspect&quot;, &quot;low_activity&quot;],
+    &quot;environment&quot;: [&quot;nh3_high&quot;, &quot;humidity_high&quot;]
+  },
+  &quot;suggestion&quot;: &quot;建议人工复核该栏位牛只呼吸道症状&quot;
+}</code></pre>
+<h3 id="6-6-ESP32-S3-发给-MaixCam-的-UART-命令">6.6 ESP32-S3 发给 MaixCam 的 UART 命令</h3>
+<pre class="code"><code>{&quot;type&quot;:&quot;capture_request&quot;,&quot;reason&quot;:&quot;nh3_high&quot;,&quot;durationMs&quot;:3000}</code></pre>
+<pre class="code"><code>{&quot;type&quot;:&quot;config_update&quot;,&quot;roi&quot;:[[30,40],[300,40],[300,220],[30,220]],&quot;fallSeconds&quot;:180,&quot;scoreThreshold&quot;:0.55}</code></pre>
+<h3 id="6-7-MaixCam-发给-ESP32-S3-的-UART-事件">6.7 MaixCam 发给 ESP32-S3 的 UART 事件</h3>
+<pre class="code"><code>{&quot;type&quot;:&quot;vision_event&quot;,&quot;event&quot;:&quot;fall_suspect&quot;,&quot;level&quot;:&quot;warning&quot;,&quot;score&quot;:0.86,&quot;trackId&quot;:3}</code></pre>
+<h2 id="7-开源算法选择">7. 开源算法选择</h2>
+<h3 id="7-1-视觉检测算法">7.1 视觉检测算法</h3>
+<p>推荐使用开源 YOLO 系列：</p>
+<ul>
+<li><code>YOLOv8n</code>：文档完善，训练方便，适合自定义数据集。</li>
+<li><code>YOLOv5n</code>：部署资料多，端侧转换案例多。</li>
+<li><code>YOLO11n</code>：更靠近新版本生态，但项目申报中 YOLOv8 更稳妥。</li>
+</ul>
+<p>第一期建议：</p>
+<ul>
+<li>使用 <code>YOLOv8n</code> 训练牛只检测模型。</li>
+<li>端侧部署到 MaixCam。</li>
+<li>类别数量控制在 3 到 5 个。</li>
+</ul>
+<p>推荐类别：</p>
+<pre class="code"><code>cattle_stand
+cattle_lie
+cattle_head
+person
+background_difficult 可不作为正式类别，只做负样本</code></pre>
+<h3 id="7-2-行为识别算法">7.2 行为识别算法</h3>
+<p>第一期不建议直接训练复杂行为分类网络。采用：</p>
+<pre class="code"><code>YOLO 目标检测
+  + 轻量目标跟踪
+  + ROI 区域规则
+  + 时间状态机
+  + 多帧投票</code></pre>
+<p>优点：</p>
+<ul>
+<li>数据需求比端到端行为识别小。</li>
+<li>可以解释，便于写申报书和调试。</li>
+<li>现场误报后可以快速调阈值。</li>
+<li>MaixCam 更容易稳定运行。</li>
+</ul>
+<h3 id="7-3-可选开源组件">7.3 可选开源组件</h3>
+<div class="table-wrap"><table>
+<tr><th>功能</th><th>开源方案</th></tr>
+<tr><td>模型训练</td><td>Ultralytics YOLOv8</td></tr>
+<tr><td>标注</td><td>LabelImg / CVAT / Roboflow</td></tr>
+<tr><td>数据增强</td><td>Albumentations / YOLO 内置增强</td></tr>
+<tr><td>跟踪</td><td>ByteTrack 思路简化版 / SORT 思路简化版</td></tr>
+<tr><td>边缘部署</td><td>MaixPy 模型部署工具链</td></tr>
+<tr><td>后端通信</td><td>MQTT / EMQX</td></tr>
+<tr><td>可视化</td><td>Vue + ECharts</td></tr>
+</table></div>
+<h3 id="7-4-声音识别开源算法">7.4 声音识别开源算法</h3>
+<p>声音识别建议使用开源音频分类路线，不建议第一期直接上大模型。推荐路线：</p>
+<pre class="code"><code>I2S 麦克风音频
+  -&gt; VAD/能量检测
+  -&gt; 降噪
+  -&gt; MFCC 或 Log-Mel 频谱
+  -&gt; 轻量 CNN / MobileNet / YAMNet 迁移学习
+  -&gt; 咳嗽/喘鸣/异常叫声/背景噪声分类</code></pre>
+<p>可用开源基础：</p>
+<div class="table-wrap"><table>
+<tr><th>方向</th><th>方案</th></tr>
+<tr><td>音频特征</td><td>librosa、torchaudio、TensorFlow audio ops</td></tr>
+<tr><td>基础模型</td><td>YAMNet、PANNs、MobileNet audio classifier</td></tr>
+<tr><td>轻量部署</td><td>TensorFlow Lite Micro、ESP-DL、ONNX Runtime 边缘转换</td></tr>
+<tr><td>标注工具</td><td>Audacity、Label Studio、Praat</td></tr>
+</table></div>
+<p>ESP32-S3 可以做轻量声音事件检测，但如果模型较大，可把音频片段上传到后端或边缘网关推理。落地优先级建议：</p>
+<ol>
+<li>ESP32-S3 本地做音频触发和特征提取。</li>
+<li>轻量模型本地识别咳嗽/背景噪声。</li>
+<li>复杂声音分类放到后端训练和评估，稳定后再端侧部署。</li>
+</ol>
+<h3 id="7-5-疾病风险筛查算法边界">7.5 疾病风险筛查算法边界</h3>
+<p>本项目可以做“疾病风险预警/健康异常筛查”，不应写成“自动诊断疾病”。原因是牛病诊断需要体温、采食、粪便、实验室检测和兽医判断，单靠摄像头和声音不能可靠确诊。</p>
+<p>建议识别目标：</p>
+<div class="table-wrap"><table>
+<tr><th>风险类型</th><th>可观测信号</th><th>AI 目标</th><th>输出</th></tr>
+<tr><td>呼吸道风险</td><td>咳嗽、喘鸣、鼻液、精神差、氨气高</td><td>咳嗽/喘鸣分类 + 鼻部异常检测</td><td>respiratory_risk</td></tr>
+<tr><td>皮肤/体表风险</td><td>脱毛、红肿、创伤、结痂、寄生虫疑似</td><td>局部图像检测/分类</td><td>skin_risk</td></tr>
+<tr><td>眼部异常</td><td>流泪、眼部分泌物、红肿、闭眼</td><td>眼部区域检测/分类</td><td>eye_risk</td></tr>
+<tr><td>鼻部异常</td><td>流涕、鼻镜干燥/异常分泌物</td><td>鼻部区域检测/分类</td><td>nasal_risk</td></tr>
+<tr><td>运动/肢蹄风险</td><td>跛行、活动减少、长时间卧地</td><td>姿态跟踪 + 行为状态机</td><td>lameness_or_low_activity_risk</td></tr>
+<tr><td>应激/异常状态</td><td>异常叫声、频繁起卧、聚集、环境异常</td><td>多模态融合</td><td>stress_risk</td></tr>
+</table></div>
+<p>输出分级：</p>
+<ul>
+<li><code>normal</code>：未发现明显异常。</li>
+<li><code>observe</code>：建议观察，暂不告警。</li>
+<li><code>warning</code>：存在多项异常证据，建议人工复核。</li>
+<li><code>urgent</code>：持续异常或多模态强证据，建议尽快处理。</li>
+</ul>
+<h2 id="8-AI-训练完整流程">8. AI 训练完整流程</h2>
+<h3 id="8-1-数据采集">8.1 数据采集</h3>
+<p>采集要求：</p>
+<ul>
+<li>每个牛舍至少采集 3 到 5 天。</li>
+<li>覆盖早晨、中午、傍晚、夜间。</li>
+<li>覆盖开灯、关灯、补光、背光。</li>
+<li>覆盖牛只站立、卧躺、走动、拥挤、遮挡。</li>
+<li>采集正常样本远多于异常样本，这是现场真实分布。</li>
+</ul>
+<p>采集方式：</p>
+<pre class="code"><code>MaixCam 固定点位录像/抽帧
+手机或运动相机补充多角度素材
+公开牛只数据集作为预训练补充
+最终必须用本地牛舍数据做微调</code></pre>
+<p>建议抽帧策略：</p>
+<ul>
+<li>正常视频：每 2 到 5 秒抽 1 帧。</li>
+<li>异常或稀缺动作：每 0.5 到 1 秒抽 1 帧。</li>
+<li>去除模糊、过曝、严重遮挡、重复度过高图片。</li>
+</ul>
+<h3 id="8-2-数据标注">8.2 数据标注</h3>
+<p>标注格式：</p>
+<ul>
+<li>YOLO txt 格式。</li>
+<li>每张图一个同名 <code>.txt</code> 文件。</li>
+</ul>
+<p>目录结构：</p>
+<pre class="code"><code>dataset/
+  images/
+    train/
+    val/
+    test/
+  labels/
+    train/
+    val/
+    test/
+  data.yaml</code></pre>
+<p><code>data.yaml</code> 示例：</p>
+<pre class="code"><code>path: ./dataset
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: cattle_stand
+  1: cattle_lie
+  2: cattle_head
+  3: person</code></pre>
+<p>数据划分：</p>
+<ul>
+<li>train：70%</li>
+<li>val：20%</li>
+<li>test：10%</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>不要把同一段视频连续帧同时放进训练集和测试集。</li>
+<li>最好按日期或摄像头点位划分，避免数据泄漏。</li>
+</ul>
+<h3 id="8-3-初始训练">8.3 初始训练</h3>
+<p>训练命令示例：</p>
+<pre class="code"><code>yolo detect train model=yolov8n.pt data=data.yaml epochs=100 imgsz=320 batch=16 device=0</code></pre>
+<p>如果 GPU 不足：</p>
+<pre class="code"><code>yolo detect train model=yolov8n.pt data=data.yaml epochs=80 imgsz=320 batch=8</code></pre>
+<p>训练关注指标：</p>
+<ul>
+<li><code>Precision</code></li>
+<li><code>Recall</code></li>
+<li><code>mAP50</code></li>
+<li><code>mAP50-95</code></li>
+<li>混淆矩阵</li>
+<li>误检图片</li>
+<li>漏检图片</li>
+</ul>
+<p>V1 目标：</p>
+<div class="table-wrap"><table>
+<tr><th>指标</th><th>建议值</th></tr>
+<tr><td>cattle_stand Recall</td><td>&gt;= 85%</td></tr>
+<tr><td>cattle_lie Recall</td><td>&gt;= 80%</td></tr>
+<tr><td>person Precision</td><td>&gt;= 90%</td></tr>
+<tr><td>总体 mAP50</td><td>&gt;= 85%</td></tr>
+</table></div>
+<h3 id="8-4-模型导出与-MaixCam-部署">8.4 模型导出与 MaixCam 部署</h3>
+<p>流程：</p>
+<pre class="code"><code>YOLOv8n PyTorch 模型
+  -&gt; ONNX 或 MaixCam 支持格式
+  -&gt; 量化/转换
+  -&gt; 拷贝到 MaixCam
+  -&gt; MaixPy 加载模型
+  -&gt; 摄像头实时推理
+  -&gt; 输出 bbox/class/score</code></pre>
+<p>部署验证项：</p>
+<ul>
+<li>模型能正常加载。</li>
+<li>推理帧率满足需求。</li>
+<li>内存占用稳定。</li>
+<li>连续运行无崩溃。</li>
+<li>推理结果与 PC 端接近。</li>
+</ul>
+<p>如果端侧帧率不足：</p>
+<ul>
+<li>降低 <code>imgsz</code> 到 224 或 256。</li>
+<li>降低类别数量。</li>
+<li>降低推理频率，例如每秒 2 到 5 帧。</li>
+<li>使用 ROI 裁剪，只处理牛活动区域。</li>
+<li>优先识别事件，不追求实时视频全帧高 FPS。</li>
+</ul>
+<h3 id="8-5-自己优化算法">8.5 自己优化算法</h3>
+<p>项目中的“自研优化”不要写成重新发明 YOLO。更合理的写法是：</p>
+<blockquote>基于开源 YOLO 检测模型，结合肉牛养殖场景特点，自主设计多帧时序投票、牛舍 ROI 区域约束、卧倒持续时间状态机、环境异常联动抓拍和误报样本闭环训练机制，提升模型在牛舍弱光、遮挡、粉尘等复杂场景下的稳定性。</blockquote>
+<p>具体优化：</p>
+<ol>
+<li>ROI 约束</li>
+</ol>
+<p>只在牛栏、饲槽、活动区内检测，过滤无关区域。</p>
+<ol>
+<li>多帧投票</li>
+</ol>
+<p>连续 N 帧检测到同一事件才触发，降低偶发误检。</p>
+<ol>
+<li>时间状态机</li>
+</ol>
+<p>把“卧倒”分为正常卧躺、疑似异常卧倒、紧急告警。</p>
+<ol>
+<li>跟踪 ID</li>
+</ol>
+<p>对同一头牛维护短时 track，避免同一事件重复告警。</p>
+<ol>
+<li>环境联动</li>
+</ol>
+<p>氨气/高温异常时触发 MaixCam 抓拍，增加事件证据。</p>
+<ol>
+<li>误报回流</li>
+</ol>
+<p>现场误报图片回收，进入 hard negative 数据集，定期重训。</p>
+<ol>
+<li>场景阈值配置</li>
+</ol>
+<p>每个牛舍可配置不同 ROI、置信度阈值、告警持续时间。</p>
+<h3 id="8-6-行为事件判定逻辑">8.6 行为事件判定逻辑</h3>
+<h4 id="牛只存在与数量统计">牛只存在与数量统计</h4>
+<pre class="code"><code>每帧 YOLO 检测 cattle_stand/cattle_lie
+过滤低置信度框
+按 IoU 合并重复框
+输出当前牛只数量估计</code></pre>
+<h4 id="疑似跌倒-异常卧倒">疑似跌倒/异常卧倒</h4>
+<h4 id="打斗-剧烈活动">打斗/剧烈活动</h4>
+<pre class="code"><code>多目标中心点速度升高
++ 两个以上 bbox 快速接近
++ bbox 重叠率升高
++ 持续 2 到 5 秒
+= fight_suspect</code></pre>
+<p>第一期建议把打斗写成“疑似剧烈活动识别”，避免承诺过高。</p>
+<h4 id="采食-饮水">采食/饮水</h4>
+<pre class="code"><code>人工标定饲槽 ROI/饮水 ROI
+检测 cattle_head 或牛体进入 ROI
+持续停留超过阈值
+记录一次采食/饮水访问
+统计访问次数和停留时长</code></pre>
+<p>不建议第一期承诺精确采食量。</p>
+<h3 id="8-7-声音-AI-训练流程">8.7 声音 AI 训练流程</h3>
+<p>声音模型目标不是识别“某一种确定疾病”，而是识别与疾病相关的声音事件，例如咳嗽、喘鸣、异常叫声、呼吸急促等。</p>
+<h4 id="数据采集">数据采集</h4>
+<p>采集设备：</p>
+<ul>
+<li>ESP32-S3 + I2S 数字麦克风，用于固定点位长期采集。</li>
+<li>手机/录音笔，用于近距离补采高质量样本。</li>
+<li>牛舍摄像头时间戳同步，用于把声音和画面事件对齐。</li>
+</ul>
+<p>采集场景：</p>
+<ul>
+<li>正常背景噪声：风扇、饮水、采食、人员走动。</li>
+<li>正常牛叫声。</li>
+<li>疑似咳嗽。</li>
+<li>疑似喘鸣/呼吸音异常。</li>
+<li>夜间安静环境。</li>
+<li>高氨气、高湿度等环境异常时段。</li>
+</ul>
+<p>采样建议：</p>
+<ul>
+<li>采样率：16 kHz 或 32 kHz。</li>
+<li>单段长度：1 到 3 秒。</li>
+<li>保存格式：训练阶段用 WAV，部署阶段可只保存事件片段。</li>
+<li>每类有效样本至少 300 到 500 段，背景噪声样本要更多。</li>
+</ul>
+<h4 id="标注方式">标注方式</h4>
+<p>音频标签建议：</p>
+<pre class="code"><code>background
+normal_moo
+cough_suspect
+wheeze_suspect
+heavy_breathing_suspect
+human_noise
+machine_noise</code></pre>
+<p>标注工具：</p>
+<ul>
+<li>Audacity：人工截取音频片段。</li>
+<li>Label Studio：事件级标注。</li>
+<li>Praat：需要分析声学特征时使用。</li>
+</ul>
+<p>标注原则：</p>
+<ul>
+<li>不确定的样本标为 <code>uncertain</code>，不要强行归类。</li>
+<li>背景噪声要单独标注，否则模型会把风扇声误判为呼吸异常。</li>
+<li>咳嗽和喘鸣最好有视频证据或人工现场记录辅助确认。</li>
+</ul>
+<h4 id="特征与模型">特征与模型</h4>
+<p>推荐训练路线：</p>
+<pre class="code"><code>WAV 音频
+  -&gt; 静音裁剪/VAD
+  -&gt; 降噪
+  -&gt; Log-Mel 频谱或 MFCC
+  -&gt; 轻量 CNN / MobileNetV2
+  -&gt; 分类输出</code></pre>
+<p>部署策略：</p>
+<ul>
+<li>V1：ESP32-S3 只做 VAD 和事件截取，音频分类可在后端或本地电脑训练验证。</li>
+<li>V2：将轻量 TFLite Micro 模型部署到 ESP32-S3，实现咳嗽/背景噪声二分类。</li>
+<li>V3：多类别声音模型部署，结合 MaixCam 视觉证据做健康风险融合。</li>
+</ul>
+<h4 id="音频增强">音频增强</h4>
+<p>训练时加入：</p>
+<ul>
+<li>风扇噪声混合。</li>
+<li>人声/脚步声干扰。</li>
+<li>不同距离音量变化。</li>
+<li>随机增益。</li>
+<li>时间偏移。</li>
+<li>背景噪声叠加。</li>
+</ul>
+<p>这样可以减少牛舍实际噪声导致的误报。</p>
+<h3 id="8-8-皮肤-眼睛-鼻部视觉训练流程">8.8 皮肤、眼睛、鼻部视觉训练流程</h3>
+<p>皮肤、眼睛、鼻部异常识别比普通姿态识别更难，必须明确采集条件。固定高位 MaixCam 可以识别姿态和大体表异常，但对眼睛、鼻子、皮肤细节的识别能力有限。合理方案是：</p>
+<ul>
+<li>MaixCam 固定点位：负责姿态、活动水平、明显创伤/大面积皮肤异常、鼻部明显分泌物疑似。</li>
+<li>近距离补拍：通过手机、手持摄像头或定点近距离 MaixCam，用于眼睛、鼻子、皮肤细节识别。</li>
+<li>系统输出“疑似异常风险”，不输出确诊结论。</li>
+</ul>
+<h4 id="视觉类别设计">视觉类别设计</h4>
+<p>目标检测类别建议：</p>
+<pre class="code"><code>cattle_body
+cattle_head
+eye_region
+nose_region
+skin_lesion_suspect
+wound_suspect
+nasal_discharge_suspect
+eye_discharge_suspect
+lameness_posture_suspect</code></pre>
+<p>第一期建议实际训练：</p>
+<pre class="code"><code>cattle_body
+cattle_head
+cattle_lie
+skin_lesion_suspect
+nasal_discharge_suspect
+eye_discharge_suspect</code></pre>
+<p>不建议一开始训练过多细分类。皮肤病、眼病、鼻部异常都存在样本稀缺和标注主观性问题。</p>
+<h4 id="数据采集要求">数据采集要求</h4>
+<p>皮肤样本：</p>
+<ul>
+<li>正常皮肤/毛色。</li>
+<li>脱毛。</li>
+<li>红肿。</li>
+<li>伤口。</li>
+<li>结痂。</li>
+<li>泥污干扰样本。</li>
+</ul>
+<p>眼部样本：</p>
+<ul>
+<li>正常眼部。</li>
+<li>流泪。</li>
+<li>分泌物。</li>
+<li>红肿。</li>
+<li>半闭眼/精神差疑似。</li>
+</ul>
+<p>鼻部样本：</p>
+<ul>
+<li>正常鼻镜。</li>
+<li>清鼻液。</li>
+<li>脓性分泌物疑似。</li>
+<li>鼻镜干燥/污物干扰。</li>
+</ul>
+<p>每类建议：</p>
+<ul>
+<li>V1 最低 200 到 300 张有效样本。</li>
+<li>正常样本数量要多于异常样本。</li>
+<li>异常样本不足时，先做“异常疑似二分类”，不要细分具体病种。</li>
+</ul>
+<h4 id="模型路线">模型路线</h4>
+<p>推荐两级模型：</p>
+<pre class="code"><code>第一级：YOLO 检测牛体/头部/眼鼻/异常区域
+第二级：局部裁剪图像分类</code></pre>
+<p>流程：</p>
+<p>模型选择：</p>
+<ul>
+<li>检测：YOLOv8n。</li>
+<li>局部分类：MobileNetV3-small、EfficientNet-lite、ResNet18。</li>
+<li>端侧部署：优先把检测放在 MaixCam；局部细分类可先在后端跑，稳定后再端侧化。</li>
+</ul>
+<h3 id="8-9-姿态与运动异常训练流程">8.9 姿态与运动异常训练流程</h3>
+<p>姿态不只用于跌倒，也可以辅助疾病风险判断。病牛常见表现包括活动减少、长时间卧地、站姿异常、跛行、头部低垂等。</p>
+<p>可落地路线：</p>
+<pre class="code"><code>YOLO 检测牛体
+  -&gt; 目标跟踪 track_id
+  -&gt; 统计活动距离、卧地时长、起卧次数
+  -&gt; 姿态分类：站立/卧地/低头/异常站姿疑似
+  -&gt; 与声音和局部视觉融合</code></pre>
+<p>指标：</p>
+<ul>
+<li>单牛精确身份识别第一期不做硬承诺。</li>
+<li>以栏位或画面内 track 为单位统计健康风险。</li>
+<li>如果需要长期个体追踪，二期增加耳标识别或项圈节点。</li>
+</ul>
+<h3 id="8-10-多模态融合训练与规则">8.10 多模态融合训练与规则</h3>
+<p>第一期推荐使用“规则融合 + 可解释评分”，不要直接训练黑盒多模态大模型。原因是数据量不足，且疾病标签难以可靠获得。</p>
+<p>融合输入：</p>
+<div class="table-wrap"><table>
+<tr><th>模态</th><th>特征</th></tr>
+<tr><td>环境</td><td>温度、湿度、氨气趋势、烟雾、光照</td></tr>
+<tr><td>声音</td><td>咳嗽次数、喘鸣置信度、异常叫声频次、持续时间</td></tr>
+<tr><td>姿态</td><td>卧地时长、活动量下降、起卧频次、异常站姿</td></tr>
+<tr><td>局部视觉</td><td>皮肤异常、眼部分泌物、鼻部分泌物、明显创伤</td></tr>
+<tr><td>历史趋势</td><td>同栏位/同 track 最近 24h 异常次数</td></tr>
+</table></div>
+<p>规则示例：</p>
+<pre class="code"><code>if cough_suspect_count_1h &gt;= 3
+and nasal_discharge_suspect_score &gt; 0.6:
+    respiratory_risk = warning
+
+if cough_suspect_count_1h &gt;= 3
+and nh3Status == high
+and humidity &gt; threshold:
+    respiratory_risk = warning
+
+if long_lie_duration &gt; 3h
+and activity_drop_24h &gt; 50%
+and eye_discharge_suspect_score &gt; 0.6:
+    health_risk = warning
+
+if wound_suspect_score &gt; 0.75:
+    skin_risk = warning</code></pre>
+<p>评分方式：</p>
+<pre class="code"><code>risk_score =
+  0.30 * audio_score
++ 0.30 * visual_local_score
++ 0.20 * posture_score
++ 0.10 * environment_score
++ 0.10 * history_score</code></pre>
+<p>权重可以在现场试点后调整。申报书中建议写“可配置融合权重”，不要写固定不可变。</p>
+<h3 id="8-11-健康风险标签体系">8.11 健康风险标签体系</h3>
+<p>建议输出风险，不输出疾病名称：</p>
+<div class="table-wrap"><table>
+<tr><th>输出类型</th><th>含义</th></tr>
+<tr><td>respiratory_risk</td><td>呼吸道疾病风险</td></tr>
+<tr><td>skin_risk</td><td>皮肤/体表异常风险</td></tr>
+<tr><td>eye_risk</td><td>眼部异常风险</td></tr>
+<tr><td>nasal_risk</td><td>鼻部异常风险</td></tr>
+<tr><td>lameness_risk</td><td>跛行/运动异常风险</td></tr>
+<tr><td>stress_risk</td><td>应激/异常状态风险</td></tr>
+<tr><td>unknown_health_risk</td><td>多项异常但无法归类</td></tr>
+</table></div>
+<p>每条告警必须带证据：</p>
+<ul>
+<li>声音事件片段。</li>
+<li>视觉截图。</li>
+<li>检测框。</li>
+<li>置信度。</li>
+<li>环境数据。</li>
+<li>持续时间。</li>
+</ul>
+<p>这样评审和现场用户能理解系统为什么报警。</p>
+<h2 id="9-ESP32-S3-固件设计">9. ESP32-S3 固件设计</h2>
+<h3 id="9-1-软件框架">9.1 软件框架</h3>
+<p>推荐使用 <code>ESP-IDF</code>，比 Arduino 更适合项目工程化。</p>
+<p>任务划分：</p>
+<div class="table-wrap"><table>
+<tr><th>FreeRTOS 任务</th><th>周期</th><th>作用</th></tr>
+<tr><td>sensor_task</td><td>1s 到 5s</td><td>读取 I2C/ADC/RS485 传感器</td></tr>
+<tr><td>control_task</td><td>200ms 到 1s</td><td>阈值判断和执行器控制</td></tr>
+<tr><td>mqtt_task</td><td>5s 到 60s</td><td>数据上报、命令订阅</td></tr>
+<tr><td>uart_maix_task</td><td>100ms</td><td>与 MaixCam 通信</td></tr>
+<tr><td>audio_task</td><td>20ms 到 100ms</td><td>I2S 音频采集、VAD、声音事件检测</td></tr>
+<tr><td>display_task</td><td>1s</td><td>LCD/OLED 刷新</td></tr>
+<tr><td>watchdog_task</td><td>1s</td><td>系统健康检查</td></tr>
+<tr><td>storage_task</td><td>事件触发</td><td>离线缓存关键数据</td></tr>
+</table></div>
+<h3 id="9-2-本地控制规则">9.2 本地控制规则</h3>
+<p>示例：</p>
+<pre class="code"><code>if nh3Status == high:
+    fan = ON
+    alarm = ON if duration &gt; 60s
+    send capture_request to MaixCam
+
+if temperature &gt; highTemp and humidity &gt; highHumidity:
+    fan = ON
+    atomizer = conditional
+
+if fireDetected or smokeHigh:
+    fan = OFF depending fire strategy
+    alarm = ON
+    upload urgent alert</code></pre>
+<p>火情策略要谨慎：有些火情场景不应继续通风助燃，项目中应写“按预设安全策略联动”，不要简单固定为开风扇。</p>
+<h3 id="9-3-远程参数配置">9.3 远程参数配置</h3>
+<p>云端可下发：</p>
+<ul>
+<li>温湿度阈值。</li>
+<li>氨气原始值阈值。</li>
+<li>告警持续时间。</li>
+<li>MQTT 上报周期。</li>
+<li>MaixCam 抓拍触发策略。</li>
+<li>风扇/雾化器自动/手动模式。</li>
+</ul>
+<p>ESP32-S3 本地保存配置到 NVS，重启后继续生效。</p>
+<h2 id="10-MaixCam-边缘-AI-程序设计">10. MaixCam 边缘 AI 程序设计</h2>
+<h3 id="10-1-程序流程">10.1 程序流程</h3>
+<h3 id="10-2-配置项">10.2 配置项</h3>
+<pre class="code"><code>{
+  &quot;cameraId&quot;: &quot;cam_01&quot;,
+  &quot;model&quot;: &quot;yolov8n-cattle-v1.mud&quot;,
+  &quot;healthModel&quot;: &quot;cattle-health-local-v1.mud&quot;,
+  &quot;scoreThreshold&quot;: 0.55,
+  &quot;iouThreshold&quot;: 0.45,
+  &quot;fallSeconds&quot;: 180,
+  &quot;fightSeconds&quot;: 3,
+  &quot;healthScoreThreshold&quot;: 0.65,
+  &quot;localCropUpload&quot;: true,
+  &quot;roi&quot;: [[30, 40], [300, 40], [300, 220], [30, 220]],
+  &quot;mqttUploadImage&quot;: true,
+  &quot;uartNotify&quot;: true
+}</code></pre>
+<h3 id="10-3-健康视觉程序策略">10.3 健康视觉程序策略</h3>
+<p>MaixCam 的固定高位视角优先做以下任务：</p>
+<ul>
+<li>牛体姿态：站立、卧倒、低活动。</li>
+<li>牛头检测：为眼睛、鼻部进一步识别提供 ROI。</li>
+<li>明显体表异常：大面积脱毛、伤口、红肿、污物遮挡疑似。</li>
+<li>局部截图：当检测到牛头靠近、画面清晰度达标时，裁剪眼鼻区域上传。</li>
+</ul>
+<p>对眼睛、鼻子、皮肤细节，建议分两种模式：</p>
+<div class="table-wrap"><table>
+<tr><th>模式</th><th>数据来源</th><th>用途</th></tr>
+<tr><td>固定 MaixCam 模式</td><td>高位俯视/侧视</td><td>姿态、活动量、明显体表异常</td></tr>
+<tr><td>近距离巡检模式</td><td>手持手机/近距摄像头/低位 MaixCam</td><td>眼睛、鼻子、皮肤细节筛查</td></tr>
+</table></div>
+<p>判断图像是否可用于健康细节识别：</p>
+<ul>
+<li>牛头或局部区域面积足够大。</li>
+<li>图像清晰，无严重运动模糊。</li>
+<li>光照不过曝/欠曝。</li>
+<li>目标遮挡不严重。</li>
+</ul>
+<p>不满足条件时，只记录“无法判断”，不要强行输出疾病风险。</p>
+<h2 id="11-后端与前端适配">11. 后端与前端适配</h2>
+<h3 id="11-1-后端新增数据表">11.1 后端新增数据表</h3>
+<p>建议新增：</p>
+<pre class="code"><code>camera_device
+vision_event
+vision_snapshot
+audio_event
+health_risk_event
+health_evidence
+model_version
+device_config</code></pre>
+<p><code>vision_event</code> 字段：</p>
+<ul>
+<li>id</li>
+<li>barn_id</li>
+<li>camera_id</li>
+<li>event_type</li>
+<li>level</li>
+<li>score</li>
+<li>track_id</li>
+<li>bbox</li>
+<li>duration_sec</li>
+<li>snapshot_path</li>
+<li>model_version</li>
+<li>created_at</li>
+</ul>
+<p><code>audio_event</code> 字段：</p>
+<ul>
+<li>id</li>
+<li>barn_id</li>
+<li>device_id</li>
+<li>event_type</li>
+<li>score</li>
+<li>duration_ms</li>
+<li>snr</li>
+<li>audio_clip_path</li>
+<li>model_version</li>
+<li>created_at</li>
+</ul>
+<p><code>health_risk_event</code> 字段：</p>
+<ul>
+<li>id</li>
+<li>barn_id</li>
+<li>target_id</li>
+<li>risk_type</li>
+<li>risk_level</li>
+<li>score</li>
+<li>evidence_json</li>
+<li>suggestion</li>
+<li>status</li>
+<li>created_at</li>
+</ul>
+<h3 id="11-2-前端新增功能">11.2 前端新增功能</h3>
+<ul>
+<li>环境实时数据面板。</li>
+<li>执行器状态和远程控制。</li>
+<li>视觉事件列表。</li>
+<li>声音事件列表：咳嗽、喘鸣、异常叫声。</li>
+<li>健康风险中心：按栏位、风险类型、等级聚合。</li>
+<li>事件详情：截图、置信度、持续时间、处理状态。</li>
+<li>健康证据链：声音片段、眼鼻/皮肤截图、姿态趋势、环境数据。</li>
+<li>摄像头状态：在线/离线/FPS/模型版本。</li>
+<li>ROI 和阈值配置页面。</li>
+<li>健康风险阈值配置：咳嗽次数、卧地时长、融合权重。</li>
+</ul>
+<h2 id="12-现场部署方案">12. 现场部署方案</h2>
+<h3 id="12-1-设备位置">12.1 设备位置</h3>
+<div class="table-wrap"><table>
+<tr><th>设备</th><th>安装位置</th></tr>
+<tr><td>ESP32-S3 控制箱</td><td>离地 1.5m 以上，远离水槽和冲洗区</td></tr>
+<tr><td>温湿度传感器</td><td>牛呼吸高度附近，避开直吹和水雾</td></tr>
+<tr><td>氨气传感器</td><td>粪污区上方但避免贴地积水</td></tr>
+<tr><td>MaixCam</td><td>2.5m 到 3.5m 高处，俯视 30 到 45 度</td></tr>
+<tr><td>I2S 麦克风</td><td>远离风扇直吹和金属震动源，尽量靠近目标栏位</td></tr>
+<tr><td>近距离巡检摄像</td><td>牛头/牛体侧面可接近位置，作为人工复核补拍</td></tr>
+<tr><td>补光灯</td><td>避免直射镜头，覆盖监测 ROI</td></tr>
+<tr><td>风扇/雾化器</td><td>根据牛舍气流布置</td></tr>
+</table></div>
+<h3 id="12-2-防护要求">12.2 防护要求</h3>
+<ul>
+<li>控制箱 IP65。</li>
+<li>摄像头透明窗口加遮雨沿。</li>
+<li>所有外部线缆使用防水接头。</li>
+<li>强电和弱电分区。</li>
+<li>传感器可拆卸，便于维护和标定。</li>
+<li>MaixCam 留散热空间，防止夏季高温死机。</li>
+<li>麦克风需要防水透声膜，避免水汽、粉尘和高压冲洗损坏。</li>
+<li>健康细节识别需要定期清洁镜头窗口，否则皮肤、眼鼻判断会失效。</li>
+</ul>
+<h2 id="13-测试验收指标">13. 测试验收指标</h2>
+<h3 id="13-1-硬件与通信">13.1 硬件与通信</h3>
+<div class="table-wrap"><table>
+<tr><th>指标</th><th>目标</th></tr>
+<tr><td>实验室连续运行</td><td>&gt;= 72 小时</td></tr>
+<tr><td>牛舍试点运行</td><td>&gt;= 7 天</td></tr>
+<tr><td>MQTT 断线重连</td><td>自动恢复</td></tr>
+<tr><td>环境数据上报周期</td><td>5 到 60 秒可配</td></tr>
+<tr><td>本地告警响应</td><td>&lt;= 1 秒</td></tr>
+<tr><td>视觉事件响应</td><td>3 到 10 秒可配</td></tr>
+<tr><td>声音事件响应</td><td>1 到 5 秒可配</td></tr>
+<tr><td>执行器误动作</td><td>0 次作为目标</td></tr>
+</table></div>
+<h3 id="13-2-AI-识别">13.2 AI 识别</h3>
+<div class="table-wrap"><table>
+<tr><th>指标</th><th>V1 目标</th></tr>
+<tr><td>牛只检测 Precision</td><td>&gt;= 85%</td></tr>
+<tr><td>牛只检测 Recall</td><td>&gt;= 85%</td></tr>
+<tr><td>卧倒检测 Recall</td><td>&gt;= 80%</td></tr>
+<tr><td>人员检测 Precision</td><td>&gt;= 90%</td></tr>
+<tr><td>疑似异常事件可解释率</td><td>100% 事件有截图和置信度</td></tr>
+<tr><td>现场误报闭环</td><td>每周回收样本并优化</td></tr>
+</table></div>
+<h3 id="13-3-声音与健康风险筛查">13.3 声音与健康风险筛查</h3>
+<div class="table-wrap"><table>
+<tr><th>指标</th><th>V1 目标</th></tr>
+<tr><td>咳嗽/背景噪声二分类 Recall</td><td>&gt;= 75%</td></tr>
+<tr><td>咳嗽/背景噪声二分类 Precision</td><td>&gt;= 75%</td></tr>
+<tr><td>声音事件证据留存</td><td>100% 告警保留音频片段或特征</td></tr>
+<tr><td>健康风险事件证据链</td><td>100% 包含至少两类证据或明确单项强证据</td></tr>
+<tr><td>皮肤/眼鼻异常筛查</td><td>先做疑似异常提示，不做确诊</td></tr>
+<tr><td>人工复核闭环</td><td>每条高风险事件支持标记真/假阳性</td></tr>
+</table></div>
+<p>不建议写“识别准确率 100%”。真实场景存在遮挡、粉尘、夜间噪声和牛只重叠，100% 不可信。</p>
+<h2 id="14-项目阶段计划">14. 项目阶段计划</h2>
+<h3 id="第-1-阶段-ESP32-S3-替换验证-1-到-2-周">第 1 阶段：ESP32-S3 替换验证，1 到 2 周</h3>
+<p>交付物：</p>
+<ul>
+<li>ESP32-S3 采集 AHT20/BH1750/MQ-137。</li>
+<li>ESP32-S3 控制风扇/报警。</li>
+<li>ESP32-S3 MQTT 上报。</li>
+<li>ESP32-S3 与 MaixCam UART 通信 demo。</li>
+</ul>
+<h3 id="第-2-阶段-MaixCam-开源模型跑通-1-到-2-周">第 2 阶段：MaixCam 开源模型跑通，1 到 2 周</h3>
+<p>交付物：</p>
+<ul>
+<li>YOLOv8n 官方模型训练流程。</li>
+<li>MaixCam 端推理 demo。</li>
+<li>视觉事件 JSON 输出。</li>
+</ul>
+<h3 id="第-3-阶段-本地牛舍数据集-3-到-6-周">第 3 阶段：本地牛舍数据集，3 到 6 周</h3>
+<p>交付物：</p>
+<ul>
+<li>牛舍图片数据集。</li>
+<li>牛舍声音数据集。</li>
+<li>皮肤、眼睛、鼻部近距离补拍数据集。</li>
+<li>YOLO 标注文件。</li>
+<li>音频事件标注文件。</li>
+<li>V1 牛只检测模型。</li>
+<li>V1 咳嗽/背景噪声二分类模型。</li>
+<li>模型评估报告。</li>
+</ul>
+<h3 id="第-4-阶段-系统联调-2-到-4-周">第 4 阶段：系统联调，2 到 4 周</h3>
+<p>交付物：</p>
+<ul>
+<li>ESP32-S3 + MaixCam + MQTT + 后端 + 前端完整链路。</li>
+<li>环境异常触发抓拍。</li>
+<li>声音异常触发视觉抓拍。</li>
+<li>视觉异常触发本地声光报警。</li>
+<li>健康风险融合告警。</li>
+<li>断网缓存与恢复。</li>
+</ul>
+<h3 id="第-5-阶段-现场试点与优化-2-到-4-周">第 5 阶段：现场试点与优化，2 到 4 周</h3>
+<p>交付物：</p>
+<ul>
+<li>7 天牛舍运行报告。</li>
+<li>误报/漏报样本分析。</li>
+<li>二次训练模型。</li>
+<li>健康风险人工复核记录。</li>
+<li>最终测试报告。</li>
+</ul>
+<h2 id="15-申报书替换建议">15. 申报书替换建议</h2>
+<h3 id="15-1-主控替换表述">15.1 主控替换表述</h3>
+<p>原：</p>
+<blockquote>以 STM32L476RG 低功耗单片机为核心控制单元。</blockquote>
+<p>建议改为：</p>
+<blockquote>以 ESP32-S3 物联网主控芯片为核心控制单元，集成 WiFi/BLE 无线通信能力，完成牛舍环境数据采集、执行器联动控制、本地告警、MQTT 数据上传和远程参数配置。相比传统 MCU 外接通信模块的方案，ESP32-S3 可减少硬件复杂度，提高端云通信稳定性，并为后续项圈节点接入和轻量化边缘智能扩展预留能力。</blockquote>
+<h3 id="15-2-MaixCam-表述">15.2 MaixCam 表述</h3>
+<blockquote>视觉健康监测模块采用 Sipeed MaixCam 边缘 AI 摄像头，基于开源 YOLO 目标检测模型进行二次训练和端侧部署，实现肉牛站立、卧倒、人员进入等状态识别。系统结合目标跟踪、ROI 区域约束、多帧投票和时间状态机，自主优化疑似跌倒、长时间静止、剧烈活动等异常事件判定逻辑，降低牛舍弱光、遮挡和粉尘环境下的误报率。</blockquote>
+<h3 id="15-3-数据传输表述">15.3 数据传输表述</h3>
+<blockquote>系统采用 MQTT 作为端云通信协议，ESP32-S3 周期上报温湿度、氨气趋势、光照、火情等环境数据，并接收云端下发的阈值和控制参数；MaixCam 在本地完成视觉 AI 推理，仅上传事件类型、置信度、检测框、截图路径等结构化结果，避免视频流长期上传造成的带宽压力。ESP32-S3 与 MaixCam 之间通过 UART 交换抓拍指令和本地告警事件，实现环境异常与视觉留证的联动。</blockquote>
+<h3 id="15-4-AI-训练表述">15.4 AI 训练表述</h3>
+<blockquote>算法层采用开源 YOLOv8n 作为基础检测模型，通过合作牛场采集的肉牛图像数据进行迁移训练，构建覆盖白天、夜间、补光、遮挡、站立、卧躺等场景的数据集。训练完成后将模型转换并部署至 MaixCam 端侧运行。项目在开源模型基础上自主设计牛舍 ROI 约束、多帧投票、目标跟踪、异常状态机和误报样本回流优化机制，形成适配肉牛养殖场景的边缘视觉识别算法。</blockquote>
+<h3 id="15-5-多模态健康风险筛查表述">15.5 多模态健康风险筛查表述</h3>
+<blockquote>在健康风险筛查方面，系统新增声音采集与多模态融合分析模块。ESP32-S3 通过 I2S 数字麦克风采集牛舍声音，基于开源音频特征提取与轻量分类模型识别咳嗽、喘鸣、异常叫声等疑似健康异常信号；MaixCam 结合开源 YOLO 检测模型与自建牛舍数据集，识别肉牛姿态、活动量、明显皮肤异常、眼鼻分泌物等视觉特征。系统不直接给出疾病确诊结论，而是融合声音、视觉、环境和历史趋势数据，生成呼吸道风险、皮肤/体表异常风险、眼鼻异常风险、运动异常风险等分级预警，并保留音频片段、截图、置信度和环境数据作为人工复核依据。</blockquote>
+<h2 id="16-最小可落地版本">16. 最小可落地版本</h2>
+<p>第一期必须实现：</p>
+<ul>
+<li>ESP32-S3 采集温湿度、氨气趋势、光照、火情/烟雾。</li>
+<li>ESP32-S3 控制风扇、雾化器、声光报警。</li>
+<li>ESP32-S3 通过 MQTT 上传环境数据。</li>
+<li>MaixCam 运行 YOLOv8n 牛只检测模型。</li>
+<li>MaixCam 输出卧倒/疑似异常事件。</li>
+<li>ESP32-S3 采集牛舍声音，并完成咳嗽/背景噪声初步识别或事件截取。</li>
+<li>MaixCam 对姿态、明显皮肤异常、眼鼻异常疑似进行截图和风险提示。</li>
+<li>后端融合声音、视觉、环境数据生成健康风险等级。</li>
+<li>ESP32-S3 与 MaixCam 通过 UART 联动。</li>
+<li>后端和前端展示环境数据、视觉事件和告警截图。</li>
+<li>72 小时实验室运行和 7 天现场试点。</li>
+</ul>
+<p>第二期再做：</p>
+<ul>
+<li>打斗/剧烈活动识别。</li>
+<li>饲槽/饮水 ROI 行为统计。</li>
+<li>眼睛、鼻子、皮肤局部细分类模型端侧部署。</li>
+<li>近距离巡检小程序或手机端补拍上传。</li>
+<li>工业 NH3 传感器。</li>
+<li>4G 路由器。</li>
+<li>项圈 IMU 节点。</li>
+<li>OTA 升级和模型远程管理。</li>
+</ul>
+<h2 id="17-关键落地判断">17. 关键落地判断</h2>
+<p>ESP32-S3 替换 STM32 是合理的，尤其适合这个项目的“端云一体、低成本、易部署”叙述。但替换后要同步调整申报书逻辑：</p>
+<ol>
+<li>不再写 <code>STM32 + ESP8266</code>，改成 <code>ESP32-S3 原生 WiFi/BLE 主控</code>。</li>
+<li>不把 ESP32-S3 写成视觉 AI 主力，视觉 AI 仍由 MaixCam 负责。</li>
+<li>不承诺整机超低功耗，改写为分层功耗和事件触发推理。</li>
+<li>不承诺 100% 准确率，改写为 Precision、Recall、误报闭环和现场试点指标。</li>
+<li>把“使用开源算法”写成“开源 YOLO/音频分类基础模型 + 牛舍数据迁移训练 + 自主规则优化”，这样技术路线更可信，也更容易验收。</li>
+<li>疾病相关功能写成“健康风险筛查与人工复核”，不要写成“自动确诊牛病”。</li>
+</ol>
+      </article>
+    </div>
+  </main>
+</body>
+</html>

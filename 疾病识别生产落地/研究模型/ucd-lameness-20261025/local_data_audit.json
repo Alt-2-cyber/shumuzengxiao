@@ -1,0 +1,615 @@
+{
+  "source": {
+    "path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部临床数据\\UCD_Riaz_2025\\source\\AllCowsDataX.csv",
+    "sha256": "8a8f92b123ac17d73bd3fb26b3b2e805298a302109fcacaad7f1c43456af7b22",
+    "bytes": 64158736,
+    "rows": 383,
+    "header_columns": 20001,
+    "data_row_widths": [
+      20001
+    ],
+    "header_first": [
+      "farmer",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7"
+    ],
+    "header_last": [
+      "V19997",
+      "V19998",
+      "V19999",
+      "V20000",
+      "V20001",
+      "V20002"
+    ],
+    "r_implicit_row_names": false,
+    "clinical_label_columns": [],
+    "farm_column_present": true,
+    "cow_id_column_present": false
+  },
+  "dimension_reduced_files": [
+    {
+      "path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部临床数据\\UCD_Riaz_2025\\UCD-main\\AfterFPCA_AllCowsX.csv",
+      "sha256": "5e3ee68d8b4290a008e56531bd23475fc76308eb710e08c1fca3c3e06044b3a2",
+      "bytes": 617027,
+      "rows": 383,
+      "header_columns": 91,
+      "data_row_widths": [
+        92
+      ],
+      "header_first": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "header_last": [
+        "V86",
+        "V87",
+        "V88",
+        "V89",
+        "V90",
+        "V91"
+      ],
+      "r_implicit_row_names": true,
+      "clinical_label_columns": [],
+      "farm_column_present": false,
+      "cow_id_column_present": false
+    },
+    {
+      "path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部临床数据\\UCD_Riaz_2025\\UCD-main\\AfterPCA_AllCowsX.csv",
+      "sha256": "63fcdee3c7a17005d40bf95ab8cd2ec1ee16d04d9771b9cfd4c4e6bd12977f62",
+      "bytes": 514657,
+      "rows": 383,
+      "header_columns": 76,
+      "data_row_widths": [
+        77
+      ],
+      "header_first": [
+        "PC1",
+        "PC2",
+        "PC3",
+        "PC4",
+        "PC5",
+        "PC6"
+      ],
+      "header_last": [
+        "PC71",
+        "PC72",
+        "PC73",
+        "PC74",
+        "PC75",
+        "PC76"
+      ],
+      "r_implicit_row_names": true,
+      "clinical_label_columns": [],
+      "farm_column_present": false,
+      "cow_id_column_present": false
+    }
+  ],
+  "archives": [
+    {
+      "path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部临床数据\\UCD_Riaz_2025\\AllCowsDataX.zip",
+      "bytes": 40960,
+      "sha256": "f7a309f57a296cfce92b2ac576223d643ae80995a3950dc62a70cc84f7991a5c",
+      "valid": false,
+      "error": "File is not a zip file"
+    },
+    {
+      "path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部临床数据\\UCD_Riaz_2025\\UCD-main\\AllCowsDataX.zip",
+      "bytes": 5773151,
+      "sha256": "053e731fc6a68603e1eed909514703bb3b360d7c7e55155fa786fb266065f808",
+      "members": [
+        {
+          "name": "AllCowsDataX.csv",
+          "bytes": 64158736,
+          "compressed_bytes": 5772949
+        }
+      ],
+      "first_crc_failure": null,
+      "valid": true,
+      "csv_sha256": "8a8f92b123ac17d73bd3fb26b3b2e805298a302109fcacaad7f1c43456af7b22",
+      "csv_matches_source": true
+    },
+    {
+      "path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部临床数据\\UCD_Riaz_2025\\UCD-main.zip",
+      "bytes": 6424808,
+      "sha256": "74bdb9166acc19b950c9d3bc1fe876edb41309598605081395286ec5f8c59f73",
+      "members": [
+        {
+          "name": "UCD-main/",
+          "bytes": 0,
+          "compressed_bytes": 0
+        },
+        {
+          "name": "UCD-main/A1_NR_RF_FS1.R",
+          "bytes": 9421,
+          "compressed_bytes": 2942
+        },
+        {
+          "name": "UCD-main/A1_NR_RF_RS2.R",
+          "bytes": 9336,
+          "compressed_bytes": 2888
+        },
+        {
+          "name": "UCD-main/A2_PCA_KNN_FS7.R",
+          "bytes": 8745,
+          "compressed_bytes": 2660
+        },
+        {
+          "name": "UCD-main/A2_PCA_KNN_RS8.R",
+          "bytes": 9275,
+          "compressed_bytes": 2876
+        },
+        {
+          "name": "UCD-main/A2_PCA_LR_FS5.R",
+          "bytes": 8640,
+          "compressed_bytes": 2663
+        },
+        {
+          "name": "UCD-main/A2_PCA_LR_RS6.R",
+          "bytes": 9564,
+          "compressed_bytes": 3012
+        },
+        {
+          "name": "UCD-main/A2_PCA_NB_FS9.R",
+          "bytes": 8876,
+          "compressed_bytes": 2709
+        },
+        {
+          "name": "UCD-main/A2_PCA_NB_RS10.R",
+          "bytes": 9089,
+          "compressed_bytes": 2812
+        },
+        {
+          "name": "UCD-main/A2_PCA_RF_FS3.R",
+          "bytes": 9359,
+          "compressed_bytes": 2906
+        },
+        {
+          "name": "UCD-main/A2_PCA_RF_RS4.R",
+          "bytes": 9633,
+          "compressed_bytes": 2921
+        },
+        {
+          "name": "UCD-main/A2_PCA_SVM_FS11.R",
+          "bytes": 9955,
+          "compressed_bytes": 3083
+        },
+        {
+          "name": "UCD-main/A2_PCA_SVM_RS12.R",
+          "bytes": 8156,
+          "compressed_bytes": 2542
+        },
+        {
+          "name": "UCD-main/A3_FPCA_KNN_FS17.R",
+          "bytes": 8586,
+          "compressed_bytes": 2631
+        },
+        {
+          "name": "UCD-main/A3_FPCA_KNN_RS18.R",
+          "bytes": 9383,
+          "compressed_bytes": 2927
+        },
+        {
+          "name": "UCD-main/A3_FPCA_LR_FS15.R",
+          "bytes": 8656,
+          "compressed_bytes": 2665
+        },
+        {
+          "name": "UCD-main/A3_FPCA_LR_RS16.R",
+          "bytes": 9666,
+          "compressed_bytes": 3045
+        },
+        {
+          "name": "UCD-main/A3_FPCA_NB_FS19.R",
+          "bytes": 8717,
+          "compressed_bytes": 2670
+        },
+        {
+          "name": "UCD-main/A3_FPCA_NB_RS20.R",
+          "bytes": 9130,
+          "compressed_bytes": 2830
+        },
+        {
+          "name": "UCD-main/A3_FPCA_RF_FS13.R",
+          "bytes": 8162,
+          "compressed_bytes": 2484
+        },
+        {
+          "name": "UCD-main/A3_FPCA_RF_RS14.R",
+          "bytes": 9313,
+          "compressed_bytes": 2858
+        },
+        {
+          "name": "UCD-main/A3_FPCA_SVM_RS22.R",
+          "bytes": 9915,
+          "compressed_bytes": 3078
+        },
+        {
+          "name": "UCD-main/AfterFPCA_AllCowsX.csv",
+          "bytes": 617027,
+          "compressed_bytes": 293432
+        },
+        {
+          "name": "UCD-main/AfterPCA_AllCowsX.csv",
+          "bytes": 514657,
+          "compressed_bytes": 245404
+        },
+        {
+          "name": "UCD-main/AllCowsDataX.zip",
+          "bytes": 5773151,
+          "compressed_bytes": 5734960
+        },
+        {
+          "name": "UCD-main/README.md",
+          "bytes": 5,
+          "compressed_bytes": 5
+        },
+        {
+          "name": "UCD-main/README_FIRST.txt",
+          "bytes": 3606,
+          "compressed_bytes": 856
+        },
+        {
+          "name": "UCD-main/Untitled Diagram.drawio.png",
+          "bytes": 92973,
+          "compressed_bytes": 86847
+        }
+      ],
+      "first_crc_failure": null,
+      "valid": true
+    }
+  ],
+  "r_scripts": [
+    {
+      "name": "A1_NR_RF_FS1.R",
+      "sha256": "22ad6d8c608d2e39f46b718268e58f77f3af3bb6b8fc7086d84fa5f06f95b16c",
+      "input_files": [
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": true,
+      "provided_pca_not_fit_in_fold": false
+    },
+    {
+      "name": "A1_NR_RF_RS2.R",
+      "sha256": "4e4528771589f271cac7b7c0e1a59e513f0bb5aeaef6772ded815f6702397e79",
+      "input_files": [
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": false
+    },
+    {
+      "name": "A2_PCA_KNN_FS7.R",
+      "sha256": "060dde1a239a5744ab7b7dade9fd2b1f1906914e330bea55951bac609a2c41d1",
+      "input_files": [
+        "AfterPCA_AllCowsX.csv",
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": true,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A2_PCA_KNN_RS8.R",
+      "sha256": "08824b64f178063d7b6a8867a5dd1b1dcf74dc749babf3b5bde418485e1110c9",
+      "input_files": [
+        "AfterPCA_AllCowsX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A2_PCA_LR_FS5.R",
+      "sha256": "4fb52940b8e6aecd922053e3d70b514adabd90d04bcb3f1346623be2444762fb",
+      "input_files": [
+        "AfterPCA_AllCowsX.csv",
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": true,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A2_PCA_LR_RS6.R",
+      "sha256": "58a1af013be322170776608df1fe85b6ff77f82948cfe7ab4f9fe0fab57bd01a",
+      "input_files": [
+        "AfterPCA_AllCowsX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A2_PCA_NB_FS9.R",
+      "sha256": "72f577bb174e4f412a4115a66fd18d268339577dace11fbdc88f5e2e56ae565f",
+      "input_files": [
+        "AfterPCA_AllCowsX.csv",
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": true,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A2_PCA_NB_RS10.R",
+      "sha256": "1d14b4507ff895f19149af02f818f0b72d600093a0d7cb48d94bbbb013c15bc6",
+      "input_files": [
+        "AfterPCA_AllCowsX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A2_PCA_RF_FS3.R",
+      "sha256": "2068581e6daadb78d1d1a5b98174844469ede3d6e25741fe043bc9c7771e4455",
+      "input_files": [
+        "AfterPCA_AllCowsX.csv",
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": true,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A2_PCA_RF_RS4.R",
+      "sha256": "b711605e1fe20611321bb224bf27ca0273da8f3549f801ff72d2538182911eda",
+      "input_files": [
+        "AfterPCA_AllCowsX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A2_PCA_SVM_FS11.R",
+      "sha256": "8750ffdabd8b3f12ac095b3569ce8ec62449512b4063d2fdcbfa2dc0cb7746c2",
+      "input_files": [
+        "AfterPCA_AllCowsX.csv",
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": true,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A2_PCA_SVM_RS12.R",
+      "sha256": "b459d610b75bf3d38c6f5c52c83b3911af97e72fc7e518650bce474067dceb0c",
+      "input_files": [
+        "AfterPCA_AllCowsX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A3_FPCA_KNN_FS17.R",
+      "sha256": "4201479f45f98d5ba02dd2da0afbde5c6bd4410553bee614405b3227145c4d52",
+      "input_files": [
+        "AfterFPCA_AllCowsX.csv",
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": true,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A3_FPCA_KNN_RS18.R",
+      "sha256": "3566e929539bcc93c11dbd7a6ceaf5f71d8d8b43854adfbb9ba064622f0cff39",
+      "input_files": [
+        "AfterFPCA_AllCowsX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A3_FPCA_LR_FS15.R",
+      "sha256": "d3a1d3551e5cfe155a8569a4d058a0d3592feb31a2afb847cc1e31b69b22e81d",
+      "input_files": [
+        "AfterFPCA_AllCowsX.csv",
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": true,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A3_FPCA_LR_RS16.R",
+      "sha256": "48412392955380bcf0d524c2b482604f4a435af2b6159c8c33b78ffffc4ff5ca",
+      "input_files": [
+        "AfterFPCA_AllCowsX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A3_FPCA_NB_FS19.R",
+      "sha256": "ce68a716502fd6905fa1c2c98cba6e2c89b26e3b3c05e4a8feae84f940096ffc",
+      "input_files": [
+        "AfterFPCA_AllCowsX.csv",
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": true,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A3_FPCA_NB_RS20.R",
+      "sha256": "363b87302ef64f971b72724e02cd0329b82c5b5e5eb91f7987c34498c516a65a",
+      "input_files": [
+        "AfterFPCA_AllCowsX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A3_FPCA_RF_FS13.R",
+      "sha256": "a607ef722e695b99068410466233b81d26e7b9ef84da788575440312861f0b20",
+      "input_files": [
+        "AfterFPCA_AllCowsX.csv",
+        "AllCowsDataX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": true,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A3_FPCA_RF_RS14.R",
+      "sha256": "731be5f19490c4941f8d683504beb0898a9e54977bad5a6dc25257dbe9f064e2",
+      "input_files": [
+        "AfterFPCA_AllCowsX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": true
+    },
+    {
+      "name": "A3_FPCA_SVM_RS22.R",
+      "sha256": "5a9945ee9c47346d7cc63375ef34a7a8d14355af3ded9ac45f7e870ea244ab90",
+      "input_files": [
+        "AfterFPCA_AllCowsX.csv",
+        "CombConorAll.csv"
+      ],
+      "requires_High": true,
+      "requires_farmer": false,
+      "provided_pca_not_fit_in_fold": true
+    }
+  ],
+  "farm_counts": {
+    "Farmer_1": 43,
+    "Farmer_2": 12,
+    "Farmer_3": 45,
+    "Farmer_4": 44,
+    "Farmer_5": 12,
+    "Farmer_6": 46,
+    "Farmer_7": 24,
+    "Farmer_8": 24,
+    "Farmer_9": 43,
+    "Farmer_10": 44,
+    "Farmer_11": 46
+  },
+  "shape_numeric": [
+    383,
+    20000
+  ],
+  "finite": true,
+  "duplicate_numeric_series": 0,
+  "range": [
+    -8.0,
+    7.984375
+  ],
+  "overall_mean": 0.4702988740208877,
+  "overall_std": 0.5734496085544726,
+  "all_values_on_1_over_64_grid": true,
+  "feature_column_mean_range": [
+    0.021581266318537858,
+    0.8724298302872062
+  ],
+  "feature_column_std_range": [
+    0.3262342291541793,
+    0.813398964170156
+  ],
+  "clinical_files_found": [],
+  "existing_lameness_interface": {
+    "FEATURE_NAMES": [
+      "neck_acc_mean",
+      "neck_acc_std",
+      "neck_acc_delta_mean",
+      "neck_acc_delta_std",
+      "body_acc_mean",
+      "body_acc_std",
+      "body_acc_delta_mean",
+      "body_acc_delta_std",
+      "leg_acc_mean",
+      "leg_acc_std",
+      "leg_acc_delta_mean",
+      "leg_acc_delta_std"
+    ],
+    "POSITIONS": [
+      "neck",
+      "body",
+      "leg"
+    ],
+    "SAMPLE_RATE_HZ": 20
+  },
+  "protected_source_sha256": {
+    "D:\\table\\shumuzengxiao\\牛行为识别数据集\\esp32_motion_model\\train_export_model.py": "0bed94f35d95b02b885369fd3e06450b38531fef625239ede8ab58be292efb8e",
+    "D:\\table\\shumuzengxiao\\硬件代码\\现有硬件演示节点\\tools\\train_lameness_model.py": "0bcb8bfb7fdb312371f55fcd99c9b9613f85b2bb2c3f0af5db7e8b2ff146c2df",
+    "D:\\table\\shumuzengxiao\\硬件代码\\现有硬件演示节点\\tools\\verify_lameness_manifest.py": "011d5c612dc6b3a854066194deb5b23b9553fbccd2848692d417cebf267ee41d",
+    "D:\\table\\shumuzengxiao\\硬件代码\\现有硬件演示节点\\include\\cattle_lameness_model.h": "5c394096b68222ab67e9fe19ff71398aad04f96839e77bbae4fdc3821d1398cd",
+    "D:\\table\\shumuzengxiao\\硬件代码\\牛身节点\\include\\cattle_lameness_model.h": "5c394096b68222ab67e9fe19ff71398aad04f96839e77bbae4fdc3821d1398cd"
+  },
+  "cow_identity": "One row per cow per paper; no original cow ID in feature CSV",
+  "qc_row_identifier": "File row index only; not an invented clinical cow ID",
+  "paper": {
+    "path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\论文资料\\01_跛行_加速度计足病机器学习验证_Riaz_2025.fulltext.xml",
+    "sha256": "243939887524e567a59afc31ea190254885aca3afa3365a51066722ca1b62577",
+    "doi": "10.1371/journal.pone.0325927",
+    "paragraphs": [
+      "An AX3 Logging 3-axis accelerometer was used to collect the accelerometer data in 3 perpendicular axes, x, y, and z. This was the preferred accelerometer as it gives comprehensive details of the orientation, complex activities, and movements of cows. It also provides efficient battery life for longer-term monitoring and a compact design on-device lithium polymer battery to record up to 21 days of continuous data with 90 minutes of charging time and water resistance up to 1.5 meters; it is thus a suitable accelerometer for a veterinary environment. The collected data was saved in a USB-enabled microcontroller linked to the non-volatile flash memory chip attached at the heart of the AX3 device.",
+      "The sampling procedure on each farm consisted of two separate visits, two weeks apart. During the initial visit, the randomly chosen cows were identified, and an accelerometer was fitted to one hind limb; it remained there throughout the trial period. During the second visit to the farm two weeks later, the recruited cows were drafted out from the rest of the herd following milking and foot lesions were recorded for each claw through clinical assessment of each of the four feet and converted to a binary outcome according to severity based on 3 case definitions: case definition 1: any lesion present; case definition 2: moderate lesions present (excluding minor lesions expected to have a low probability of affecting gait); and case definition 3: severe lesions present (only including lesions most likely to result in a detectable gait abnormality). For the purpose of this analysis, we focused on the detection of foot lesions that fulfilled case definition 3 (i.e., severe lesions). No assessment of lameness was performed on the initial visit. Accelerometers were then removed from the animals, and the data downloaded.",
+      "All the pre-processing steps, modelling, and analysis were performed in the R statistical software [31]. Due to the large size of the downloaded data, only the last seven days’ observations were extracted from the original dataset. The last seven days, rather than the first seven days, were considered as foot lesion assessment was conducted on the second visit. To ease computational cost when applying ML methods, the size of the data was further reduced by randomly sampling and retaining one measurement from every 1500 measurements, providing approximately one accelerometer measurement per 30 seconds. The data were then standardised so that each feature had a mean of zero and a standard deviation of one. After these steps, the dataset contained data from N = 383 cows, from f = 11 farms, each with p = 20,000 features per direction. Initially, all three directions (x, y, and z) were considered independently, but our preliminary analysis, based on AUC values, suggested that the z-direction data were optimal for detecting lameness, outperforming the x and y directions’ data. Analysis, therefore, proceeded based on the z direction only.",
+      "While many ML methods are not appropriate for use given that the dataset has N<<p, random forests (RFs) is one of the few methods that has the potential to handle such datasets as it can be applied directly on the p = 20,000 features without the need to reduce the number of features a priori. Moreover, RFs can capture non-linear patterns and feature interactions, however, this comes at the cost of a higher risk of overfitting and increased computational cost. Here, RFs were applied to the accelerometer data using the “randomForest package” (version 4.7.1.2) [32] in R, with default settings employed.",
+      "We considered severe foot lesions, as diagnosed by the veterinarian, as the target condition or reference test against which we compared the classification algorithms. Several performance metrics were computed to analyze the classification algorithms’ performance, including sensitivity (the proportion of cows with severe foot lesions that were predicted correctly), specificity (the proportion of cows without severe foot lesions that were predicted correctly), negative predictive value (the proportion of cows predicted as negative that did not have severe foot lesions), positive predictive value (the proportion of cows predicted as positive that had foot lesions present), accuracy (the proportion of correctly predicted cows), mean absolute classification error (MACE), balanced accuracy and area under the curve (AUC). We further constructed calibration plots to assess the alignment between the predicted lameness probabilities from our ML models and the proportion of affected cases (observed values). The predicted probabilities were grouped into bins, and for each bin, the mean predicted probability was plotted against the observed proportion of cows with severe foot lesions.",
+      "The initial dataset consisted of approximately 60 million recordings over two weeks in each of the three movement directions (x, y, and z) for each of the 383 dairy cows in 11 dairy herds. After sampling, the dataset was reduced to 20,000 recordings per cow in the z-axis. Dimension reduction using PCA and fPCA reduced the data to q = 77 and q = 105 components, respectively."
+    ],
+    "supplements": [
+      {
+        "id": "pone.0325927.s001",
+        "href": "info:doi/10.1371/journal.pone.0325927.s001",
+        "description": "S1 Table Confidence intervals for a range of metrics across all reduction, validation and ML methods. (DOCX)"
+      }
+    ],
+    "repository_links": [
+      "https://github.com/june18usman/UCD"
+    ]
+  },
+  "run": {
+    "at_utc": "2026-10-25T11:40:08.527559+00:00",
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.4.3",
+    "script": "D:\\table\\shumuzengxiao\\scripts\\train_ucd_lameness_20261025.py",
+    "script_sha256": "e240cee1729527708b274182f35842bdb8cd2d061f9446c66ac02b7a4f7acbb9",
+    "args": {
+      "data": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部临床数据\\UCD_Riaz_2025",
+      "output": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025",
+      "online": false,
+      "discover": false,
+      "verify": true,
+      "labels": null,
+      "provenance": null
+    }
+  }
+}

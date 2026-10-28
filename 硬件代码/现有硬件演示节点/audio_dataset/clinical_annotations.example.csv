@@ -1,0 +1,2 @@
+sourceEventId,label,animalId,recordingSessionId,veterinarian,evidenceReference,verifiedAt
+101,cough_suspect,cattle-017,session-20260719-am,vet-case-20260719-017,case-file-or-video-reference,2026-07-19T10:30:00Z

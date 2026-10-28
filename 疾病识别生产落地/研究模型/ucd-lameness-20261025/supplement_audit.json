@@ -1,0 +1,16 @@
+{
+  "sha256": "43d15e8fc8a6aa5a6386d792d457c2b56161d00f38d45598b1ea89f41dd0a119",
+  "zip_crc_failure": null,
+  "tables": 1,
+  "aggregate_metric_rows": 176,
+  "headers": [
+    "Reduction method",
+    "Validation method",
+    "ML method",
+    "Metric",
+    "Estimate (95% confidence interval)"
+  ],
+  "individual_cow_labels_present": false,
+  "basis": "Single table has reduction/validation/model/metric/estimate columns only",
+  "metric_origin": "Published paper, not validation performed in this run"
+}

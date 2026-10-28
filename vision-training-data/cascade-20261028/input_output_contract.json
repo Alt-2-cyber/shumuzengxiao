@@ -1,0 +1,16 @@
+{
+  "labels": [
+    "foot-and-mouth",
+    "healthy",
+    "lumpy"
+  ],
+  "input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "geometry": "Bilinear letterbox cow ROI, gray114 padding, RGB /255",
+  "softmax_in_graph": true,
+  "input_geometry": "cow_roi_letterbox"
+}

@@ -1,0 +1,34 @@
+<view class="support-page assistant-page">
+  <view class="support-head">
+    <view><text class="support-title">AI 助手</text><text class="support-status">{{mode}}</text></view>
+    <view class="head-tools">
+      <button class="support-link" bindtap="settings">服务设置</button>
+      <button class="support-link" bindtap="newChat" disabled="{{sending || !messages.length}}">清空会话</button>
+    </view>
+  </view>
+  <scroll-view class="conversation" scroll-y scroll-into-view="{{scrollTarget}}" scroll-with-animation enhanced show-scrollbar="{{false}}">
+    <view wx:if="{{!messages.length}}" class="welcome">
+      <text class="welcome-title">今天的牛舍巡检，有什么发现？</text>
+      <view class="question-list">
+        <button wx:for="{{prompts}}" wx:key="*this" class="question-row" data-question="{{item}}" bindtap="choosePrompt"><text>{{item}}</text><text class="question-arrow">↗</text></button>
+      </view>
+    </view>
+    <view wx:for="{{messages}}" wx:key="id" id="msg-{{item.id}}" class="message {{item.role}}">
+      <view class="message-head"><text>{{item.role === 'user' ? '我' : '数牧助手'}}</text><text>{{item.time}}</text></view>
+      <text class="message-content" selectable>{{item.content}}</text>
+      <text wx:if="{{item.status === 'pending'}}" class="support-meta">正在回答…</text>
+      <view wx:if="{{item.status === 'failed'}}" class="support-error"><text>{{item.error}}</text><button class="support-link" bindtap="retry" data-id="{{item.id}}" disabled="{{sending}}">重试</button></view>
+      <view wx:if="{{item.role === 'assistant'}}" class="answer-footer">
+        <text class="answer-model">{{item.mode === 'llm' ? '大模型' : '知识库'}} · {{item.model}}</text>
+        <button wx:for="{{item.references}}" wx:for-item="ref" wx:key="url" class="reference" bindtap="copyReference" data-url="{{ref.url}}">{{ref.title}} ↗</button>
+        <view class="answer-actions"><button class="support-link" bindtap="copyMessage" data-id="{{item.id}}">复制</button><button class="support-link" bindtap="consult" data-id="{{item.id}}">转专家咨询 ↗</button></view>
+      </view>
+    </view>
+    <view id="conversation-end" class="conversation-end"></view>
+  </scroll-view>
+  <view class="composer">
+    <text wx:if="{{error}}" class="composer-error">{{error}}</text>
+    <view class="input-row"><textarea class="chat-input" placeholder="描述牛只、环境或设备问题" placeholder-style="color:#92a698" value="{{input}}" maxlength="1000" bindinput="onInput" disabled="{{sending}}" auto-height cursor-spacing="20" show-confirm-bar="{{false}}"></textarea><button class="send-button" aria-label="发送问题" bindtap="send" disabled="{{sending || !input}}">{{sending ? '…' : '↑'}}</button></view>
+    <text class="composer-note">健康建议供巡检参考，疾病需由兽医确认</text>
+  </view>
+</view>

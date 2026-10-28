@@ -1,0 +1,41 @@
+{
+  "checked_utc": "2026-10-26T12:18:35.549756+00:00",
+  "status": "host_handoff_verified",
+  "source_onnx_sha256": "3e49e2451993e6e45e452253dd94a456c58ecdee634dfe1ffeb276053aa6cbfb",
+  "logit_onnx_sha256": "2774d857d2d9cff0526e665d61d899c96eb6619fb9b550f30de97589c6a7d23d",
+  "best_pt_sha256": "bc0ed384f8904a5cddad49d4b53942d29e3d43159fbdac6a5e421c76a6702b44",
+  "calibration_files_and_source_hashes_verified": 120,
+  "calibration_geometry_pixel_exact": true,
+  "calibration_unique_training_groups": 120,
+  "calibration_per_class": {
+    "foot-and-mouth": 40,
+    "healthy": 40,
+    "lumpy": 40
+  },
+  "calibration_evaluation_group_overlap": 0,
+  "logits_softmax_reference_tensors_tested": 3,
+  "logits_softmax_max_abs_difference": 2.9103830456733704e-11,
+  "output_labels": [
+    "foot-and-mouth",
+    "healthy",
+    "lumpy"
+  ],
+  "source_probability_graph_classifier_softmax": false,
+  "extracted_logit_graph_classifier_softmax": true,
+  "training_rerun": false,
+  "heldout_inference_rerun": false,
+  "model_weights_changed": false,
+  "conversion_job_owner": "main agent; existing WSL process left untouched",
+  "device_execution_verified": false,
+  "physical_deployment_verified": false,
+  "device_limit": "Camera USB/network unavailable as reported by user; no device connection attempted",
+  "ui_validation": "Static source inspection only; generic feature/archive badge for research_only; existing vision screenshot predates this work",
+  "converted_host_files_checked_utc": "2026-10-26T12:34:20.406585+00:00",
+  "converted_host_file_status": "hashes_and_metadata_verified",
+  "cvimodel_sha256": "ca9900d75e8b0b0dca0f15d7b425077de031fb5c3da676ed4cef44736492da09",
+  "mud_sha256": "5cd9126e089ed469a0559970b2e38c42da1a89c20e4fdaf1a5a6cdcae02fca20",
+  "mud_same_directory_model_reference_verified": true,
+  "mud_color_normalization_labels_verified": true,
+  "host_simulator_compare_success_observed": true,
+  "int8_heldout_accuracy_evaluated_here": false
+}

@@ -1,0 +1,8 @@
+{
+  "minimum_score": 0.75,
+  "minimum_margin": 0.3,
+  "validation_accepted": 143,
+  "validation_accuracy_among_accepted": 0.9020979020979021,
+  "selection": "Validation only; widest coverage at >=90% source-label correctness",
+  "clinical_validation": false
+}

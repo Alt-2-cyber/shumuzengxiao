@@ -1,0 +1,10 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/Assistant",
+    "pages/Consultation",
+    "pages/SupportSettings",
+    "pages/News",
+    "pages/NewsDetail"
+  ]
+}

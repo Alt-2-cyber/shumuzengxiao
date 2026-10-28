@@ -1,0 +1,121 @@
+{
+  "modelVersion": "cattle-disease-research-797d5d9b4cbc",
+  "status": "research_only",
+  "sourceRoot": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部视觉数据\\Kaggle_CattleDiseases_2025\\raw",
+  "sourceImageCount": 3244,
+  "sourceFingerprint": "797d5d9b4cbc98b1e4f64a3e5e84dd2a5efcb0516a1b023067c90c28318c93ee",
+  "classes": [
+    "foot_and_mouth",
+    "healthy",
+    "lumpy"
+  ],
+  "classCounts": {
+    "foot_and_mouth": 746,
+    "healthy": 1291,
+    "lumpy": 1207
+  },
+  "splitPolicy": "image-level stratified split; no animal/farm/date identity was supplied",
+  "validation": {
+    "accuracy": 0.6597938144329897,
+    "macroF1": 0.6636233831527948,
+    "classMetrics": {
+      "foot_and_mouth": {
+        "precision": 0.6909090909090909,
+        "recall": 0.6846846846846847,
+        "f1": 0.6877828054298641,
+        "support": 111
+      },
+      "healthy": {
+        "precision": 0.6795580110497238,
+        "recall": 0.6373056994818653,
+        "f1": 0.6577540106951871,
+        "support": 193
+      },
+      "lumpy": {
+        "precision": 0.6237113402061856,
+        "recall": 0.6685082872928176,
+        "f1": 0.6453333333333333,
+        "support": 181
+      }
+    },
+    "confusionMatrix": [
+      [
+        76,
+        18,
+        17
+      ],
+      [
+        14,
+        123,
+        56
+      ],
+      [
+        20,
+        40,
+        121
+      ]
+    ],
+    "labels": [
+      "foot_and_mouth",
+      "healthy",
+      "lumpy"
+    ]
+  },
+  "externalTest": {
+    "accuracy": 0.6857142857142857,
+    "macroF1": 0.6915312047481623,
+    "classMetrics": {
+      "foot_and_mouth": {
+        "precision": 0.7916666666666666,
+        "recall": 0.672566371681416,
+        "f1": 0.7272727272727273,
+        "support": 113
+      },
+      "healthy": {
+        "precision": 0.6747572815533981,
+        "recall": 0.7128205128205128,
+        "f1": 0.6932668329177057,
+        "support": 195
+      },
+      "lumpy": {
+        "precision": 0.6436170212765957,
+        "recall": 0.6648351648351648,
+        "f1": 0.6540540540540539,
+        "support": 182
+      }
+    },
+    "confusionMatrix": [
+      [
+        76,
+        18,
+        19
+      ],
+      [
+        8,
+        139,
+        48
+      ],
+      [
+        12,
+        49,
+        121
+      ]
+    ],
+    "labels": [
+      "foot_and_mouth",
+      "healthy",
+      "lumpy"
+    ]
+  },
+  "releaseGate": {
+    "approved": false,
+    "reasons": [
+      "veterinary sign-off is missing",
+      "animal grouping is missing",
+      "external farm test is missing",
+      "artifact is not a MaixCAM .mud model"
+    ]
+  },
+  "labelPolicy": "All labels are research image labels only; they are not a veterinary diagnosis or release authorization.",
+  "generatedAt": "2026-09-18T12:35:01.669008+00:00"
+}

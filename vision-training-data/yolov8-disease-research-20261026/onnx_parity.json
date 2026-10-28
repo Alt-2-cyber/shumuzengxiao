@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "pytorch_device": "cuda:0",
+  "onnx_provider": [
+    "CPUExecutionProvider"
+  ],
+  "tested_images": 413,
+  "input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "output_shape": [
+    1,
+    3
+  ],
+  "input_dtype": "tensor(float)",
+  "output_semantics": "softmax probabilities, not logits",
+  "maximum_absolute_difference": 4.231929779052734e-06,
+  "mean_per_image_maximum_difference": 1.4512519434986567e-07,
+  "argmax_agreement": 1.0,
+  "rtol": 0.0001,
+  "atol": 1e-05,
+  "onnx_checker_passed": true,
+  "static_batch_1": true,
+  "opset": 13,
+  "cuda_cudnn_allow_tf32": false,
+  "cuda_matmul_allow_tf32": false,
+  "precision_note": "Strict FP32 reference inference; training configuration and frozen weights unchanged"
+}

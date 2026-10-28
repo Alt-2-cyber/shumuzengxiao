@@ -1,0 +1,539 @@
+{
+  "trained_at_utc": "2026-10-26T11:57:18.753808+00:00",
+  "research_only": true,
+  "production_approved": false,
+  "allow_for_disease_labels": false,
+  "non_cough_means_healthy": false,
+  "animal_independent_validation": false,
+  "scores_calibrated_on_external_data": false,
+  "clinical_diagnosis": false,
+  "source_counts": {
+    "original_inrae_wavs": 40,
+    "additional_figshare_wavs_downloaded": 725,
+    "additional_author_cough": 266,
+    "additional_author_class_counts": {
+      "cough": 266,
+      "excretion": 48,
+      "metal": 200,
+      "ab": 211
+    },
+    "included_files": 552,
+    "included_target_counts": {
+      "cough": 286,
+      "non_cough": 266
+    },
+    "included_additional_files": 512,
+    "excluded_additional_files": 213,
+    "unique_included_pcm_recordings": 552,
+    "exclusion_counts": {
+      "Unexplained author label ab; no inferred cough/noncough mapping": 211,
+      "abstain_too_short": 1,
+      "duplicate_decoded_pcm": 1
+    },
+    "actual_originals_not_augmentations": true,
+    "clinical_verified_files": 0,
+    "verified_animal_groups": 0,
+    "verified_recording_sessions": 0,
+    "effective_split_groups": 15,
+    "unverified_filename_families": 15,
+    "source_formats": {
+      "44100Hz/int16/1ch": 40,
+      "44100Hz/int16/2ch": 722,
+      "48000Hz/int32/2ch": 3
+    }
+  },
+  "training_script_sha256": "f82e63d50c0232184559deeca2de7f9c3b840087ad5454d261385116c0977ca4",
+  "legacy_script_sha256": "1ff81b8940ff8219d3efa010ab9fb1d488fadc22e1a07e037da83dea955b7b98",
+  "original40_comparison": {
+    "file_count": 40,
+    "fixed_baseline_metrics": {
+      "unit": "one original file, one vote",
+      "interpretation": "exploratory file-held-out engineering diagnostic",
+      "source_group_status": "source group unknown",
+      "animal_independent_validation": false,
+      "file_count": 40,
+      "threshold": 0.5,
+      "class_order": [
+        "non_cough",
+        "cough"
+      ],
+      "accuracy": 0.725,
+      "balanced_accuracy": 0.725,
+      "macro_f1": 0.7248280175109443,
+      "roc_auc": 0.7874999999999999,
+      "average_precision_cough": 0.7330602928736802,
+      "brier_score_cough": 0.19711122041228227,
+      "log_loss": 0.6035267724296546,
+      "confusion_matrix_true_rows_predicted_columns": [
+        [
+          15,
+          5
+        ],
+        [
+          6,
+          14
+        ]
+      ],
+      "per_class": {
+        "non_cough": {
+          "precision": 0.7142857142857143,
+          "recall": 0.75,
+          "f1": 0.7317073170731707,
+          "support": 20
+        },
+        "cough": {
+          "precision": 0.7368421052631579,
+          "recall": 0.7,
+          "f1": 0.717948717948718,
+          "support": 20
+        }
+      }
+    },
+    "nested_spectral_metrics": {
+      "unit": "one original file, one vote",
+      "interpretation": "exploratory file-held-out engineering diagnostic",
+      "source_group_status": "source group unknown",
+      "animal_independent_validation": false,
+      "file_count": 40,
+      "threshold": 0.5,
+      "class_order": [
+        "non_cough",
+        "cough"
+      ],
+      "accuracy": 0.9,
+      "balanced_accuracy": 0.8999999999999999,
+      "macro_f1": 0.899749373433584,
+      "roc_auc": 0.9624999999999999,
+      "average_precision_cough": 0.9595684228482215,
+      "brier_score_cough": 0.1335793655154049,
+      "log_loss": 0.43043786617030316,
+      "confusion_matrix_true_rows_predicted_columns": [
+        [
+          19,
+          1
+        ],
+        [
+          3,
+          17
+        ]
+      ],
+      "per_class": {
+        "non_cough": {
+          "precision": 0.8636363636363636,
+          "recall": 0.95,
+          "f1": 0.9047619047619048,
+          "support": 20
+        },
+        "cough": {
+          "precision": 0.9444444444444444,
+          "recall": 0.85,
+          "f1": 0.8947368421052632,
+          "support": 20
+        }
+      }
+    }
+  },
+  "expanded_development": {
+    "file_count": 378,
+    "fixed_baseline_metrics": {
+      "unit": "one original file, one vote",
+      "interpretation": "exploratory file-held-out engineering diagnostic",
+      "source_group_status": "source group unknown",
+      "animal_independent_validation": false,
+      "file_count": 378,
+      "threshold": 0.5,
+      "class_order": [
+        "non_cough",
+        "cough"
+      ],
+      "accuracy": 0.8544973544973545,
+      "balanced_accuracy": 0.8432861630688533,
+      "macro_f1": 0.8478517011482476,
+      "roc_auc": 0.9003948468167277,
+      "average_precision_cough": 0.8893194963782419,
+      "brier_score_cough": 0.11993263096715014,
+      "log_loss": 0.39083483869329944,
+      "confusion_matrix_true_rows_predicted_columns": [
+        [
+          201,
+          20
+        ],
+        [
+          35,
+          122
+        ]
+      ],
+      "per_class": {
+        "non_cough": {
+          "precision": 0.8516949152542372,
+          "recall": 0.9095022624434389,
+          "f1": 0.8796498905908097,
+          "support": 221
+        },
+        "cough": {
+          "precision": 0.8591549295774648,
+          "recall": 0.7770700636942676,
+          "f1": 0.8160535117056856,
+          "support": 157
+        }
+      }
+    },
+    "nested_spectral_metrics": {
+      "unit": "one original file, one vote",
+      "interpretation": "exploratory file-held-out engineering diagnostic",
+      "source_group_status": "source group unknown",
+      "animal_independent_validation": false,
+      "file_count": 378,
+      "threshold": 0.5,
+      "class_order": [
+        "non_cough",
+        "cough"
+      ],
+      "accuracy": 0.91005291005291,
+      "balanced_accuracy": 0.9083206040868086,
+      "macro_f1": 0.907566168009206,
+      "roc_auc": 0.9632244862668242,
+      "average_precision_cough": 0.9293352803077765,
+      "brier_score_cough": 0.11390975669292822,
+      "log_loss": 0.38663958345119204,
+      "confusion_matrix_true_rows_predicted_columns": [
+        [
+          203,
+          18
+        ],
+        [
+          16,
+          141
+        ]
+      ],
+      "per_class": {
+        "non_cough": {
+          "precision": 0.9269406392694064,
+          "recall": 0.918552036199095,
+          "f1": 0.9227272727272727,
+          "support": 221
+        },
+        "cough": {
+          "precision": 0.8867924528301887,
+          "recall": 0.8980891719745223,
+          "f1": 0.8924050632911392,
+          "support": 157
+        }
+      }
+    }
+  },
+  "final_reserved_holdout": {
+    "indices": [
+      40,
+      41,
+      44,
+      45,
+      46,
+      47,
+      52,
+      54,
+      55,
+      56,
+      59,
+      61,
+      62,
+      66,
+      67,
+      68,
+      72,
+      73,
+      74,
+      83,
+      84,
+      87,
+      88,
+      89,
+      90,
+      95,
+      96,
+      97,
+      100,
+      101,
+      102,
+      103,
+      110,
+      111,
+      115,
+      118,
+      119,
+      128,
+      131,
+      132,
+      137,
+      138,
+      139,
+      143,
+      144,
+      145,
+      146,
+      147,
+      150,
+      151,
+      152,
+      154,
+      161,
+      162,
+      165,
+      169,
+      171,
+      172,
+      173,
+      175,
+      179,
+      180,
+      183,
+      185,
+      187,
+      188,
+      189,
+      191,
+      192,
+      194,
+      199,
+      200,
+      204,
+      209,
+      210,
+      212,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      221,
+      222,
+      223,
+      226,
+      235,
+      236,
+      237,
+      238,
+      239,
+      241,
+      242,
+      243,
+      244,
+      245,
+      246,
+      247,
+      248,
+      250,
+      251,
+      255,
+      256,
+      257,
+      260,
+      261,
+      263,
+      265,
+      266,
+      269,
+      272,
+      274,
+      275,
+      276,
+      277,
+      278,
+      279,
+      280,
+      281,
+      283,
+      284,
+      285,
+      286,
+      287,
+      289,
+      292,
+      298,
+      300,
+      302,
+      308,
+      309,
+      310,
+      321,
+      344,
+      345,
+      366,
+      370,
+      376,
+      378,
+      389,
+      390,
+      392,
+      394,
+      403,
+      404,
+      405,
+      406,
+      407,
+      408,
+      410,
+      411,
+      415,
+      417,
+      418,
+      419,
+      420,
+      421,
+      424,
+      430,
+      436,
+      437,
+      438,
+      439,
+      440,
+      445,
+      447,
+      450,
+      452,
+      454,
+      456,
+      468,
+      538,
+      540,
+      541
+    ],
+    "group_count": 2,
+    "file_count": 174,
+    "target_counts": {
+      "cough": 129,
+      "non_cough": 45
+    },
+    "source_author_class_counts": {
+      "cough": 129,
+      "excretion": 6,
+      "metal": 39
+    },
+    "fixed_baseline_metrics": {
+      "unit": "one original file, one vote",
+      "interpretation": "exploratory file-held-out engineering diagnostic",
+      "source_group_status": "source group unknown",
+      "animal_independent_validation": false,
+      "file_count": 174,
+      "threshold": 0.5,
+      "class_order": [
+        "non_cough",
+        "cough"
+      ],
+      "accuracy": 0.8275862068965517,
+      "balanced_accuracy": 0.8837209302325582,
+      "macro_f1": 0.8092105263157895,
+      "roc_auc": 0.9572782084409991,
+      "average_precision_cough": 0.9858919792876824,
+      "brier_score_cough": 0.13895567124576375,
+      "log_loss": 0.434788232922776,
+      "confusion_matrix_true_rows_predicted_columns": [
+        [
+          45,
+          0
+        ],
+        [
+          30,
+          99
+        ]
+      ],
+      "per_class": {
+        "non_cough": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "support": 45
+        },
+        "cough": {
+          "precision": 1.0,
+          "recall": 0.7674418604651163,
+          "f1": 0.868421052631579,
+          "support": 129
+        }
+      }
+    },
+    "nested_spectral_metrics": {
+      "unit": "one original file, one vote",
+      "interpretation": "exploratory file-held-out engineering diagnostic",
+      "source_group_status": "source group unknown",
+      "animal_independent_validation": false,
+      "file_count": 174,
+      "threshold": 0.5,
+      "class_order": [
+        "non_cough",
+        "cough"
+      ],
+      "accuracy": 0.8793103448275862,
+      "balanced_accuracy": 0.9186046511627908,
+      "macro_f1": 0.861101607937051,
+      "roc_auc": 0.9894918173987941,
+      "average_precision_cough": 0.9964110797423295,
+      "brier_score_cough": 0.11791796642781485,
+      "log_loss": 0.40532524057297376,
+      "confusion_matrix_true_rows_predicted_columns": [
+        [
+          45,
+          0
+        ],
+        [
+          21,
+          108
+        ]
+      ],
+      "per_class": {
+        "non_cough": {
+          "precision": 0.6818181818181818,
+          "recall": 1.0,
+          "f1": 0.8108108108108109,
+          "support": 45
+        },
+        "cough": {
+          "precision": 1.0,
+          "recall": 0.8372093023255814,
+          "f1": 0.9113924050632911,
+          "support": 129
+        }
+      }
+    },
+    "portable_sklearn_max_absolute_error": 5.773159728050814e-15,
+    "threshold_tuned_on_holdout": false,
+    "animal_independent_validation": false,
+    "unknown_source_groups_shared_with_development": true
+  },
+  "final_candidate": {
+    "kind": "rbf_svc",
+    "C": 1.0,
+    "gamma": "scale"
+  },
+  "final_training_files": 378,
+  "final_training_groups": 13,
+  "final_training_target_counts": {
+    "cough": 157,
+    "non_cough": 221
+  },
+  "final_training_source_counts": {
+    "inrae-FP5LA9": 40,
+    "figshare-31979640": 338
+  },
+  "final_holdout_not_in_runtime_model": true,
+  "environment": {
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "device": "CPU",
+    "numeric_threads": 1
+  },
+  "elapsed_seconds": 33.436,
+  "limitations": [
+    "Animal/session mappings unknown; filename family grouping is unverified",
+    "Author test folder locally repartitioned; does not reproduce author experiment",
+    "Source clip durations differ and can confound event statistics; classifier excludes explicit duration",
+    "Whole-clip evaluation is not a validation of 1-second streaming boundaries or barn false alarms",
+    "ab class excluded because semantics unknown; no healthy or disease mapping",
+    "Holdout is fixed; no confidence interval or statistical significance claimed with unknown source units",
+    "Final runtime model fits development data only; independent ESP32/INMP441 calibration remains absent"
+  ]
+}

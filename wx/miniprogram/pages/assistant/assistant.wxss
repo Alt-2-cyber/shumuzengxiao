@@ -1,0 +1,29 @@
+@import "../../styles/support.wxss";
+.assistant-page { height: 100vh; display: flex; flex-direction: column; padding-bottom: 0; }
+.support-head { flex-shrink: 0; border-bottom: 1rpx solid #2a4032; }
+.support-title { margin-bottom: 12rpx; }
+.head-tools { display: flex; flex-direction: column; align-items: flex-end; }
+.head-tools .support-link { padding: 8rpx 0; }
+.conversation { flex: 1; min-height: 0; height: 0; }
+.welcome { padding: 48rpx 0; }
+.welcome-title { display: block; font-size: 34rpx; font-weight: 600; line-height: 1.6; max-width: 540rpx; }
+.question-list { margin-top: 30rpx; }
+.question-row { display: flex; gap: 20rpx; justify-content: space-between; align-items: center; width: 100%; padding: 26rpx 0; border-bottom: 1rpx solid #2a4032; color: #b7d8c3; font-size: 27rpx; text-align: left; line-height: 1.5; }
+.question-arrow { color: #8cdded; flex-shrink: 0; }
+.message { width: 100%; padding: 30rpx 0; border-bottom: 1rpx solid #2a4032; }
+.message.user { padding-left: 24rpx; border-left: 3rpx solid #658a72; background: #12241a; }
+.message-head { display: flex; justify-content: space-between; gap: 16rpx; color: #9fb4a6; font-size: 22rpx; margin-bottom: 18rpx; }
+.message-head text:first-child { color: #a8e7bb; font-weight: 600; }
+.message-content { display: block; font-size: 28rpx; line-height: 1.85; white-space: pre-wrap; word-break: break-all; }
+.answer-footer { margin-top: 22rpx; }
+.answer-model { display: block; color: #91a697; font-size: 22rpx; }
+.reference { display: block; width: 100%; text-align: left; color: #9cdded; font-size: 24rpx; padding: 16rpx 0 4rpx; line-height: 1.5; }
+.answer-actions { display: flex; gap: 32rpx; flex-wrap: wrap; }
+.composer { flex-shrink: 0; padding: 18rpx 0 calc(18rpx + env(safe-area-inset-bottom)); background: #0c1711; border-top: 1rpx solid #344f3d; }
+.input-row { display: flex; gap: 18rpx; align-items: flex-end; }
+.chat-input { flex: 1; width: 0; min-height: 50rpx; max-height: 200rpx; padding: 20rpx; border-radius: 12rpx; background: #1d3024; color: #f2f6f1; font-size: 28rpx; line-height: 1.5; }
+.send-button { flex: 0 0 86rpx; width: 86rpx; height: 86rpx; border-radius: 12rpx; color: #0a2914; background: #72e38b; font-size: 44rpx; line-height: 86rpx; }
+.send-button[disabled] { opacity: .4; }
+.composer-note { display: block; margin-top: 14rpx; color: #8d9f92; font-size: 21rpx; line-height: 1.5; }
+.composer-error { display: block; margin-bottom: 14rpx; color: #f2c27b; font-size: 24rpx; line-height: 1.5; }
+.conversation-end { height: 28rpx; }

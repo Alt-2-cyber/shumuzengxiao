@@ -1,0 +1,14 @@
+export const APP_BACKGROUND = '#F3F6FA';
+export const APP_SURFACE = '#FFFFFF';
+export const APP_TEXT = '#1B293B';
+export const APP_MUTED = '#5F6E81';
+export const APP_LINE = '#E2E8F0';
+export const APP_PRIMARY = '#245BD6';
+export const APP_PRIMARY_SOFT = '#EAF0FF';
+export const APP_SUCCESS = '#157C59';
+export const APP_SUCCESS_SOFT = '#E7F5EE';
+export const APP_WARNING = '#936000';
+export const APP_WARNING_SOFT = '#FFF3D6';
+export const APP_DANGER = '#BF3E45';
+export const APP_DANGER_SOFT = '#FCECEE';
+export const APP_FIELD = '#F0F4F8';

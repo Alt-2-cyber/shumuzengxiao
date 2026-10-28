@@ -1,0 +1,23 @@
+<view class="support-page news-page">
+  <view class="support-head"><view><text class="support-title">养牛资讯</text><text class="support-meta">新闻 · 每日小知识</text></view><button class="support-link" bindtap="settings">{{settingsOpen ? '返回资讯' : '订阅设置'}}</button></view>
+  <view wx:if="{{error}}" class="support-error">{{error}}<text wx:if="{{cached}}">，当前显示上次缓存</text><button class="support-link" bindtap="refresh">重试</button></view>
+  <block wx:if="{{settingsOpen}}">
+    <view class="preference-row"><view><text class="support-label">新闻更新提醒</text><text class="support-meta">站内消息</text></view><switch checked="{{state.preferences.newsEnabled}}" color="#72e38b" bindchange="toggleNews" /></view>
+    <view class="preference-row"><view><text class="support-label">每日养牛小知识</text><text class="support-meta">每天推荐一张知识卡</text></view><switch checked="{{state.preferences.dailyKnowledge}}" color="#72e38b" bindchange="toggleDaily" /></view>
+    <view class="support-block"><text class="support-label">关注方向</text><checkbox-group bindchange="toggleTopics"><label class="topic-row" wx:for="{{categories}}" wx:key="id"><text>{{item.name}}</text><checkbox value="{{item.id}}" checked="{{item.selected}}" color="#72e38b" /></label></checkbox-group></view>
+    <text class="support-note">设置保存在本机。应用打开时同步站内消息；锁屏通知和微信订阅消息尚未启用。</text>
+  </block>
+  <block wx:else>
+    <view wx:if="{{daily}}" class="daily-strip" bindtap="openDaily"><text class="daily-label">今日小知识</text><text class="daily-title">{{daily.title}}</text><text class="daily-summary">{{daily.summary}}</text></view>
+    <view class="support-segments news-tabs"><button class="{{tab === 'news' ? 'selected' : ''}}" data-tab="news" bindtap="changeTab">新闻</button><button class="{{tab === 'knowledge' ? 'selected' : ''}}" data-tab="knowledge" bindtap="changeTab">小知识</button><button class="{{tab === 'saved' ? 'selected' : ''}}" data-tab="saved" bindtap="changeTab">收藏</button><button class="{{tab === 'messages' ? 'selected' : ''}}" data-tab="messages" bindtap="changeTab">消息 {{unread || ''}}</button></view>
+    <block wx:if="{{tab === 'messages'}}"><view class="list-tools"><text class="support-meta">{{unread}} 条未读</text><button class="support-link" bindtap="markAll" disabled="{{!unread}}">全部已读</button></view><view wx:if="{{!messages.length}}" class="support-empty">暂无推送消息</view><button wx:for="{{messages}}" wx:key="id" class="article-row" data-id="{{item.articleId}}" bindtap="open"><view class="article-tags"><text class="category-tag">{{item.label}}</text><text wx:if="{{!item.read}}" class="unread-mark">未读</text></view><text class="article-title">{{item.title}}</text><text class="support-meta">{{item.timeText}}</text></button></block>
+    <block wx:else>
+      <input class="support-field search-field" placeholder="搜索标题、内容摘要或来源" placeholder-style="color:#92a698" maxlength="100" value="{{search}}" bindinput="changeSearch" />
+      <scroll-view scroll-x class="topic-filter"><view class="filter-inner"><button class="support-choice {{category === 'all' ? 'selected' : ''}}" data-id="all" bindtap="changeCategory">全部</button><button wx:for="{{categories}}" wx:key="id" class="support-choice {{category === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="changeCategory">{{item.name}}</button></view></scroll-view>
+      <view class="list-tools"><text class="support-meta">{{tab === 'saved' ? '本机收藏' : updatedText}} · {{articles.length}} 条</text><button class="support-link refresh-news" bindtap="refresh" disabled="{{loading}}" aria-label="刷新资讯">{{loading ? '…' : '↻'}}</button></view>
+      <text wx:if="{{!articles.length}}" class="support-empty">{{loading ? '正在更新…' : tab === 'saved' ? '还没有收藏的内容' : search || category !== 'all' ? '没有匹配的内容' : '暂时没有内容，请稍后刷新'}}</text>
+      <button wx:for="{{articles}}" wx:key="id" class="article-row" data-id="{{item.id}}" bindtap="open"><view class="article-tags"><text class="category-tag {{item.category}}">{{item.categoryText}}</text><text wx:if="{{item.unread}}" class="unread-mark">未读</text><text wx:if="{{item.saved}}" class="saved-mark">已收藏</text></view><text class="article-title">{{item.title}}</text><text wx:if="{{item.summary}}" class="article-summary">{{item.summary}}</text><text class="support-meta">{{item.sourceName}} · {{item.dateText}}</text></button>
+    </block>
+    <text class="support-note source-status">{{sourceText}}</text>
+  </block>
+</view>

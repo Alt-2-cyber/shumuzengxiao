@@ -1,0 +1,27 @@
+spring:
+  h2:
+    console:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/smart_cattle?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: ${SMART_CATTLE_MYSQL_USER:root}
+    password: ${SMART_CATTLE_MYSQL_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      # The local MySQL wait_timeout is 120s; recycle and keep idle connections
+      # before the server closes them to avoid stale-connection warnings.
+      max-lifetime: 90000
+      keepalive-time: 60000
+      validation-timeout: 5000
+      connection-timeout: 10000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.community.dialect.MySQLLegacyDialect
+    properties:
+      hibernate:
+        format_sql: false
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema-mysql.sql

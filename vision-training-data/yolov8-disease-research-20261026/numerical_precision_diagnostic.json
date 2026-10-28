@@ -1,0 +1,35 @@
+{
+  "index": 5,
+  "image_id": "5ac96e5444da6411f209",
+  "root_cause": "cuDNN TF32 enabled by default for float32 convolution on Ampere GPU",
+  "cuda_cudnn_tf32_true": [
+    0.87300044298172,
+    4.048083064844832e-05,
+    0.12695902585983276
+  ],
+  "cuda_cudnn_tf32_false": [
+    0.8737962245941162,
+    4.043254011776298e-05,
+    0.12616336345672607
+  ],
+  "pytorch_cpu": [
+    0.8737960457801819,
+    4.043245644425042e-05,
+    0.1261635422706604
+  ],
+  "onnx_cpu": [
+    0.8737967610359192,
+    4.043214357807301e-05,
+    0.1261627972126007
+  ],
+  "errors_vs_onnx": {
+    "cuda_tf32_true": 0.0007963180541992188,
+    "cuda_tf32_false": 5.662441253662109e-07,
+    "pytorch_cpu": 7.450580596923828e-07
+  },
+  "fix": "Disable TF32 for final reference parity, without changing weights or training configuration",
+  "tolerance_unchanged": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  }
+}

@@ -1,0 +1,2 @@
+sourceEventId,label,animalId,recordingSessionId,veterinarian,evidenceReference,verifiedAt
+101,cough_suspect,cattle-017,session-YYYYMMDD-am,vet-identifier,clinical-case-or-ultrasound-reference,YYYY-MM-DDThh:mm:ssZ

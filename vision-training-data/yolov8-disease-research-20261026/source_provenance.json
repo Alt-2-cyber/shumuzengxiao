@@ -1,0 +1,10 @@
+{
+  "dataset_url": "https://www.kaggle.com/datasets/devang03mgr/cattle-diseases-datasets",
+  "source_root": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部视觉数据\\Kaggle_CattleDiseases_2025\\raw\\Cows datasets",
+  "label_origin": "public folder names; no clinical or animal identity verification",
+  "license_reported_by_existing_card": "Database: Open Database, Contents: Database Contents",
+  "license_scope": "recorded from local source card; not independently audited per-image rights",
+  "archive_path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部视觉数据\\cattle-diseases-datasets.zip",
+  "archive_sha256": "cee2fc7c03c645e72a5ea5107bc1d6fe5ada55834baa0e1fc4193df36a684e84",
+  "source_card_sha256": "555e60a70a4cbb02b24b87f543f10992b4a0148ab59896d648843a91aeffd5ad"
+}

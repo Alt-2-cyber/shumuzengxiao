@@ -1,0 +1,222 @@
+{
+  "created_utc": "2026-10-26T11:46:25.668551+00:00",
+  "original_prior_images": 3244,
+  "all_inventoried_images": 11826,
+  "new_downloaded_images": 7433,
+  "valid_images": 11826,
+  "invalid_images": 0,
+  "all_connected_groups": 3904,
+  "role_counts": {
+    "train": 1976,
+    "frozen_test": 413,
+    "val": 412,
+    "excluded_frozen_test_component": 995,
+    "duplicate_excluded": 5973,
+    "excluded_non_bovine_subject": 5,
+    "excluded_holdout_overlap_with_prior": 1047,
+    "quarantine_cross_label": 65,
+    "catalog_only": 319,
+    "source_holdout": 621
+  },
+  "partition_group_counts": {
+    "source_holdout": 621,
+    "train": 1976,
+    "frozen_test_protected": 413,
+    "catalog_only": 261,
+    "val": 412,
+    "excluded_holdout_overlap_with_prior": 211,
+    "excluded_non_bovine_subject": 2,
+    "quarantine_cross_label": 8
+  },
+  "novel_groups_no_prior_original_overlap": 1158,
+  "novel_download_groups_no_prior_original_overlap": 1057,
+  "novel_retained_training_groups": 274,
+  "novel_download_retained_training_groups": 242,
+  "split_counts": {
+    "train": 1976,
+    "test": 413,
+    "val": 412,
+    "source_holdout": 621
+  },
+  "split_class_counts": {
+    "train": {
+      "foot-and-mouth": 396,
+      "healthy": 880,
+      "lumpy": 700
+    },
+    "val": {
+      "foot-and-mouth": 98,
+      "healthy": 178,
+      "lumpy": 136
+    },
+    "test": {
+      "foot-and-mouth": 98,
+      "healthy": 178,
+      "lumpy": 137
+    },
+    "source_holdout": {
+      "foot-and-mouth": 7,
+      "lumpy": 127,
+      "healthy": 487
+    }
+  },
+  "edge_counts": {
+    "prior_group_id": 489,
+    "file_sha256": 5963,
+    "pixel_sha256": 5963,
+    "source_name_key": 3303,
+    "perceptual_near_duplicate": 4989
+  },
+  "source_overlap": [
+    {
+      "source": "devang03mgr/cattle-diseases-datasets",
+      "raw_images": 3244,
+      "connected_groups": 2746,
+      "groups_overlapping_prior_originals": 2746,
+      "groups_overlapping_prior_test": 413,
+      "groups_without_prior_overlap": 0,
+      "retained_train_representatives": 1702,
+      "retained_holdout_representatives": 0,
+      "role_counts": {
+        "train": 1702,
+        "frozen_test": 413,
+        "val": 412,
+        "excluded_frozen_test_component": 78,
+        "duplicate_excluded": 385,
+        "excluded_non_bovine_subject": 2,
+        "excluded_holdout_overlap_with_prior": 236,
+        "quarantine_cross_label": 16
+      }
+    },
+    {
+      "source": "drtawfikrrahman/cowhealth-6k-cow-disease-detection",
+      "raw_images": 4367,
+      "connected_groups": 3115,
+      "groups_overlapping_prior_originals": 2746,
+      "groups_overlapping_prior_test": 413,
+      "groups_without_prior_overlap": 369,
+      "retained_train_representatives": 93,
+      "retained_holdout_representatives": 0,
+      "role_counts": {
+        "duplicate_excluded": 3224,
+        "excluded_frozen_test_component": 604,
+        "excluded_non_bovine_subject": 2,
+        "excluded_holdout_overlap_with_prior": 239,
+        "quarantine_cross_label": 19,
+        "train": 93,
+        "catalog_only": 186
+      }
+    },
+    {
+      "source": "magantirajasri/cattle-diseases-dataset",
+      "raw_images": 1038,
+      "connected_groups": 930,
+      "groups_overlapping_prior_originals": 307,
+      "groups_overlapping_prior_test": 47,
+      "groups_without_prior_overlap": 623,
+      "retained_train_representatives": 0,
+      "retained_holdout_representatives": 621,
+      "role_counts": {
+        "duplicate_excluded": 112,
+        "excluded_holdout_overlap_with_prior": 242,
+        "excluded_frozen_test_component": 55,
+        "source_holdout": 621,
+        "excluded_non_bovine_subject": 1,
+        "quarantine_cross_label": 7
+      }
+    },
+    {
+      "source": "shivamagarwal29/cow-lumpy-disease-dataset",
+      "raw_images": 936,
+      "connected_groups": 932,
+      "groups_overlapping_prior_originals": 747,
+      "groups_overlapping_prior_test": 112,
+      "groups_without_prior_overlap": 185,
+      "retained_train_representatives": 90,
+      "retained_holdout_representatives": 0,
+      "role_counts": {
+        "excluded_frozen_test_component": 113,
+        "duplicate_excluded": 728,
+        "train": 90,
+        "quarantine_cross_label": 2,
+        "excluded_holdout_overlap_with_prior": 3
+      }
+    },
+    {
+      "source": "tanushtambea/calf-lumpy-skin-disease",
+      "raw_images": 1012,
+      "connected_groups": 820,
+      "groups_overlapping_prior_originals": 281,
+      "groups_overlapping_prior_test": 37,
+      "groups_without_prior_overlap": 539,
+      "retained_train_representatives": 0,
+      "retained_holdout_representatives": 0,
+      "role_counts": {
+        "excluded_holdout_overlap_with_prior": 159,
+        "duplicate_excluded": 770,
+        "quarantine_cross_label": 11,
+        "excluded_frozen_test_component": 64,
+        "catalog_only": 8
+      }
+    },
+    {
+      "source": "warcoder/lumpy-skin-images-dataset",
+      "raw_images": 1024,
+      "connected_groups": 903,
+      "groups_overlapping_prior_originals": 208,
+      "groups_overlapping_prior_test": 29,
+      "groups_without_prior_overlap": 695,
+      "retained_train_representatives": 79,
+      "retained_holdout_representatives": 0,
+      "role_counts": {
+        "excluded_frozen_test_component": 40,
+        "duplicate_excluded": 727,
+        "excluded_holdout_overlap_with_prior": 168,
+        "quarantine_cross_label": 10,
+        "train": 79
+      }
+    },
+    {
+      "source": "wasimfaraz/cattle-foot-and-mouth-disease-fmd",
+      "raw_images": 125,
+      "connected_groups": 69,
+      "groups_overlapping_prior_originals": 0,
+      "groups_overlapping_prior_test": 0,
+      "groups_without_prior_overlap": 69,
+      "retained_train_representatives": 0,
+      "retained_holdout_representatives": 0,
+      "role_counts": {
+        "catalog_only": 125
+      }
+    },
+    {
+      "source": "wasimfaraz/fmd-cattle-dataset",
+      "raw_images": 80,
+      "connected_groups": 40,
+      "groups_overlapping_prior_originals": 28,
+      "groups_overlapping_prior_test": 4,
+      "groups_without_prior_overlap": 12,
+      "retained_train_representatives": 12,
+      "retained_holdout_representatives": 0,
+      "role_counts": {
+        "duplicate_excluded": 27,
+        "train": 12,
+        "excluded_frozen_test_component": 41
+      }
+    }
+  ],
+  "fixed_holdout_source": "magantirajasri/cattle-diseases-dataset",
+  "clinical_grouping_available": false,
+  "grouping": {
+    "pixel_sha256": true,
+    "file_sha256": true,
+    "source_names_global_when_descriptive": true,
+    "original_prior_components_preserved": true,
+    "phash_hamming_max": 6,
+    "dhash_hamming_max": 10,
+    "aspect_ratio_relative_max": 1.1,
+    "mirror_matching": true,
+    "transitive_connected_components": true,
+    "numeric_names": "Namespaced by source and original label; equality alone is not cross-source evidence"
+  }
+}

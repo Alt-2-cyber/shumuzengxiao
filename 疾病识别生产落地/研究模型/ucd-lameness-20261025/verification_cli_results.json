@@ -1,0 +1,27 @@
+{
+  "at_utc": "2026-10-25T11:40:09.168458+00:00",
+  "script_path": "D:\\table\\shumuzengxiao\\scripts\\train_ucd_lameness_20261025.py",
+  "script_sha256": "e240cee1729527708b274182f35842bdb8cd2d061f9446c66ac02b7a4f7acbb9",
+  "missing_labels_run": {
+    "command": [
+      "C:\\Users\\q4984\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "D:\\table\\shumuzengxiao\\scripts\\train_ucd_lameness_20261025.py",
+      "--verify"
+    ],
+    "returncode": 2,
+    "stdout": "{\n  \"status\": \"blocked_missing_clinical_labels\",\n  \"model_created\": false,\n  \"production_eligible\": false,\n  \"rows\": 383,\n  \"farms\": 11,\n  \"missing\": [\n    \"Verified clinical High labels and exact cow-to-row linkage\"\n  ],\n  \"deployment_compatibility\": {\n    \"compatible\": false,\n    \"source\": \"One hind-limb Z axis; ~30 s sparse points over 7 days\",\n    \"target\": \"Neck/body/leg ADXL345 XYZ at 20 Hz; 10 s windows\",\n    \"reason\": \"Missing positions, axes, high-rate timing and target-domain clinical validation\"\n  },\n  \"approval_gates_changed\": false\n}\n",
+    "stderr": ""
+  },
+  "missing_provenance_run": {
+    "returncode": 2,
+    "error": "train_ucd_lameness_20261025.py: error: --labels and --provenance are required together"
+  },
+  "git_fsck": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "evidence_checks_passed": 9,
+  "alternative_metadata_records": 98,
+  "model_count": 0
+}

@@ -1,0 +1,9 @@
+{
+  "rejected_preparation": "rejected_preparation_01",
+  "reason": "Detected ancestor-directory disease-label fallback and unsuitable high-overlap whole-source holdout before optimizer training",
+  "correction": "Only direct class-directory labels accepted; whole-source holdout requires <=50% prior overlap",
+  "rejected_preparation_has_model_checkpoint": false,
+  "corrected_run_test_driven_changes": false,
+  "source_holdout_selection_before_inference": true,
+  "source_labels_not_manufactured": true
+}

@@ -1,0 +1,35 @@
+{
+  "retained_counts": {
+    "train": {
+      "foot-and-mouth": 29,
+      "healthy": 425,
+      "lumpy": 288
+    },
+    "val": {
+      "foot-and-mouth": 10,
+      "healthy": 84,
+      "lumpy": 63
+    },
+    "test": {
+      "foot-and-mouth": 5,
+      "healthy": 89,
+      "lumpy": 60
+    },
+    "source_holdout": {
+      "lumpy": 53,
+      "healthy": 215
+    }
+  },
+  "original_images": 3422,
+  "retained_images": 1321,
+  "excluded_reasons": {
+    "no_qualified_cow": 1449,
+    "multiple_cows_ambiguous_image_label": 652
+  },
+  "detector_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+  "detector_source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8n.pt",
+  "scope": "Cow-detected public source-label image groups; no animal/farm or clinical reference",
+  "geometry": "RGB 320x240 letterbox, single cow, 5% padding, RGB 224 letterbox with 114 fill",
+  "split_groups_preserved": true,
+  "test_not_used_for_parameter_selection": true
+}

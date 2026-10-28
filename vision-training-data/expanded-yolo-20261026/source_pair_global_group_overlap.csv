@@ -1,0 +1,9 @@
+﻿source,devang03mgr/cattle-diseases-datasets,drtawfikrrahman/cowhealth-6k-cow-disease-detection,magantirajasri/cattle-diseases-dataset,shivamagarwal29/cow-lumpy-disease-dataset,tanushtambea/calf-lumpy-skin-disease,warcoder/lumpy-skin-images-dataset,wasimfaraz/cattle-foot-and-mouth-disease-fmd,wasimfaraz/fmd-cattle-dataset
+devang03mgr/cattle-diseases-datasets,2746,2746,307,747,281,208,0,28
+drtawfikrrahman/cowhealth-6k-cow-disease-detection,2746,3115,309,932,282,210,0,28
+magantirajasri/cattle-diseases-dataset,307,309,930,6,669,817,0,0
+shivamagarwal29/cow-lumpy-disease-dataset,747,932,6,932,6,6,0,0
+tanushtambea/calf-lumpy-skin-disease,281,282,669,6,820,721,0,0
+warcoder/lumpy-skin-images-dataset,208,210,817,6,721,903,0,0
+wasimfaraz/cattle-foot-and-mouth-disease-fmd,0,0,0,0,0,0,69,0
+wasimfaraz/fmd-cattle-dataset,28,28,0,0,0,0,0,40

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>数牧增效 Mermaid 流程图预览</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      color: #172033;
+      background: #f6f7f9;
+    }
+    h1 {
+      margin: 0 0 24px;
+      font-size: 26px;
+    }
+    h2 {
+      margin: 32px 0 12px;
+      font-size: 20px;
+    }
+    section {
+      margin-bottom: 28px;
+      padding: 20px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .note {
+      margin-bottom: 24px;
+      padding: 12px 14px;
+      background: #fff8df;
+      border: 1px solid #f3d477;
+      border-radius: 6px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>数牧增效 Mermaid 流程图预览</h1>
+  <div class="note">
+    如果页面未显示图，请确认当前环境能访问 CDN。若需要插入 Word/PPT，可在浏览器中打开本文件后截图，或用 Mermaid CLI 导出 SVG/PNG。
+  </div>
+
+  <section>
+    <h2>1. 系统总体架构</h2>
+    <pre class="mermaid">
+flowchart TB
+    subgraph Barn["牛舍现场端"]
+        subgraph EnvNode["ESP32-S3 环境控制节点"]
+            Sensors["温湿度/氨气/光照/火情/烟雾传感器"]
+            ESP32["ESP32-S3 主控&lt;br/&gt;采集/控制/MQTT/本地规则"]
+            Actuators["风扇/雾化器/声光报警/继电器"]
+            LCD["本地屏幕/按键"]
+            Sensors --&gt; ESP32
+            ESP32 --&gt; Actuators
+            ESP32 --&gt; LCD
+        end
+
+        subgraph VisionNode["MaixCam 视觉 AI 节点"]
+            Camera["摄像头"]
+            Maix["MaixCam&lt;br/&gt;YOLO 推理/跟踪/事件判定"]
+            SD["本地 SD 卡&lt;br/&gt;截图/日志/模型"]
+            Camera --&gt; Maix
+            Maix --&gt; SD
+        end
+
+        ESP32 &lt;--&gt;|UART JSON| Maix
+        Router["WiFi/4G 路由器"]
+        ESP32 --&gt; Router
+        Maix --&gt; Router
+    end
+
+    Router --&gt; Broker["MQTT Broker/EMQX"]
+    Broker --&gt; Backend["Spring Boot 后端"]
+    Backend --&gt; DB["MySQL 数据库"]
+    Backend --&gt; WS["WebSocket"]
+    WS --&gt; Frontend["Vue 前端看板"]
+    Backend --&gt; Alert["短信/微信/邮件/站内告警"]
+    </pre>
+  </section>
+
+  <section>
+    <h2>2. 全链路数据流</h2>
+    <pre class="mermaid">
+flowchart TD
+    A["环境传感器采集"] --&gt; B["ESP32-S3 数据滤波"]
+    B --&gt; C["本地阈值判断"]
+    C --&gt; D{"是否异常"}
+    D -- 否 --&gt; E["周期 MQTT 上报 telemetry"]
+    D -- 是 --&gt; F["本地执行器联动&lt;br/&gt;风扇/雾化/声光报警"]
+    F --&gt; G["MQTT 上报告警 alert"]
+    F --&gt; H["UART 通知 MaixCam 抓拍"]
+
+    I["MaixCam 摄像头采集"] --&gt; J["图像预处理"]
+    J --&gt; K["YOLO 开源模型推理"]
+    K --&gt; L["目标跟踪 + 行为状态机"]
+    L --&gt; M{"是否产生视觉事件"}
+    M -- 否 --&gt; N["仅更新本地状态"]
+    M -- 是 --&gt; O["保存截图/事件 JSON"]
+    O --&gt; P["MQTT 上报 vision/event"]
+    O --&gt; Q["UART 通知 ESP32-S3 本地报警"]
+
+    E --&gt; R["MQTT Broker"]
+    G --&gt; R
+    P --&gt; R
+    R --&gt; S["Spring Boot 后端"]
+    S --&gt; T["MySQL 入库"]
+    S --&gt; U["WebSocket 推送"]
+    U --&gt; V["Vue 前端看板/告警中心"]
+    </pre>
+  </section>
+
+  <section>
+    <h2>3. 供电流程</h2>
+    <pre class="mermaid">
+flowchart LR
+    IN["12V/24V 输入"] --&gt; Protect["保险丝/反接保护/TVS"]
+    Protect --&gt; Buck5["5V 3A DC-DC"]
+    Protect --&gt; Buck33["3.3V 1A DC-DC"]
+    Protect --&gt; Load12["12V 执行器/补光"]
+    Buck5 --&gt; MaixCam["MaixCam"]
+    Buck5 --&gt; Relay["继电器模块/部分传感器"]
+    Buck33 --&gt; ESP32["ESP32-S3"]
+    Buck33 --&gt; I2C["I2C 数字传感器"]
+    </pre>
+  </section>
+
+  <section>
+    <h2>4. 断网缓存流程</h2>
+    <pre class="mermaid">
+flowchart TD
+    A["ESP32-S3/MaixCam 产生数据"] --&gt; B{"MQTT 是否在线"}
+    B -- 在线 --&gt; C["立即上报"]
+    B -- 离线 --&gt; D["本地缓存关键数据"]
+    D --&gt; E["定时重连 MQTT"]
+    E --&gt; F{"网络恢复"}
+    F -- 否 --&gt; D
+    F -- 是 --&gt; G["补传事件摘要和关键截图"]
+    G --&gt; H["清理已确认缓存"]
+    </pre>
+  </section>
+
+  <section>
+    <h2>5. 声音与疾病风险数据流</h2>
+    <pre class="mermaid">
+flowchart TD
+    A["I2S 麦克风采集牛舍声音"] --&gt; B["ESP32-S3 音频分帧"]
+    B --&gt; C["降噪/能量检测/VAD"]
+    C --&gt; D{"是否疑似有效声音"}
+    D -- 否 --&gt; E["丢弃或只记录噪声水平"]
+    D -- 是 --&gt; F["提取 MFCC/Log-Mel 特征"]
+    F --&gt; G["轻量声音分类模型&lt;br/&gt;咳嗽/喘鸣/异常叫声/背景噪声"]
+    G --&gt; H["生成 audio_event"]
+    H --&gt; I["MQTT 上报声音事件"]
+    H --&gt; J["触发 MaixCam 抓拍对应时间窗口"]
+    J --&gt; K["视觉疾病风险筛查"]
+    I --&gt; L["后端多模态融合"]
+    K --&gt; L
+    L --&gt; M["健康风险等级&lt;br/&gt;正常/关注/告警/需人工复核"]
+    </pre>
+  </section>
+
+  <section>
+    <h2>6. 多模态疾病风险判断</h2>
+    <pre class="mermaid">
+flowchart TD
+    A["环境数据&lt;br/&gt;温湿度/氨气/烟雾"] --&gt; F["多模态融合评分"]
+    B["声音数据&lt;br/&gt;咳嗽/喘鸣/异常叫声"] --&gt; F
+    C["姿态行为&lt;br/&gt;卧倒/跛行/活动减少"] --&gt; F
+    D["局部视觉&lt;br/&gt;皮肤/眼睛/鼻部异常"] --&gt; F
+    E["历史数据&lt;br/&gt;同一牛只/同一栏位趋势"] --&gt; F
+    F --&gt; G{"健康风险等级"}
+    G -- 低 --&gt; H["记录趋势"]
+    G -- 中 --&gt; I["前端提示观察"]
+    G -- 高 --&gt; J["告警 + 截图/音频证据"]
+    G -- 严重 --&gt; K["建议人工/兽医复核"]
+    </pre>
+  </section>
+
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({
+      startOnLoad: true,
+      securityLevel: "loose",
+      flowchart: {
+        htmlLabels: true,
+        curve: "basis"
+      },
+      theme: "default"
+    });
+  </script>
+</body>
+</html>

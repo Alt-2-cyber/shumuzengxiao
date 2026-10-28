@@ -1,0 +1,75 @@
+[
+  {
+    "source": "warcoder/lumpy-skin-images-dataset",
+    "images": 1024,
+    "source_label_counts": {
+      "lumpy": 324,
+      "healthy": 700
+    },
+    "acquisition": "existing_unused_source",
+    "license_reported": "CC BY 4.0 (existing local dataset card)"
+  },
+  {
+    "source": "wasimfaraz/cattle-foot-and-mouth-disease-fmd",
+    "images": 125,
+    "source_label_counts": {
+      "None": 125
+    },
+    "acquisition": "existing_detection_only_source",
+    "license_reported": "CC BY 4.0 (existing local dataset card)"
+  },
+  {
+    "source": "shivamagarwal29/cow-lumpy-disease-dataset",
+    "images": 936,
+    "source_label_counts": {
+      "healthy": 515,
+      "lumpy": 421
+    },
+    "acquisition": "new_public_download",
+    "license_reported": "Community Data License Agreement - Sharing - Version 1.0"
+  },
+  {
+    "source": "drtawfikrrahman/cowhealth-6k-cow-disease-detection",
+    "images": 4367,
+    "source_label_counts": {
+      "foot-and-mouth": 744,
+      "None": 12,
+      "healthy": 1806,
+      "lumpy": 1628,
+      "mastitis": 177
+    },
+    "acquisition": "new_public_download",
+    "license_reported": "CC0: Public Domain"
+  },
+  {
+    "source": "magantirajasri/cattle-diseases-dataset",
+    "images": 1038,
+    "source_label_counts": {
+      "foot-and-mouth": 114,
+      "None": 1,
+      "lumpy": 324,
+      "healthy": 599
+    },
+    "acquisition": "new_public_download",
+    "license_reported": "Apache 2.0"
+  },
+  {
+    "source": "tanushtambea/calf-lumpy-skin-disease",
+    "images": 1012,
+    "source_label_counts": {
+      "healthy": 531,
+      "None": 481
+    },
+    "acquisition": "new_public_download",
+    "license_reported": "CC BY-SA 4.0"
+  },
+  {
+    "source": "wasimfaraz/fmd-cattle-dataset",
+    "images": 80,
+    "source_label_counts": {
+      "foot-and-mouth": 80
+    },
+    "acquisition": "new_public_download",
+    "license_reported": "Attribution 4.0 International (CC BY 4.0)"
+  }
+]

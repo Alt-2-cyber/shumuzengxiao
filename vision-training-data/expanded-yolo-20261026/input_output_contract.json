@@ -1,0 +1,78 @@
+{
+  "input_name": "images",
+  "input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "input_dtype": "float32",
+  "color_order": "RGB",
+  "layout": "NCHW",
+  "pixel_formula": "(raw_rgb_uint8 - mean) * scale",
+  "mean": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "scale": [
+    0.00392156862745098,
+    0.00392156862745098,
+    0.00392156862745098
+  ],
+  "torchvision_mean": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "torchvision_std": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "geometry": "EXIF transpose; bilinear resize shorter edge to 224 preserving aspect ratio; center crop 224x224",
+  "pillow_torchvision_transform": "Compose(\n    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)\n    CenterCrop(size=(224, 224))\n    ToTensor()\n    Normalize(mean=tensor([0., 0., 0.]), std=tensor([1., 1., 1.]))\n)",
+  "output_name": "output0",
+  "output_shape": [
+    1,
+    3
+  ],
+  "labels": [
+    "foot-and-mouth",
+    "healthy",
+    "lumpy"
+  ],
+  "output": "softmax probabilities",
+  "softmax_in_graph": true,
+  "apply_softmax_again": false,
+  "pytorch_eval_return": "(softmax_probabilities, pre_softmax_logits)",
+  "maixcam_classifier_handoff": {
+    "model_type": "classifier",
+    "input_type": "rgb",
+    "mean": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.00392156862745098,
+      0.00392156862745098,
+      0.00392156862745098
+    ],
+    "labels": [
+      "foot-and-mouth",
+      "healthy",
+      "lumpy"
+    ],
+    "classify_softmax_argument": false,
+    "official_documentation": "https://github.com/sipeed/maixpy/blob/main/docs/doc/en/vision/classify.md",
+    "conversion_status": "ONNX handoff only; no cvimodel/mud conversion or deployment performed",
+    "requirements": "Implement identical resize/center-crop; avoid double /255 or double softmax; verify converted outputs and nn.Classifier behavior on-device before any use",
+    "warning": "Classifier ranks public image source labels; scores are not calibrated disease probabilities"
+  },
+  "onnx_sha256": "3e49e2451993e6e45e452253dd94a456c58ecdee634dfe1ffeb276053aa6cbfb",
+  "checkpoint_sha256": "bc0ed384f8904a5cddad49d4b53942d29e3d43159fbdac6a5e421c76a6702b44",
+  "source_scope": "Expanded public appearance source labels, research_only",
+  "opset": 13,
+  "static_batch_1": true
+}

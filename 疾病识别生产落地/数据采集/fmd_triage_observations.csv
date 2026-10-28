@@ -1,0 +1,2 @@
+observationId,animalId,recordingSessionId,observedAt,oralLesionSuspect,hoofLesionSuspect,coreTemperatureC,coreTemperatureVerified,examiner,evidenceReference,reportedToVeterinarian,reportedToAuthority,notes
+triage-0001,cattle-017,session-YYYYMMDD-am,YYYY-MM-DDThh:mm:ssZ,false,false,,false,examiner-identifier,photo-video-or-clinical-reference,false,false,Do not use this form as an FMD test result.

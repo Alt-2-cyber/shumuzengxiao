@@ -1,0 +1,142 @@
+[
+  {
+    "path": "alternative_dataset_inventory.csv",
+    "bytes": 28687,
+    "sha256": "945ec772bccfef93dc511268f59f685030d3ec8cc253ffe3eb5a5eb6cb38a26f"
+  },
+  {
+    "path": "alternative_dataset_search.json",
+    "bytes": 153820,
+    "sha256": "2acfec4c2bfd6045e91994917b26e830569ead23f3c1ca4ca479b29049849cba"
+  },
+  {
+    "path": "cow_series_qc.csv",
+    "bytes": 59899,
+    "sha256": "759cf3bb59cf500c56127af4708d3e8d519730dc895b826dfafb5d75e793a06e"
+  },
+  {
+    "path": "git_commands.json",
+    "bytes": 12842,
+    "sha256": "2ddf845044db438b0fb153483b1f68e2285a1d7508ef939086467493d8844968"
+  },
+  {
+    "path": "local_data_audit.json",
+    "bytes": 23614,
+    "sha256": "3b9b20129dcce3435041a79037eff702ad8c94eb51d4655d523de17f49953b61"
+  },
+  {
+    "path": "MODEL_CARD.md",
+    "bytes": 1277,
+    "sha256": "520484441ab288e2311ff9ab842317a8d2f1a9c2d51c716ff8330f72f4e47db9"
+  },
+  {
+    "path": "paper_evidence.json",
+    "bytes": 5884,
+    "sha256": "255364fcf5ea30d253966d2024ddde345d3f72562ae93ac4429f306cd60999ad"
+  },
+  {
+    "path": "paper_reported_metrics.csv",
+    "bytes": 8007,
+    "sha256": "340237a73acf26e9a21b9cdd2f808d608c136a9a5562cb42b7078d979c1343ed"
+  },
+  {
+    "path": "public_sources\\datacite_cattle_accelerometer.json",
+    "bytes": 202433,
+    "sha256": "dbacdf08a85766c308e61a73681f950a506c3ce5ca9fe6b85942ea623216abcf"
+  },
+  {
+    "path": "public_sources\\datacite_cattle_accelerometer_all.json",
+    "bytes": 617592,
+    "sha256": "8fb0a670ca3d5e972499604f35653ea9ec191b3947b6333dd81407a56010e77f"
+  },
+  {
+    "path": "public_sources\\github_author_repositories.json",
+    "bytes": 279,
+    "sha256": "4ec5d62dd2ea41fb14a701cca8d0970dd4a22903a9cc276b0b28392273dd54e9"
+  },
+  {
+    "path": "public_sources\\github_branches.json",
+    "bytes": 279,
+    "sha256": "4ec5d62dd2ea41fb14a701cca8d0970dd4a22903a9cc276b0b28392273dd54e9"
+  },
+  {
+    "path": "public_sources\\github_commits.atom",
+    "bytes": 5541,
+    "sha256": "9b1713fcb467813351178ff82177c9531ba1656327dcaf066bd2456bdf078f6c"
+  },
+  {
+    "path": "public_sources\\github_forks.html",
+    "bytes": 174121,
+    "sha256": "414473f36bbca2a654b08493771cd06809ef014170f7b613c7e0367c38b4f7b1"
+  },
+  {
+    "path": "public_sources\\github_forks.json",
+    "bytes": 279,
+    "sha256": "4ec5d62dd2ea41fb14a701cca8d0970dd4a22903a9cc276b0b28392273dd54e9"
+  },
+  {
+    "path": "public_sources\\github_labels.csv.response",
+    "bytes": 14,
+    "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+  },
+  {
+    "path": "public_sources\\github_labels.xlsx.response",
+    "bytes": 14,
+    "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+  },
+  {
+    "path": "public_sources\\github_repository.html",
+    "bytes": 289523,
+    "sha256": "bf643ef1a2e22cce462547130b608899d3ad2243f22925d5473269ab51012df0"
+  },
+  {
+    "path": "public_sources\\plos_article.html",
+    "bytes": 210877,
+    "sha256": "e98884a9366e1cd50c26c7cd8258aaa72bc6d8e1ec1d0313c1bc37982a00463e"
+  },
+  {
+    "path": "public_sources\\plos_S1_Table.docx",
+    "bytes": 32551,
+    "sha256": "43d15e8fc8a6aa5a6386d792d457c2b56161d00f38d45598b1ea89f41dd0a119"
+  },
+  {
+    "path": "public_sources\\zenodo_clinical_filtered.json",
+    "bytes": 503,
+    "sha256": "fb2d2fe7e5c7ae104bc9057519e2f9e6eba38b03945c258fe6010bf80cf095fc"
+  },
+  {
+    "path": "repository_history.json",
+    "bytes": 2039,
+    "sha256": "93cba62fc8e197ed8deada3fb3dea06c77fa71a55c1010ee11b0296c336f65bc"
+  },
+  {
+    "path": "retrieval_log.json",
+    "bytes": 18315,
+    "sha256": "8dd130ac1ed08eaa51604a6fcb62e4ec2167e2e15b0da8617ad9ecc127a9cfa2"
+  },
+  {
+    "path": "supplement_audit.json",
+    "bytes": 519,
+    "sha256": "d5e5d567f1ad831d29e4994fef83848b95b7e0be3ff3380130c0fc32a24e4241"
+  },
+  {
+    "path": "training_status.json",
+    "bytes": 570,
+    "sha256": "9589d265ef164888ecf3236b4700736a5f85636c21ab459885bbda70d460b183"
+  },
+  {
+    "path": "unlabeled_leave_one_farm_out_partitions.csv",
+    "bytes": 131606,
+    "sha256": "cff0e56057dcee62a46459b0bc76f94f7e30a3e70250bb9b21ef9ed5b7e4c0ee"
+  },
+  {
+    "path": "verification_cli_results.json",
+    "bytes": 1512,
+    "sha256": "3a9b56eae1336378cd3a5e2115f656d7d4ee6be7cc6d5bbdd61f29cb580efee6"
+  },
+  {
+    "path": "verification_results.json",
+    "bytes": 1988,
+    "sha256": "c82de7dc6b5821f48ee43dfbe42940ef10bf8a228934c0b32d7beb45ef763c7a"
+  }
+]

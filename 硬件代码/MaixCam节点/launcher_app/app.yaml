@@ -1,0 +1,17 @@
+id: shumu_ywh
+name: 杨文昊-数牧增效
+name[zh]: 杨文昊-数牧增效
+version: 1.1.0
+author: 杨文昊
+icon: icon.png
+desc: Cattle detection and appearance research
+desc[zh]: 牛只检测与外观研究
+files:
+  - app.yaml
+  - main.py
+  - ui_logic.py
+  - cascade_logic.py
+  - vision_node.py
+  - config.json
+  - icon.png
+  - models

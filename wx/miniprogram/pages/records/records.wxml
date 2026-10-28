@@ -1,0 +1,41 @@
+<scroll-view class="page records-page" scroll-y enhanced show-scrollbar="{{false}}">
+  <view class="records-head">
+    <view class="records-title-block">
+      <text class="eyebrow">DIAGNOSIS ARCHIVE</text>
+      <text class="title">识别记录</text>
+    </view>
+    <button class="clear-btn" bindtap="clearAll">清空</button>
+  </view>
+
+  <view wx:if="{{!hasRecords}}" class="card empty-state empty-records">
+    <view class="card-content">
+      <text class="empty-title">还没有保存的识别结果</text>
+      <text class="empty-text">从 AI识牛 上传照片后，系统会把评分、风险等级和处理建议保存在这里。</text>
+      <button class="primary-btn empty-btn" bindtap="goDiagnosis">去上传照片</button>
+    </view>
+  </view>
+
+  <view wx:else class="timeline">
+    <view class="record-card card" wx:for="{{records}}" wx:key="id">
+      <view class="card-content record-content">
+        <image class="record-image" src="{{item.imagePath}}" mode="aspectFill"></image>
+        <view class="record-body">
+          <view class="record-top">
+            <text class="cow-id">{{item.cowId}}</text>
+            <text class="pill {{item.riskClassName}}">{{item.riskLabel}}</text>
+          </view>
+          <view class="score-line">
+            <text class="score">{{item.score}}</text>
+            <text class="score-label">健康评分</text>
+          </view>
+          <text class="record-conclusion">{{item.conclusion}}</text>
+          <text class="record-time">{{item.createdAt}}</text>
+        </view>
+      </view>
+
+      <view class="finding-row">
+        <text class="finding-chip" wx:for="{{item.findings}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

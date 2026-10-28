@@ -1,0 +1,14 @@
+{
+  "requested_url": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8n-cls.pt",
+  "official_repository": "ultralytics/assets",
+  "release": "v8.3.0",
+  "retrieved_utc": "2026-10-26T02:25:23.574407+00:00",
+  "final_host": "release-assets.githubusercontent.com",
+  "final_path": "/github-production-release-asset/521807533/7e6d4f7b-f35a-4afc-bbf3-412a230d14ec",
+  "http_status": 200,
+  "etag": "\"0x8DCE0B11F58F7F3\"",
+  "content_length": "5563076",
+  "bytes": 5563076,
+  "sha256": "11fa19f2aea79bc960d680a13f82f22105982b325eb9e17a4a5e1a9f8245980a",
+  "hash_scope": "locally observed downloaded bytes; not an independently signed attestation"
+}

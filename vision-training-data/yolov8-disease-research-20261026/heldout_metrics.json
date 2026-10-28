@@ -1,0 +1,76 @@
+{
+  "scope": "source-label image-group heldout; NOT independent farm disease accuracy",
+  "unit": "one deterministic representative per deduplicated image group",
+  "heldout_prediction_started_utc": "2026-10-26T02:50:13.101136+00:00",
+  "checkpoint_frozen_utc": "2026-10-26T02:37:59.894498+00:00",
+  "test_used_for_selection": false,
+  "n_images": 413,
+  "n_image_groups": 413,
+  "correct": 380,
+  "accuracy": 0.9200968523002422,
+  "balanced_accuracy": 0.9199604880909141,
+  "macro_f1": 0.9210266083404183,
+  "weighted_f1": 0.9201390171264834,
+  "log_loss": 0.35471105575561523,
+  "accuracy_wilson95": [
+    0.8899098250381425,
+    0.9425409608834743
+  ],
+  "interval_limit": "image-group binomial approximation; not animal/farm-clustered uncertainty",
+  "classification_report": {
+    "foot-and-mouth": {
+      "precision": 0.9468085106382979,
+      "recall": 0.9081632653061225,
+      "f1-score": 0.9270833333333334,
+      "support": 98.0
+    },
+    "healthy": {
+      "precision": 0.9257142857142857,
+      "recall": 0.9101123595505618,
+      "f1-score": 0.9178470254957507,
+      "support": 178.0
+    },
+    "lumpy": {
+      "precision": 0.8958333333333334,
+      "recall": 0.9416058394160584,
+      "f1-score": 0.9181494661921709,
+      "support": 137.0
+    },
+    "accuracy": 0.9200968523002422,
+    "macro avg": {
+      "precision": 0.9227853765619723,
+      "recall": 0.9199604880909141,
+      "f1-score": 0.9210266083404183,
+      "support": 413.0
+    },
+    "weighted avg": {
+      "precision": 0.9208076115408299,
+      "recall": 0.9200968523002422,
+      "f1-score": 0.9201390171264834,
+      "support": 413.0
+    }
+  },
+  "label_order": [
+    "foot-and-mouth",
+    "healthy",
+    "lumpy"
+  ],
+  "confusion_matrix_rows_true_columns_predicted": [
+    [
+      89,
+      5,
+      4
+    ],
+    [
+      5,
+      162,
+      11
+    ],
+    [
+      0,
+      8,
+      129
+    ]
+  ],
+  "onnx_accuracy": 0.9200968523002422
+}

@@ -1,0 +1,77 @@
+<scroll-view class="page admin-page" scroll-y enhanced show-scrollbar="{{false}}">
+  <view class="admin-hero card">
+    <view class="card-content">
+      <text class="eyebrow">BARN MANAGEMENT</text>
+      <text class="title">后台管理</text>
+      <view class="admin-summary">
+        <view>
+          <text class="summary-value">{{onlineRate}}</text>
+          <text class="summary-label">设备在线率</text>
+        </view>
+        <button class="ghost-btn refresh-btn" bindtap="syncData">刷新</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-head"><text class="section-title">巡检服务</text></view>
+  <view class="action-grid"><button class="action-card green" data-target="assistant" bindtap="goService"><text class="action-title">AI 助手 ↗</text></button><button class="action-card gold" data-target="consultation" bindtap="goService"><text class="action-title">专家咨询 ↗</text></button></view>
+  <button class="ghost-btn" data-target="news" bindtap="goService">养牛资讯与小知识 ↗</button>
+
+  <view class="section-head">
+    <text class="section-title">远程控制</text>
+    <text class="subtle">指令下发</text>
+  </view>
+
+  <view class="action-grid">
+    <button class="action-card {{item.tone}}" wx:for="{{actions}}" wx:key="id" data-title="{{item.title}}" bindtap="runAction">
+      <text class="action-title">{{item.title}}</text>
+      <text class="action-subtitle">{{item.subtitle}}</text>
+    </button>
+  </view>
+
+  <view class="section-head">
+    <text class="section-title">设备状态</text>
+    <text class="subtle">采集节点</text>
+  </view>
+
+  <view class="device-list">
+    <view class="card device-card" wx:for="{{devices}}" wx:key="id">
+      <view class="card-content device-row">
+        <view class="device-pulse {{item.statusClass}}"></view>
+        <view class="device-info">
+          <text class="device-name">{{item.name}}</text>
+          <text class="device-meta">{{item.type}} · {{item.value}}</text>
+        </view>
+        <text class="pill {{item.statusClass}}">{{item.statusText}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-head">
+    <text class="section-title">告警队列</text>
+    <text class="subtle">待处理</text>
+  </view>
+
+  <view class="alert-stack">
+    <view class="card alert-card" wx:for="{{alerts}}" wx:key="id">
+      <view class="card-content alert-row">
+        <view>
+          <text class="alert-title">{{item.title}}</text>
+          <text class="alert-meta">{{item.source}} · {{item.time}}</text>
+        </view>
+        <text class="pill {{item.levelClass}}">{{item.levelText}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-head" wx:if="{{commandLogs.length}}">
+    <text class="section-title">指令回执</text>
+  </view>
+
+  <view class="command-list" wx:if="{{commandLogs.length}}">
+    <view class="command-row" wx:for="{{commandLogs}}" wx:key="id">
+      <text class="command-title">{{item.title}}</text>
+      <text class="command-time">{{item.time}}</text>
+    </view>
+  </view>
+</scroll-view>

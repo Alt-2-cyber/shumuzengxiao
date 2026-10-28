@@ -1,0 +1,7 @@
+@import "../../styles/support.wxss";
+.article-type,.article-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 20rpx; color: #9cdded; font-size: 24rpx; flex-wrap: wrap; }
+.detail-heading { display: block; font-size: 40rpx; font-weight: 700; line-height: 1.55; margin: 24rpx 0; word-break: break-all; }
+.article-toolbar { padding: 20rpx 0; border-bottom: 1rpx solid #344f3d; margin-bottom: 30rpx; }
+.detail-summary { display: block; color: #b7d6c1; line-height: 1.8; font-size: 28rpx; margin: 20rpx 0 32rpx; }
+.detail-content { display: block; font-size: 30rpx; line-height: 1.95; white-space: pre-wrap; word-break: break-all; }
+.article-actions { display: flex; gap: 20rpx; margin-top: 40rpx; }.article-actions button { flex: 1; min-width: 0; }

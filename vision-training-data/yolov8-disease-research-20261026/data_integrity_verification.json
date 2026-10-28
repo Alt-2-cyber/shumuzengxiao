@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "source_files_verified": 3244,
+  "prepared_images_verified": 2752,
+  "group_split_overlap": 0,
+  "file_pixel_name_split_overlap": 0,
+  "duplicate_edges_verified": 505,
+  "near_duplicate_edge_split_overlap": 0,
+  "test_visible_to_trainer": false
+}

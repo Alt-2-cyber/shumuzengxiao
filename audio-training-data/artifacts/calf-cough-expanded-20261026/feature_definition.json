@@ -1,0 +1,284 @@
+{
+  "id": "calf-cough-shape14-logmel40-mfcc13-delta-8khz-v1",
+  "feature_count": 133,
+  "feature_names": [
+    "zero_crossing_rate",
+    "log1p_peak_to_rms",
+    "frame_rms_cv",
+    "frame_active_fraction",
+    "spectral_centroid_nyquist",
+    "spectral_bandwidth_nyquist",
+    "spectral_rolloff85_nyquist",
+    "spectral_flatness",
+    "spectral_flux",
+    "band_0_250_fraction",
+    "band_250_500_fraction",
+    "band_500_1000_fraction",
+    "band_1000_2000_fraction",
+    "band_2000_4000_fraction",
+    "logmel_mean_00",
+    "logmel_mean_01",
+    "logmel_mean_02",
+    "logmel_mean_03",
+    "logmel_mean_04",
+    "logmel_mean_05",
+    "logmel_mean_06",
+    "logmel_mean_07",
+    "logmel_mean_08",
+    "logmel_mean_09",
+    "logmel_mean_10",
+    "logmel_mean_11",
+    "logmel_mean_12",
+    "logmel_mean_13",
+    "logmel_mean_14",
+    "logmel_mean_15",
+    "logmel_mean_16",
+    "logmel_mean_17",
+    "logmel_mean_18",
+    "logmel_mean_19",
+    "logmel_mean_20",
+    "logmel_mean_21",
+    "logmel_mean_22",
+    "logmel_mean_23",
+    "logmel_mean_24",
+    "logmel_mean_25",
+    "logmel_mean_26",
+    "logmel_mean_27",
+    "logmel_mean_28",
+    "logmel_mean_29",
+    "logmel_mean_30",
+    "logmel_mean_31",
+    "logmel_mean_32",
+    "logmel_mean_33",
+    "logmel_mean_34",
+    "logmel_mean_35",
+    "logmel_mean_36",
+    "logmel_mean_37",
+    "logmel_mean_38",
+    "logmel_mean_39",
+    "logmel_std_00",
+    "logmel_std_01",
+    "logmel_std_02",
+    "logmel_std_03",
+    "logmel_std_04",
+    "logmel_std_05",
+    "logmel_std_06",
+    "logmel_std_07",
+    "logmel_std_08",
+    "logmel_std_09",
+    "logmel_std_10",
+    "logmel_std_11",
+    "logmel_std_12",
+    "logmel_std_13",
+    "logmel_std_14",
+    "logmel_std_15",
+    "logmel_std_16",
+    "logmel_std_17",
+    "logmel_std_18",
+    "logmel_std_19",
+    "logmel_std_20",
+    "logmel_std_21",
+    "logmel_std_22",
+    "logmel_std_23",
+    "logmel_std_24",
+    "logmel_std_25",
+    "logmel_std_26",
+    "logmel_std_27",
+    "logmel_std_28",
+    "logmel_std_29",
+    "logmel_std_30",
+    "logmel_std_31",
+    "logmel_std_32",
+    "logmel_std_33",
+    "logmel_std_34",
+    "logmel_std_35",
+    "logmel_std_36",
+    "logmel_std_37",
+    "logmel_std_38",
+    "logmel_std_39",
+    "mfcc_mean_01",
+    "mfcc_mean_02",
+    "mfcc_mean_03",
+    "mfcc_mean_04",
+    "mfcc_mean_05",
+    "mfcc_mean_06",
+    "mfcc_mean_07",
+    "mfcc_mean_08",
+    "mfcc_mean_09",
+    "mfcc_mean_10",
+    "mfcc_mean_11",
+    "mfcc_mean_12",
+    "mfcc_mean_13",
+    "mfcc_std_01",
+    "mfcc_std_02",
+    "mfcc_std_03",
+    "mfcc_std_04",
+    "mfcc_std_05",
+    "mfcc_std_06",
+    "mfcc_std_07",
+    "mfcc_std_08",
+    "mfcc_std_09",
+    "mfcc_std_10",
+    "mfcc_std_11",
+    "mfcc_std_12",
+    "mfcc_std_13",
+    "mfcc_delta_std_01",
+    "mfcc_delta_std_02",
+    "mfcc_delta_std_03",
+    "mfcc_delta_std_04",
+    "mfcc_delta_std_05",
+    "mfcc_delta_std_06",
+    "mfcc_delta_std_07",
+    "mfcc_delta_std_08",
+    "mfcc_delta_std_09",
+    "mfcc_delta_std_10",
+    "mfcc_delta_std_11",
+    "mfcc_delta_std_12",
+    "mfcc_delta_std_13"
+  ],
+  "sample_rate_hz": 8000,
+  "window_samples": 8000,
+  "hop_samples": 8000,
+  "observed_prefix_policy": "Never trim zeros; explicit prefix count is at native WAV rate.",
+  "normalization": "Subtract mean, divide by AC RMS over observed window samples only.",
+  "legacy_shape14": {
+    "schema_version": 1,
+    "id": "calf-event-shape14-8khz-1s-v1",
+    "sample_rate_hz": 8000,
+    "window_samples": 8000,
+    "hop_samples": 8000,
+    "resampling": {
+      "method": "scipy.signal.resample_poly",
+      "up_down": "reduce 8000/source_rate by gcd",
+      "window": [
+        "kaiser",
+        5.0
+      ],
+      "padtype": "constant",
+      "minimum_source_rate_hz": 8000
+    },
+    "coverage": "Never trim zeros. Valid-prefix metadata is explicit; otherwise all WAV samples are observed.",
+    "normalization": "Subtract mean and divide by AC RMS over observed samples only, independently per window.",
+    "frames": {
+      "samples": 200,
+      "hop_samples": 80,
+      "fft_samples": 256,
+      "window": "periodic Hann: 0.5 - 0.5*cos(2*pi*n/200)",
+      "tail_policy": "Use complete frames; if fewer than 200 observed samples, right-pad one frame."
+    },
+    "minimum_observed_samples_for_scoring": 800,
+    "silence_rms_full_scale": 1e-08,
+    "numeric_floor": 1e-12,
+    "spectral_power": "abs(rfft(normalized_frame * Hann, n=256))**2; mean power across frames",
+    "features": [
+      {
+        "name": "zero_crossing_rate",
+        "formula": "mean(signbit(x[1:]) != signbit(x[:-1]))"
+      },
+      {
+        "name": "log1p_peak_to_rms",
+        "formula": "log1p(max(abs(x))) after unit-RMS normalization"
+      },
+      {
+        "name": "frame_rms_cv",
+        "formula": "population std(frame RMS) / max(mean(frame RMS),1e-12)"
+      },
+      {
+        "name": "frame_active_fraction",
+        "formula": "mean(frame RMS >= 0.25 * max(frame RMS))"
+      },
+      {
+        "name": "spectral_centroid_nyquist",
+        "formula": "sum(f * mean_power) / sum(mean_power) / 4000"
+      },
+      {
+        "name": "spectral_bandwidth_nyquist",
+        "formula": "sqrt(sum((f-centroid)**2 * mean_power)/sum(mean_power))/4000"
+      },
+      {
+        "name": "spectral_rolloff85_nyquist",
+        "formula": "first FFT-bin frequency reaching 85% cumulative mean power / 4000"
+      },
+      {
+        "name": "spectral_flatness",
+        "formula": "exp(mean(log(max(mean_power,1e-12)))) / max(mean(mean_power),1e-12)"
+      },
+      {
+        "name": "spectral_flux",
+        "formula": "mean over adjacent frames of sum(diff(frame_power/sum(frame_power))**2); 0 for one frame"
+      },
+      {
+        "name": "band_0_250_fraction",
+        "formula": "sum(mean_power at 0 <= f < 250) / sum(mean_power)"
+      },
+      {
+        "name": "band_250_500_fraction",
+        "formula": "sum(mean_power at 250 <= f < 500) / sum(mean_power)"
+      },
+      {
+        "name": "band_500_1000_fraction",
+        "formula": "sum(mean_power at 500 <= f < 1000) / sum(mean_power)"
+      },
+      {
+        "name": "band_1000_2000_fraction",
+        "formula": "sum(mean_power at 1000 <= f < 2000) / sum(mean_power)"
+      },
+      {
+        "name": "band_2000_4000_fraction",
+        "formula": "sum(mean_power at 2000 <= f < 4001) / sum(mean_power)"
+      }
+    ],
+    "excluded_from_classifier": [
+      "duration",
+      "padding",
+      "raw amplitude",
+      "quality flags",
+      "filename",
+      "source IDs"
+    ],
+    "quality_flag_rules": {
+      "low_rms": "AC RMS < 0.001 full scale (-60 dBFS)",
+      "near_full_scale": "fraction(abs(observed samples)>=0.999) > 0.01",
+      "short_observed_window": "observed samples < 8000"
+    }
+  },
+  "zcr_numeric_zero_tolerance_unit_rms": 1e-12,
+  "spectral_frames": {
+    "samples": 200,
+    "hop_samples": 80,
+    "fft_samples": 512,
+    "window": "periodic Hann",
+    "tail": "complete frames only"
+  },
+  "mel": {
+    "bands": 40,
+    "minimum_hz": 80.0,
+    "maximum_hz": 3800.0,
+    "scale": "HTK: 2595*log10(1+f/700)",
+    "triangles": "evaluated at FFT-bin frequencies",
+    "normalization": "each triangle sums to one",
+    "log": "natural log(max(mel_power,1e-10))",
+    "statistics": [
+      "mean",
+      "population std"
+    ]
+  },
+  "mfcc": {
+    "transform": "scipy.fft.dct(type=2, norm=ortho)",
+    "coefficients": "1..13 (exclude 0)",
+    "statistics": [
+      "mean",
+      "population std",
+      "population std of adjacent frame differences"
+    ]
+  },
+  "minimum_observed_samples_for_scoring": 800,
+  "silence_ac_rms_full_scale": 1e-08,
+  "excluded_from_classifier": [
+    "duration",
+    "padding",
+    "amplitude",
+    "file/source/animal IDs",
+    "quality flags"
+  ]
+}

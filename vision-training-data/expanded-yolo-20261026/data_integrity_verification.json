@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checked_utc": "2026-10-26T12:03:17.646491+00:00",
+  "frozen_test_images": 413,
+  "all_source_files_verified": 11826,
+  "prepared_images_verified": 3422,
+  "global_train_test_component_overlap": 0,
+  "global_train_val_component_overlap": 0,
+  "global_train_source_holdout_overlap": 0,
+  "original_prior_files_unchanged": true,
+  "trainer_has_test_directory": false
+}

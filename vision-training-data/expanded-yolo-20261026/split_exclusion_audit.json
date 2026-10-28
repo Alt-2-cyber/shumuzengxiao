@@ -1,0 +1,52 @@
+{
+  "prior_train_representatives": 1926,
+  "prior_train_retained": 1702,
+  "prior_train_removed_role_counts": {
+    "excluded_non_bovine_subject": 2,
+    "excluded_holdout_overlap_with_prior": 212,
+    "duplicate_excluded": 5,
+    "quarantine_cross_label": 2,
+    "excluded_frozen_test_component": 3
+  },
+  "prior_validation_representatives": 413,
+  "prior_validation_retained": 412,
+  "removed_prior_validation": [
+    {
+      "id": "c013b55f29e3c00413ae",
+      "prior_group_id": "g-5db9e40b96f9103831ab",
+      "global_group_id": "xg-2ce0c5543be37a497c26",
+      "source_label": "lumpy",
+      "role": "quarantine_cross_label",
+      "source_path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部视觉数据\\Kaggle_CattleDiseases_2025\\raw\\Cows datasets\\lumpy\\622836083fb1a_jpg.rf.9ba775e2a29e101d889f30e4527443a9.jpg"
+    }
+  ],
+  "legacy_train_now_connected_to_frozen_test": [
+    {
+      "id": "e2f7a4bf13911c9afb66",
+      "prior_group_id": "g-7c293ead36368c507f2a",
+      "global_group_id": "xg-661337fd1d6f8edc5ea0",
+      "source_label": "lumpy",
+      "source_path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部视觉数据\\Kaggle_CattleDiseases_2025\\raw\\Cows datasets\\lumpy\\img1110.jpg"
+    },
+    {
+      "id": "d24eb3db1b4f3999b880",
+      "prior_group_id": "g-d393e16a6a6ec1f00adc",
+      "global_group_id": "xg-3bfd7e88c3d56edf4cc8",
+      "source_label": "lumpy",
+      "source_path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部视觉数据\\Kaggle_CattleDiseases_2025\\raw\\Cows datasets\\lumpy\\img2335_jpg.rf.9c6cceb3bbc7e816f3d64ae87c735bea.jpg"
+    },
+    {
+      "id": "21d76d7968192c9452ba",
+      "prior_group_id": "g-d1935df24217d23a9f54",
+      "global_group_id": "xg-cd4fc2e3ede165bcfedc",
+      "source_label": "lumpy",
+      "source_path": "D:\\table\\shumuzengxiao\\疾病识别生产落地\\外部视觉数据\\Kaggle_CattleDiseases_2025\\raw\\Cows datasets\\lumpy\\LS-6_jpg.rf.c626bcd4ed44721908407b06526dce81.jpg"
+    }
+  ],
+  "frozen_test_conflicting_external_label_groups": [
+    "xg-3bfd7e88c3d56edf4cc8",
+    "xg-9380c9ff242a2dbac20d"
+  ],
+  "test_images_preserved_even_with_external_label_conflict": true,
+  "clinical_label_overrides_performed": false
+}

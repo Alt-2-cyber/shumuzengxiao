@@ -1,0 +1,17 @@
+{
+  "status": "blocked_missing_clinical_labels",
+  "model_created": false,
+  "production_eligible": false,
+  "rows": 383,
+  "farms": 11,
+  "missing": [
+    "Verified clinical High labels and exact cow-to-row linkage"
+  ],
+  "deployment_compatibility": {
+    "compatible": false,
+    "source": "One hind-limb Z axis; ~30 s sparse points over 7 days",
+    "target": "Neck/body/leg ADXL345 XYZ at 20 Hz; 10 s windows",
+    "reason": "Missing positions, axes, high-rate timing and target-domain clinical validation"
+  },
+  "approval_gates_changed": false
+}

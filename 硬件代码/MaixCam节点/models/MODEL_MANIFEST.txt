@@ -1,0 +1,11 @@
+Model: cattle_yolov8
+Format: MaixCAM MUD + CVIMODEL
+Model type: YOLOv8
+Input: 320x224 RGB, int8
+Labels: COCO 80 classes, including cow (class 19)
+Source: MaixCAM factory YOLOv8n model, copied and renamed for this project
+Purpose: cow object detection and bounding boxes
+Limitations: not a posture, lameness, hoof-lesion, FMD, or other disease diagnosis model
+
+cattle_yolov8.mud SHA256: 3577763a47128ab378e5003edb528afc8600248612227a9408c3d7ef977e8224
+cattle_yolov8.cvimodel SHA256: 1d547f377181c7748730f1e1fcfe6e846b772a6976632566b36b97d068c6730e

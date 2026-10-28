@@ -1,0 +1,176 @@
+[
+  {
+    "args": [
+      "git",
+      "clone",
+      "--mirror",
+      "https://github.com/june18usman/UCD.git",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git"
+    ],
+    "error": "Command '['git', 'clone', '--mirror', 'https://github.com/june18usman/UCD.git', 'D:\\\\table\\\\shumuzengxiao\\\\疾病识别生产落地\\\\研究模型\\\\ucd-lameness-20261025\\\\public_sources\\\\UCD.git']' timed out after 45 seconds"
+  },
+  {
+    "args": [
+      "git",
+      "clone",
+      "--mirror",
+      "https://github.com/june18usman/UCD.git",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "Cloning into bare repository 'D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git'...\n"
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "rev-parse",
+      "--verify",
+      "HEAD"
+    ],
+    "returncode": 0,
+    "stdout": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "log",
+      "--all",
+      "--format=%H %aI %s"
+    ],
+    "returncode": 0,
+    "stdout": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1 2026-01-07T21:43:22+08:00 111drawio.png\nbcd2f9533976b8874454eefc818794117d3ccff4 2025-12-21T22:59:48+08:00 Update Untitled Diagram.drawio.png\ndcf3a6f302bb48ce3ec6e0e9251df7173b053e81 2025-12-21T22:59:11+08:00 Added Untitled Diagram.drawio.png\n5cbc98fc1a3dad6275ab961cc6d4f3dad58c9351 2025-02-16T18:41:07+05:00 Add files via upload\n3c26eef00d37d5001ae726aacd60dd34a5827a24 2025-02-16T18:29:25+05:00 Add files via upload\na0d42dd5130ee115a5eb993bdc4151ab41a8f0c1 2025-02-16T18:26:19+05:00 Add files via upload\nc0c958fb2377372634efa1e2a1ecfc13ecb00eab 2025-02-14T15:40:07+05:00 Initial commit\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "rev-list",
+      "--objects",
+      "--all"
+    ],
+    "returncode": 0,
+    "stdout": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1\nbcd2f9533976b8874454eefc818794117d3ccff4\ndcf3a6f302bb48ce3ec6e0e9251df7173b053e81\n5cbc98fc1a3dad6275ab961cc6d4f3dad58c9351\n3c26eef00d37d5001ae726aacd60dd34a5827a24\na0d42dd5130ee115a5eb993bdc4151ab41a8f0c1\nc0c958fb2377372634efa1e2a1ecfc13ecb00eab\n105b2e0fe63a214e141a5c9e0396e33c3f65f71d \n35e7b4dbd7221500c8c3f35dbc044ad7a0692366 A1_NR_RF_FS1.R\n545a577792a2c94d2fd90784ba4c58e7efa15fa8 A1_NR_RF_RS2.R\nec21e9375a5e2a71c48795b8b77c52b4bebfdeb6 A2_PCA_KNN_FS7.R\ne177361765dc978db6540c0e1f41e3744bd3f557 A2_PCA_KNN_RS8.R\nd2b654d24c84161093dd72b24eb30043aa77a9b1 A2_PCA_LR_FS5.R\n4b00837dab4643e6586fba871ea7388df05cf132 A2_PCA_LR_RS6.R\na072223172e2bfb84512db6542f4707612a43940 A2_PCA_NB_FS9.R\nc3dc6b2426c4ace9197eecc8b7aa530abe8f44a3 A2_PCA_NB_RS10.R\n52c584a6fcc57519ee8969fa3dce2d601f8f8a3c A2_PCA_RF_FS3.R\nfffc0baa3b2580f797d2da7628a42fe766ac1955 A2_PCA_RF_RS4.R\ncf655755c509e4acea7f7e20e8e551f2712e1db8 A2_PCA_SVM_FS11.R\n40d6ea1eda559c0354402800d381e89577639fe2 A2_PCA_SVM_RS12.R\nd6094048b0a8ac472fb5aa8725ffb9de1deb2d28 A3_FPCA_KNN_FS17.R\ne2543b7c1aa6e51f8878924db928ce858d1233f0 A3_FPCA_KNN_RS18.R\nd65d073b06316552abce413f8cf50408ea52a2c9 A3_FPCA_LR_FS15.R\n923f3c3a334dd77dffb48f663ceda20a94bdbf6d A3_FPCA_LR_RS16.R\nefbc4ce9fd035c72a1da44445004663090afeec2 A3_FPCA_NB_FS19.R\n791c16c7dbc07cc863ddb4cc51ca85081449e8c9 A3_FPCA_NB_RS20.R\n5783a0bd8c01f35876f6cf4f43f59af7b39e3173 A3_FPCA_RF_FS13.R\n8ebc9cb971db7186eed171a07d4747615e7e2ada A3_FPCA_RF_RS14.R\ndfdbebfec0ee3b55402a1517656d2bbffb17ff27 A3_FPCA_SVM_RS22.R\nb7a286f6ef72a6be136e0bf170f39c0f5c3c87f1 AfterFPCA_AllCowsX.csv\n1c535cbeb76b71b3e15ef82b564020a7360d61ab AfterPCA_AllCowsX.csv\n1d623cbfdbc97cdb39732fe87cb7a3bac34c09d5 AllCowsDataX.zip\nc7a637c2a3724cef2d79aea5246cce32f6577ec5 README.md\n4a33e41915912863fac24bcc2881e2ad85a11fab README_FIRST.txt\n8d512f4215d912d06e232fdc0b46a6a89793c586 Untitled Diagram.drawio.png\n086596b6140d1b85a3712dba3d4c54eacd28c4d3 \n2d11e11088ae086e4af84dd788a5f8afce7e6ae5 Untitled Diagram.drawio.png\n6f16aeb1a01d31d7d3c3a6d5bff8574284f4f3ac \n1ca566545f048999d1b3404f610d14442373bbb0 Untitled Diagram.drawio.png\n8f99150c376d8aa1ae403709f287affbc4046ed4 \nd9b20f58f97bdba02424d61dd8afd4117178215b \n94806a88d66975281ed6f82058535d3332a5db73 \ne0bc7b4261606c628ea375956c7d6a70e275eafa \n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "log",
+      "--all",
+      "--name-status",
+      "--format=commit %H"
+    ],
+    "returncode": 0,
+    "stdout": "commit 30d505f38f46d4bdb2c9f0528f82a2101d9818c1\n\nM\tUntitled Diagram.drawio.png\ncommit bcd2f9533976b8874454eefc818794117d3ccff4\n\nM\tUntitled Diagram.drawio.png\ncommit dcf3a6f302bb48ce3ec6e0e9251df7173b053e81\n\nA\tUntitled Diagram.drawio.png\ncommit 5cbc98fc1a3dad6275ab961cc6d4f3dad58c9351\n\nA\tAllCowsDataX.zip\ncommit 3c26eef00d37d5001ae726aacd60dd34a5827a24\n\nA\tA1_NR_RF_FS1.R\nA\tA1_NR_RF_RS2.R\nA\tA2_PCA_KNN_FS7.R\nA\tA2_PCA_KNN_RS8.R\nA\tA2_PCA_LR_FS5.R\nA\tA2_PCA_LR_RS6.R\nA\tA2_PCA_NB_FS9.R\nA\tA2_PCA_NB_RS10.R\nA\tA2_PCA_RF_FS3.R\nA\tA2_PCA_RF_RS4.R\nA\tA2_PCA_SVM_FS11.R\nA\tA2_PCA_SVM_RS12.R\nA\tA3_FPCA_KNN_FS17.R\nA\tA3_FPCA_KNN_RS18.R\nA\tA3_FPCA_LR_FS15.R\nA\tA3_FPCA_LR_RS16.R\nA\tA3_FPCA_NB_FS19.R\nA\tA3_FPCA_NB_RS20.R\nA\tA3_FPCA_RF_FS13.R\nA\tA3_FPCA_RF_RS14.R\nA\tA3_FPCA_SVM_RS22.R\nA\tAfterFPCA_AllCowsX.csv\nA\tAfterPCA_AllCowsX.csv\ncommit a0d42dd5130ee115a5eb993bdc4151ab41a8f0c1\n\nA\tREADME_FIRST.txt\ncommit c0c958fb2377372634efa1e2a1ecfc13ecb00eab\n\nA\tREADME.md\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "returncode": 0,
+    "stdout": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "show-ref"
+    ],
+    "returncode": 0,
+    "stdout": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1 refs/heads/main\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "rev-parse",
+      "--verify",
+      "HEAD"
+    ],
+    "returncode": 0,
+    "stdout": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "log",
+      "--all",
+      "--format=%H %aI %s"
+    ],
+    "returncode": 0,
+    "stdout": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1 2026-01-07T21:43:22+08:00 111drawio.png\nbcd2f9533976b8874454eefc818794117d3ccff4 2025-12-21T22:59:48+08:00 Update Untitled Diagram.drawio.png\ndcf3a6f302bb48ce3ec6e0e9251df7173b053e81 2025-12-21T22:59:11+08:00 Added Untitled Diagram.drawio.png\n5cbc98fc1a3dad6275ab961cc6d4f3dad58c9351 2025-02-16T18:41:07+05:00 Add files via upload\n3c26eef00d37d5001ae726aacd60dd34a5827a24 2025-02-16T18:29:25+05:00 Add files via upload\na0d42dd5130ee115a5eb993bdc4151ab41a8f0c1 2025-02-16T18:26:19+05:00 Add files via upload\nc0c958fb2377372634efa1e2a1ecfc13ecb00eab 2025-02-14T15:40:07+05:00 Initial commit\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "rev-list",
+      "--objects",
+      "--all"
+    ],
+    "returncode": 0,
+    "stdout": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1\nbcd2f9533976b8874454eefc818794117d3ccff4\ndcf3a6f302bb48ce3ec6e0e9251df7173b053e81\n5cbc98fc1a3dad6275ab961cc6d4f3dad58c9351\n3c26eef00d37d5001ae726aacd60dd34a5827a24\na0d42dd5130ee115a5eb993bdc4151ab41a8f0c1\nc0c958fb2377372634efa1e2a1ecfc13ecb00eab\n105b2e0fe63a214e141a5c9e0396e33c3f65f71d \n35e7b4dbd7221500c8c3f35dbc044ad7a0692366 A1_NR_RF_FS1.R\n545a577792a2c94d2fd90784ba4c58e7efa15fa8 A1_NR_RF_RS2.R\nec21e9375a5e2a71c48795b8b77c52b4bebfdeb6 A2_PCA_KNN_FS7.R\ne177361765dc978db6540c0e1f41e3744bd3f557 A2_PCA_KNN_RS8.R\nd2b654d24c84161093dd72b24eb30043aa77a9b1 A2_PCA_LR_FS5.R\n4b00837dab4643e6586fba871ea7388df05cf132 A2_PCA_LR_RS6.R\na072223172e2bfb84512db6542f4707612a43940 A2_PCA_NB_FS9.R\nc3dc6b2426c4ace9197eecc8b7aa530abe8f44a3 A2_PCA_NB_RS10.R\n52c584a6fcc57519ee8969fa3dce2d601f8f8a3c A2_PCA_RF_FS3.R\nfffc0baa3b2580f797d2da7628a42fe766ac1955 A2_PCA_RF_RS4.R\ncf655755c509e4acea7f7e20e8e551f2712e1db8 A2_PCA_SVM_FS11.R\n40d6ea1eda559c0354402800d381e89577639fe2 A2_PCA_SVM_RS12.R\nd6094048b0a8ac472fb5aa8725ffb9de1deb2d28 A3_FPCA_KNN_FS17.R\ne2543b7c1aa6e51f8878924db928ce858d1233f0 A3_FPCA_KNN_RS18.R\nd65d073b06316552abce413f8cf50408ea52a2c9 A3_FPCA_LR_FS15.R\n923f3c3a334dd77dffb48f663ceda20a94bdbf6d A3_FPCA_LR_RS16.R\nefbc4ce9fd035c72a1da44445004663090afeec2 A3_FPCA_NB_FS19.R\n791c16c7dbc07cc863ddb4cc51ca85081449e8c9 A3_FPCA_NB_RS20.R\n5783a0bd8c01f35876f6cf4f43f59af7b39e3173 A3_FPCA_RF_FS13.R\n8ebc9cb971db7186eed171a07d4747615e7e2ada A3_FPCA_RF_RS14.R\ndfdbebfec0ee3b55402a1517656d2bbffb17ff27 A3_FPCA_SVM_RS22.R\nb7a286f6ef72a6be136e0bf170f39c0f5c3c87f1 AfterFPCA_AllCowsX.csv\n1c535cbeb76b71b3e15ef82b564020a7360d61ab AfterPCA_AllCowsX.csv\n1d623cbfdbc97cdb39732fe87cb7a3bac34c09d5 AllCowsDataX.zip\nc7a637c2a3724cef2d79aea5246cce32f6577ec5 README.md\n4a33e41915912863fac24bcc2881e2ad85a11fab README_FIRST.txt\n8d512f4215d912d06e232fdc0b46a6a89793c586 Untitled Diagram.drawio.png\n086596b6140d1b85a3712dba3d4c54eacd28c4d3 \n2d11e11088ae086e4af84dd788a5f8afce7e6ae5 Untitled Diagram.drawio.png\n6f16aeb1a01d31d7d3c3a6d5bff8574284f4f3ac \n1ca566545f048999d1b3404f610d14442373bbb0 Untitled Diagram.drawio.png\n8f99150c376d8aa1ae403709f287affbc4046ed4 \nd9b20f58f97bdba02424d61dd8afd4117178215b \n94806a88d66975281ed6f82058535d3332a5db73 \ne0bc7b4261606c628ea375956c7d6a70e275eafa \n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "log",
+      "--all",
+      "--name-status",
+      "--format=commit %H"
+    ],
+    "returncode": 0,
+    "stdout": "commit 30d505f38f46d4bdb2c9f0528f82a2101d9818c1\n\nM\tUntitled Diagram.drawio.png\ncommit bcd2f9533976b8874454eefc818794117d3ccff4\n\nM\tUntitled Diagram.drawio.png\ncommit dcf3a6f302bb48ce3ec6e0e9251df7173b053e81\n\nA\tUntitled Diagram.drawio.png\ncommit 5cbc98fc1a3dad6275ab961cc6d4f3dad58c9351\n\nA\tAllCowsDataX.zip\ncommit 3c26eef00d37d5001ae726aacd60dd34a5827a24\n\nA\tA1_NR_RF_FS1.R\nA\tA1_NR_RF_RS2.R\nA\tA2_PCA_KNN_FS7.R\nA\tA2_PCA_KNN_RS8.R\nA\tA2_PCA_LR_FS5.R\nA\tA2_PCA_LR_RS6.R\nA\tA2_PCA_NB_FS9.R\nA\tA2_PCA_NB_RS10.R\nA\tA2_PCA_RF_FS3.R\nA\tA2_PCA_RF_RS4.R\nA\tA2_PCA_SVM_FS11.R\nA\tA2_PCA_SVM_RS12.R\nA\tA3_FPCA_KNN_FS17.R\nA\tA3_FPCA_KNN_RS18.R\nA\tA3_FPCA_LR_FS15.R\nA\tA3_FPCA_LR_RS16.R\nA\tA3_FPCA_NB_FS19.R\nA\tA3_FPCA_NB_RS20.R\nA\tA3_FPCA_RF_FS13.R\nA\tA3_FPCA_RF_RS14.R\nA\tA3_FPCA_SVM_RS22.R\nA\tAfterFPCA_AllCowsX.csv\nA\tAfterPCA_AllCowsX.csv\ncommit a0d42dd5130ee115a5eb993bdc4151ab41a8f0c1\n\nA\tREADME_FIRST.txt\ncommit c0c958fb2377372634efa1e2a1ecfc13ecb00eab\n\nA\tREADME.md\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "returncode": 0,
+    "stdout": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "git",
+      "--git-dir",
+      "D:\\table\\shumuzengxiao\\疾病识别生产落地\\研究模型\\ucd-lameness-20261025\\public_sources\\UCD.git",
+      "show-ref"
+    ],
+    "returncode": 0,
+    "stdout": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1 refs/heads/main\n",
+    "stderr": ""
+  }
+]

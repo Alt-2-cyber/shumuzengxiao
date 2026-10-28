@@ -1,0 +1,12 @@
+<view class="support-page article-detail-page">
+  <text wx:if="{{loading}}" class="support-empty">正在读取内容…</text>
+  <view wx:if="{{error}}" class="support-error">{{error}}<button class="support-link" bindtap="load">重试</button></view>
+  <block wx:if="{{article}}">
+    <view class="article-type"><text>{{article.kind === 'knowledge' ? '养牛小知识' : '行业新闻'}}</text><text>{{categoryText}}</text></view>
+    <text class="detail-heading">{{article.title}}</text><text class="support-meta">{{article.sourceName}} · {{dateText}}</text>
+    <view class="article-toolbar"><button class="support-link" bindtap="favorite">{{saved ? '★ 已收藏' : '☆ 收藏'}}</button><button class="support-link" bindtap="original">{{article.kind === 'news' ? '复制原文链接 ↗' : '延伸阅读链接 ↗'}}</button></view>
+    <text wx:if="{{article.summary}}" class="detail-summary">{{article.summary}}</text>
+    <text class="detail-content" selectable>{{article.content}}</text>
+    <view class="support-block article-actions"><button class="support-button secondary" bindtap="ask">问 AI 助手</button><button class="support-button outline" bindtap="consult">专家咨询</button></view>
+  </block>
+</view>

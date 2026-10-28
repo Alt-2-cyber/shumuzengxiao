@@ -1,0 +1,74 @@
+<scroll-view class="page diagnosis-page" scroll-y enhanced show-scrollbar="{{false}}">
+  <view class="diagnosis-head">
+    <text class="eyebrow">AI CATTLE VISION</text>
+    <text class="title">AI识牛</text>
+    <text class="subtle">上传牛只现场照片，系统会模拟图像识别流程，输出健康风险、可疑特征和处理建议。</text>
+  </view>
+
+  <view class="scanner card">
+    <view class="scan-beam {{analyzing ? 'running' : ''}}"></view>
+    <view class="corner top-left"></view>
+    <view class="corner top-right"></view>
+    <view class="corner bottom-left"></view>
+    <view class="corner bottom-right"></view>
+
+    <view class="card-content scanner-content" bindtap="chooseImage">
+      <block wx:if="{{imagePath}}">
+        <image class="preview" src="{{imagePath}}" mode="aspectFill"></image>
+      </block>
+      <block wx:else>
+        <view class="upload-mark">+</view>
+        <text class="upload-title">上传或拍摄牛只照片</text>
+        <text class="upload-copy">建议包含头部、鼻镜、皮毛和站姿，画面越清楚判断越稳定。</text>
+      </block>
+    </view>
+  </view>
+
+  <view class="progress-wrap" wx:if="{{analyzing || progress > 0}}">
+    <view class="progress-track">
+      <view class="progress-fill" style="width: {{progress}}%;"></view>
+    </view>
+    <text class="progress-text">{{analyzing ? '正在扫描图像特征...' : '分析完成'}}</text>
+  </view>
+
+  <view class="action-row">
+    <button class="primary-btn" loading="{{analyzing}}" disabled="{{analyzing}}" bindtap="analyzeImage">开始 AI 分析</button>
+    <button class="ghost-btn" bindtap="resetImage">重新选择</button>
+  </view>
+
+  <view wx:if="{{result}}" class="result-panel card">
+    <view class="card-content">
+      <view class="result-top">
+        <view>
+          <text class="result-label">健康评分</text>
+          <text class="result-score">{{result.score}}</text>
+        </view>
+        <view class="risk-block">
+          <text class="pill {{riskClassName}}">{{riskLabel}}</text>
+          <text class="model">{{result.modelVersion}}</text>
+        </view>
+      </view>
+
+      <text class="conclusion">{{result.conclusion}}</text>
+
+      <view class="section-head compact">
+        <text class="section-title">识别特征</text>
+      </view>
+      <view class="finding-list">
+        <view class="finding-item" wx:for="{{result.findings}}" wx:key="*this">
+          <text class="finding-dot"></text>
+          <text class="finding-text">{{item}}</text>
+        </view>
+      </view>
+
+      <view class="section-head compact">
+        <text class="section-title">处理建议</text>
+      </view>
+      <view class="suggestion-list">
+        <text class="suggestion" wx:for="{{result.suggestions}}" wx:key="*this">{{item}}</text>
+      </view>
+
+      <button class="ghost-btn records-btn" bindtap="goRecords">查看全部记录</button>
+    </view>
+  </view>
+</scroll-view>

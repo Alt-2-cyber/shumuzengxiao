@@ -1,0 +1,7 @@
+{
+  "locked_utc": "2026-10-26T12:02:33.197080+00:00",
+  "checkpoint_sha256": "bc0ed384f8904a5cddad49d4b53942d29e3d43159fbdac6a5e421c76a6702b44",
+  "split_sha256": "e05df6bf85a00876f7a7059a52ccdce3d1bceaf8f8d129a8c78de7564ba08c1b",
+  "protocol_sha256": "9b37730e300eb03f92d72bb97dbf026f7b141a4ab627eb297cff16eb2dc602e0",
+  "statement": "Weights selected/frozen before any frozen-test or source-holdout inference; no test-driven retraining"
+}

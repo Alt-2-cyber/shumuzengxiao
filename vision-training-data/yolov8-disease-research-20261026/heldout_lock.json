@@ -1,0 +1,7 @@
+{
+  "locked_utc": "2026-10-26T02:37:59.894498+00:00",
+  "checkpoint_sha256": "5e6bacdc82bbc129b516f3f9656a03078ab522dd20c9a7f9ecf87ad90f16361b",
+  "split_sha256": "80439a3b66c8937ea33663e865646bd8f61f1544a0ca893d3cd492af60f88d11",
+  "protocol_sha256": "d2a2ce7a56583826a08f0b5a63d74df29cca273994867a26d5573661dcd5e2dc",
+  "statement": "Checkpoint fixed before first heldout inference; no test-based hyperparameter selection"
+}

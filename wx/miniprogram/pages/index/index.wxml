@@ -1,0 +1,94 @@
+<scroll-view class="page dashboard" scroll-y enhanced show-scrollbar="{{false}}">
+  <view class="hero card">
+    <view class="hero-glow"></view>
+    <view class="card-content">
+      <text class="eyebrow">CATTLE OPS COMMAND</text>
+      <text class="title">数牧增效</text>
+      <text class="hero-copy">牛舍 AI 巡检、设备联动、异常记录都汇总在这里。上传一张牛只照片，即可生成健康风险建议。</text>
+      <view class="hero-actions">
+        <button class="primary-btn" bindtap="goDiagnosis">上传照片分析</button>
+        <button class="ghost-btn" bindtap="goRecords">查看诊断记录</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="service-shortcuts">
+    <button bindtap="goAssistant"><text class="service-name">AI 助手 ↗</text><text class="service-caption">巡检问答</text></button>
+    <button bindtap="goConsultation"><text class="service-name">专家咨询 ↗</text><text class="service-caption">提问与咨询记录</text></button>
+  </view>
+
+  <button class="news-entry" bindtap="goNews"><view class="news-entry-head"><text>养牛资讯 ↗</text><text class="news-badge" wx:if="{{newsUnread}}">{{newsUnread}} 条未读</text></view><text class="news-entry-tip">今日小知识 · {{dailyTitle}}</text></button>
+
+  <view class="metric-grid">
+    <view class="card metric-card" wx:for="{{metrics}}" wx:key="label">
+      <view class="card-content metric">
+        <text class="metric-label">{{item.label}}</text>
+        <text class="metric-value">{{item.value}}</text>
+        <text class="metric-note">{{item.note}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-head">
+    <text class="section-title">最新识别</text>
+    <text class="subtle">AI 影像判断</text>
+  </view>
+
+  <view wx:if="{{hasRecords}}" class="latest-card card">
+    <view class="card-content latest-content">
+      <image class="latest-image" src="{{latest.imagePath}}" mode="aspectFill"></image>
+      <view class="latest-body">
+        <view class="latest-top">
+          <text class="cow-id">{{latest.cowId}}</text>
+          <text class="pill {{latestRiskClass}}">{{latestRiskText}}</text>
+        </view>
+        <text class="latest-score">{{latest.score}}</text>
+        <text class="subtle">{{latest.conclusion}}</text>
+        <text class="latest-time">{{latest.createdAt}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="card empty-state">
+    <view class="card-content">
+      <text class="empty-title">还没有 AI 识别记录</text>
+      <text class="empty-text">先拍一张牛只照片，系统会生成风险等级、特征判断和巡检建议。</text>
+      <button class="primary-btn empty-btn" bindtap="goDiagnosis">开始第一次分析</button>
+    </view>
+  </view>
+
+  <view class="section-head">
+    <text class="section-title">设备链路</text>
+    <text class="subtle">实时采集</text>
+  </view>
+
+  <view class="device-strip">
+    <view class="card device-card" wx:for="{{devices}}" wx:key="id">
+      <view class="card-content">
+        <view class="device-head">
+          <text class="device-name">{{item.name}}</text>
+          <text class="pill {{item.statusClass}}">{{item.statusText}}</text>
+        </view>
+        <text class="device-type">{{item.type}}</text>
+        <text class="device-value">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-head">
+    <text class="section-title">告警动态</text>
+    <text class="subtle">最近事件</text>
+  </view>
+
+  <view class="alert-list">
+    <view class="card alert-card" wx:for="{{alerts}}" wx:key="id">
+      <view class="card-content alert-row">
+        <view>
+          <text class="alert-title">{{item.title}}</text>
+          <text class="alert-meta">{{item.source}} · {{item.time}}</text>
+        </view>
+        <text class="pill {{item.levelClass}}">{{item.levelText}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

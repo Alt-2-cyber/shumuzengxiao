@@ -1,0 +1,32 @@
+<view class="support-page">
+  <view class="support-head"><view><text class="support-title">专家咨询</text><text class="support-meta">养殖问题 · 分级受理</text></view><button class="support-link" bindtap="settings">服务设置</button></view>
+  <view class="support-segments"><button class="{{tab === 'new' ? 'selected' : ''}}" data-tab="new" bindtap="changeTab" disabled="{{sending}}">发起咨询</button><button class="{{tab === 'records' ? 'selected' : ''}}" data-tab="records" bindtap="changeTab" disabled="{{sending}}">我的咨询</button></view>
+  <view wx:if="{{error}}" class="support-error">{{error}}</view>
+  <view wx:if="{{notice}}" class="support-note">{{notice}}</view>
+  <block wx:if="{{tab === 'new'}}">
+    <view class="support-block"><text class="support-label">咨询方向</text><view class="support-choices"><button wx:for="{{categories}}" wx:key="id" class="support-choice {{draft.category === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="chooseCategory" disabled="{{sending}}">{{item.name}}</button></view></view>
+    <view class="support-block"><text class="support-label">紧急程度</text><view class="support-choices"><button wx:for="{{priorities}}" wx:key="id" class="support-choice {{draft.priority === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="choosePriority" disabled="{{sending}}">{{item.name}}</button></view><text wx:if="{{draft.priority === 'urgent'}}" class="urgent-note">呼吸困难、不能起立或疑似传染病时，请立即联系当地兽医，不要等待线上回复。</text></view>
+    <view class="support-block"><text class="support-label">牛只耳标 / 栏位（选填）</text><input class="support-field" value="{{draft.cattleId}}" data-field="cattleId" bindinput="changeField" maxlength="80" placeholder="耳标或所在栏位" placeholder-style="color:#92a698" disabled="{{sending}}" /></view>
+    <view class="support-block"><text class="support-label">问题标题 *</text><input class="support-field" value="{{draft.subject}}" data-field="subject" bindinput="changeField" maxlength="80" placeholder="例如：牛只连续两天行走跛行" placeholder-style="color:#92a698" disabled="{{sending}}" /><view class="support-count">{{draft.subject.length}} / 80</view></view>
+    <view class="support-block"><text class="support-label">问题详情 *</text><textarea class="support-field" value="{{draft.description}}" data-field="description" bindinput="changeField" maxlength="2000" placeholder="异常表现、开始时间、体温、采食与活动情况" placeholder-style="color:#92a698" disabled="{{sending}}" /><view class="support-count">{{draft.description.length}} / 2000</view></view>
+    <view class="support-block"><text class="support-label">联系方式（选填）</text><input class="support-field" value="{{draft.contact}}" data-field="contact" bindinput="changeField" maxlength="80" placeholder="电话或其他回访方式" placeholder-style="color:#92a698" disabled="{{sending}}" /></view>
+    <text class="support-note">咨询单提交至平台待受理队列，专家接入后方可提供人工回复。草稿仅保存在本机。</text>
+    <view class="support-actions"><button class="support-button outline" bindtap="resetDraft" disabled="{{sending}}">清空草稿</button><button class="support-button" bindtap="submit" loading="{{sending}}" disabled="{{sending}}">{{sending ? '正在提交' : '提交咨询'}}</button></view>
+  </block>
+  <block wx:else>
+    <block wx:if="{{selected}}">
+      <button class="support-link" bindtap="closeRecord">‹ 返回咨询列表</button>
+      <view class="record-detail"><text class="detail-title">{{selected.subject}}</text><view class="record-tags"><text class="support-status {{selected.status === 'cancelled' ? 'muted' : 'amber'}}">{{selected.status === 'cancelled' ? '已撤回' : '待受理'}}</text><text class="support-meta">{{selected.categoryText}} · {{selected.priorityText}}</text></view><text class="support-meta">{{selected.timeText}}</text><text class="support-meta">咨询编号：{{selected.id}}</text></view>
+      <view class="support-block"><text class="support-label">问题详情</text><text class="detail-body" selectable>{{selected.description}}</text></view>
+      <view wx:if="{{selected.cattleId}}" class="support-block"><text class="support-label">牛只 / 栏位</text><text class="detail-body">{{selected.cattleId}}</text></view>
+      <view wx:if="{{selected.contact}}" class="support-block"><text class="support-label">联系方式</text><text class="detail-body">{{selected.contact}}</text></view>
+      <view class="support-block"><text class="support-label">受理进度</text><text class="support-note">{{selected.status === 'cancelled' ? '咨询已撤回。' : '平台已保存咨询单，尚未分配专家，暂无人工回复。'}}</text></view>
+      <button wx:if="{{selected.status === 'pending'}}" class="support-button danger" bindtap="cancel" disabled="{{cancelling}}" loading="{{cancelling}}">撤回咨询</button>
+    </block>
+    <block wx:else>
+      <view class="list-head"><text class="support-meta">最近 {{records.length}} 条</text><button class="support-link" bindtap="refresh" disabled="{{loading}}">{{loading ? '刷新中…' : '刷新'}}</button></view>
+      <view wx:if="{{!records.length}}" class="support-empty">{{loading ? '正在读取咨询记录…' : '还没有已提交的咨询'}}</view>
+      <button wx:for="{{records}}" wx:key="id" class="consultation-row" data-id="{{item.id}}" bindtap="openRecord"><view class="record-top"><text class="record-title">{{item.subject}}</text><text class="support-status {{item.status === 'cancelled' ? 'muted' : 'amber'}}">{{item.status === 'cancelled' ? '已撤回' : '待受理'}}</text></view><text class="support-meta">{{item.categoryText}} · {{item.priorityText}} · {{item.timeText}}</text><text class="record-excerpt">{{item.description}}</text></button>
+    </block>
+  </block>
+</view>

@@ -1,0 +1,20 @@
+@import "../../styles/support.wxss";
+.daily-strip { padding: 24rpx 0 24rpx 24rpx; border-left: 4rpx solid #72e38b; margin: 10rpx 0 28rpx; }
+.daily-label { display: block; color: #8ae5a2; font-size: 23rpx; }
+.daily-title { display: block; color: #f2f6f1; font-size: 32rpx; font-weight: 600; line-height: 1.6; margin: 12rpx 0; }
+.daily-summary,.article-summary { display: block; color: #b7c5bc; font-size: 25rpx; line-height: 1.7; }
+.news-tabs button { font-size: 27rpx; white-space: nowrap; }
+.search-field { margin-bottom: 20rpx; }
+.filter-inner { display: flex; gap: 14rpx; width: max-content; padding-bottom: 10rpx; }
+.filter-inner button { flex-shrink: 0; white-space: nowrap; }
+.list-tools,.article-tags,.preference-row,.topic-row { display: flex; align-items: center; justify-content: space-between; gap: 18rpx; }
+.list-tools { min-height: 74rpx; }
+.refresh-news { width: 76rpx; text-align: center; font-size: 40rpx; background: transparent; }
+.article-row { display: block; width: 100%; text-align: left; padding: 26rpx 0; border-bottom: 1rpx solid #344f3d; }
+.article-title { display: block; font-size: 30rpx; line-height: 1.65; font-weight: 600; margin: 12rpx 0; word-break: break-all; }
+.article-tags { justify-content: flex-start; font-size: 22rpx; }
+.category-tag { color: #9cdded; }.category-tag.market { color: #f0ce81; }.category-tag.nutrition { color: #a8e7bb; }
+.unread-mark { color: #efaa84; }.saved-mark { color: #c1d596; }
+.source-status { word-break: break-all; font-size: 21rpx; }
+.preference-row { padding: 28rpx 0; border-bottom: 1rpx solid #344f3d; }
+.topic-row { padding: 24rpx 0; font-size: 28rpx; }

@@ -1,0 +1,14 @@
+{
+  "completed_utc": "2026-10-26T12:02:33.181051+00:00",
+  "elapsed_seconds": 940.9436962000036,
+  "epochs_completed": 19,
+  "epochs_requested": 30,
+  "patience": 8,
+  "selected_checkpoint_epoch": 12,
+  "maximum_validation_top1": 0.89806,
+  "best_checkpoint_sha256": "bc0ed384f8904a5cddad49d4b53942d29e3d43159fbdac6a5e421c76a6702b44",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "peak_cuda_memory_allocated_bytes": 379515392,
+  "train_images": 1976,
+  "checkpoint_selection": "Validation only; single predetermined run; latest validation fitness tie"
+}

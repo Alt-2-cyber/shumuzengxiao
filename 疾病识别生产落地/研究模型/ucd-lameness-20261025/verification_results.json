@@ -1,0 +1,68 @@
+{
+  "at_utc": "2026-10-25T11:40:08.618014+00:00",
+  "checks": [
+    {
+      "check": "complete_source_csv",
+      "passed": true,
+      "detail": {
+        "rows": 383,
+        "columns": 20001
+      }
+    },
+    {
+      "check": "source_csv_hash_unchanged",
+      "passed": true,
+      "detail": "8a8f92b123ac17d73bd3fb26b3b2e805298a302109fcacaad7f1c43456af7b22"
+    },
+    {
+      "check": "zip_crc_and_source_match",
+      "passed": true,
+      "detail": 1
+    },
+    {
+      "check": "farm_partitions_disjoint_and_exhaustive",
+      "passed": true,
+      "detail": {
+        "folds": 11,
+        "rows": 4213
+      }
+    },
+    {
+      "check": "each_source_cow_row_tested_once",
+      "passed": true,
+      "detail": 383
+    },
+    {
+      "check": "no_model_or_firmware_artifacts",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "no_measured_metrics_without_labels",
+      "passed": true,
+      "detail": "blocked_missing_clinical_labels"
+    },
+    {
+      "check": "existing_programs_and_gates_unchanged",
+      "passed": true,
+      "detail": [
+        "D:\\table\\shumuzengxiao\\牛行为识别数据集\\esp32_motion_model\\train_export_model.py",
+        "D:\\table\\shumuzengxiao\\硬件代码\\现有硬件演示节点\\tools\\train_lameness_model.py",
+        "D:\\table\\shumuzengxiao\\硬件代码\\现有硬件演示节点\\tools\\verify_lameness_manifest.py",
+        "D:\\table\\shumuzengxiao\\硬件代码\\现有硬件演示节点\\include\\cattle_lameness_model.h",
+        "D:\\table\\shumuzengxiao\\硬件代码\\牛身节点\\include\\cattle_lameness_model.h"
+      ]
+    },
+    {
+      "check": "full_official_git_history_checked",
+      "passed": true,
+      "detail": {
+        "head": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1",
+        "commits": 7,
+        "clinical_filename_matches": []
+      }
+    }
+  ],
+  "passed": true,
+  "model_performance_verified": false
+}

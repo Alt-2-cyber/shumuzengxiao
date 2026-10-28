@@ -1,0 +1,52 @@
+{
+  "locked_utc": "2026-10-26T11:45:14.169306+00:00",
+  "selected": "magantirajasri/cattle-diseases-dataset",
+  "candidates": [
+    {
+      "source": "shivamagarwal29/cow-lumpy-disease-dataset",
+      "novel_eligible_groups": 185,
+      "prior_overlap_fraction": 0.8015021459227468,
+      "classes": [
+        "healthy",
+        "lumpy"
+      ]
+    },
+    {
+      "source": "drtawfikrrahman/cowhealth-6k-cow-disease-detection",
+      "novel_eligible_groups": 185,
+      "prior_overlap_fraction": 0.8815409309791332,
+      "classes": [
+        "healthy",
+        "lumpy"
+      ]
+    },
+    {
+      "source": "magantirajasri/cattle-diseases-dataset",
+      "novel_eligible_groups": 621,
+      "prior_overlap_fraction": 0.3301075268817204,
+      "classes": [
+        "foot-and-mouth",
+        "healthy",
+        "lumpy"
+      ]
+    },
+    {
+      "source": "tanushtambea/calf-lumpy-skin-disease",
+      "novel_eligible_groups": 425,
+      "prior_overlap_fraction": 0.3426829268292683,
+      "classes": [
+        "healthy"
+      ]
+    },
+    {
+      "source": "wasimfaraz/fmd-cattle-dataset",
+      "novel_eligible_groups": 12,
+      "prior_overlap_fraction": 0.7,
+      "classes": [
+        "foot-and-mouth"
+      ]
+    }
+  ],
+  "policy": "Before training/any inference: smallest entire new source with >=30 novel groups, >=2 explicit mapped classes and <=50% groups overlapping prior originals; fallback to calf source if none",
+  "test_predictions_consulted": false
+}

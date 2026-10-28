@@ -1,0 +1,59 @@
+{
+  "complete": true,
+  "repository": "https://github.com/june18usman/UCD",
+  "head_commit": "30d505f38f46d4bdb2c9f0528f82a2101d9818c1",
+  "refs": [
+    "30d505f38f46d4bdb2c9f0528f82a2101d9818c1 refs/heads/main"
+  ],
+  "commits": [
+    "30d505f38f46d4bdb2c9f0528f82a2101d9818c1 2026-01-07T21:43:22+08:00 111drawio.png",
+    "bcd2f9533976b8874454eefc818794117d3ccff4 2025-12-21T22:59:48+08:00 Update Untitled Diagram.drawio.png",
+    "dcf3a6f302bb48ce3ec6e0e9251df7173b053e81 2025-12-21T22:59:11+08:00 Added Untitled Diagram.drawio.png",
+    "5cbc98fc1a3dad6275ab961cc6d4f3dad58c9351 2025-02-16T18:41:07+05:00 Add files via upload",
+    "3c26eef00d37d5001ae726aacd60dd34a5827a24 2025-02-16T18:29:25+05:00 Add files via upload",
+    "a0d42dd5130ee115a5eb993bdc4151ab41a8f0c1 2025-02-16T18:26:19+05:00 Add files via upload",
+    "c0c958fb2377372634efa1e2a1ecfc13ecb00eab 2025-02-14T15:40:07+05:00 Initial commit"
+  ],
+  "historical_paths": [
+    "A1_NR_RF_FS1.R",
+    "A1_NR_RF_RS2.R",
+    "A2_PCA_KNN_FS7.R",
+    "A2_PCA_KNN_RS8.R",
+    "A2_PCA_LR_FS5.R",
+    "A2_PCA_LR_RS6.R",
+    "A2_PCA_NB_FS9.R",
+    "A2_PCA_NB_RS10.R",
+    "A2_PCA_RF_FS3.R",
+    "A2_PCA_RF_RS4.R",
+    "A2_PCA_SVM_FS11.R",
+    "A2_PCA_SVM_RS12.R",
+    "A3_FPCA_KNN_FS17.R",
+    "A3_FPCA_KNN_RS18.R",
+    "A3_FPCA_LR_FS15.R",
+    "A3_FPCA_LR_RS16.R",
+    "A3_FPCA_NB_FS19.R",
+    "A3_FPCA_NB_RS20.R",
+    "A3_FPCA_RF_FS13.R",
+    "A3_FPCA_RF_RS14.R",
+    "A3_FPCA_SVM_RS22.R",
+    "AfterFPCA_AllCowsX.csv",
+    "AfterPCA_AllCowsX.csv",
+    "AllCowsDataX.zip",
+    "README.md",
+    "README_FIRST.txt",
+    "Untitled Diagram.drawio.png"
+  ],
+  "clinical_filename_matches": [],
+  "license_filename_matches": [],
+  "archive_members": [
+    {
+      "object": "1d623cbfdbc97cdb39732fe87cb7a3bac34c09d5",
+      "path": "AllCowsDataX.zip",
+      "sha256": "053e731fc6a68603e1eed909514703bb3b360d7c7e55155fa786fb266065f808",
+      "members": [
+        "AllCowsDataX.csv"
+      ],
+      "crc_failure": null
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+recordingId,animalId,recordingSessionId,startedAt,lamenessScore,gaitReviewer,hoofExaminer,veterinarian,hoofFinding,videoReference,imuReference,clinicalEvidenceReference,verifiedAt
+motion-0001,cattle-017,session-YYYYMMDD-am,YYYY-MM-DDThh:mm:ssZ,0,trained-scorer,hoof-examiner,vet-identifier,no_lesion,video-file-or-url,imu-file-or-url,hoof-exam-reference,YYYY-MM-DDThh:mm:ssZ

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "research_only": true,
+  "production_approved": false,
+  "allow_for_disease_labels": false,
+  "non_cough_means_healthy": false,
+  "animal_independent_validation": false,
+  "scores_calibrated_on_external_data": false,
+  "clinical_diagnosis": false,
+  "clinicalDiagnosis": false,
+  "python_api": "predict(wav_path, model_path=ARTIFACTS/'model.json', valid_input_samples=None) -> dict",
+  "script_path": "D:\\table\\shumuzengxiao\\scripts\\audio_expand_retrain_20261026.py",
+  "default_model_path": "D:\\table\\shumuzengxiao\\audio-training-data\\artifacts\\calf-cough-expanded-20261026\\model.json",
+  "cli": "python -B -X utf8 scripts/audio_expand_retrain_20261026.py predict WAV --model MODEL_JSON",
+  "sample_rate_hz": 8000,
+  "window_samples": 8000,
+  "hop_samples": 8000,
+  "minimum_input_rate_hz": 8000,
+  "minimum_observed_window_samples": 800,
+  "wav_decode": "uint8: (value-128)/128; signed PCM: value/2^(bits-1); float PCM: unchanged",
+  "channels": "Arithmetic mean in float; per-frame saturation checks precede downmix",
+  "resampler": "scipy.signal.resample_poly; gcd ratio; Kaiser beta 5; constant boundary padding",
+  "coverage": "All WAV samples are observed unless a native-rate contiguous prefix count is explicit. Never trim zeros.",
+  "normalization": "Per-window DC removal and AC-RMS normalization; amplitude is not a model input",
+  "score_semantics": "score/cough_score is uncalibrated sigmoid signed margin for author cough event labels",
+  "decision_threshold": 0.5,
+  "aggregate_event": null,
+  "window_fields": {
+    "start_seconds": "Nominal original offset",
+    "end_seconds": "Nominal end offset",
+    "observed_end_seconds": "Offset of last observed sample boundary",
+    "status": [
+      "scored",
+      "abstain_silence",
+      "abstain_too_short",
+      "abstain_no_observed_samples",
+      "abstain_clipped"
+    ],
+    "label": [
+      "cough",
+      "non_cough",
+      null
+    ],
+    "score": "number in [0,1] or null",
+    "abstention_reason": "status suffix, or null when scored"
+  },
+  "fixed_engineering_abstentions": {
+    "silence": "AC RMS <= 1e-8 full scale",
+    "too_short": "<800 observed 8k samples",
+    "clipped": ">=1% native sample frames at integer PCM rail or abs(float)>=1; any channel"
+  },
+  "dependencies_prediction": [
+    "Python",
+    "NumPy",
+    "SciPy",
+    "D:\\table\\shumuzengxiao\\scripts\\train_calf_cough_research_20261026.py"
+  ],
+  "negative_label_interpretation": "non_cough is an acoustic label; never a healthy diagnosis"
+}

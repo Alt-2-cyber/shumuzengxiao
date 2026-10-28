@@ -1,0 +1,17 @@
+# Combine with the MySQL profile in production:
+# --spring.profiles.active=mysql,production
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  h2:
+    console:
+      enabled: false
+
+security:
+  api-key:
+    enabled: true
+    require-role-keys: true
+
+app:
+  seed-demo-data: false

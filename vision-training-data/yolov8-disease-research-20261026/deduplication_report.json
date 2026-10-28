@@ -1,0 +1,216 @@
+{
+  "created_utc": "2026-10-26T02:24:14.246570+00:00",
+  "source_images": 3244,
+  "source_class_counts": {
+    "foot-and-mouth": 746,
+    "healthy": 1291,
+    "lumpy": 1207
+  },
+  "valid_images": 3244,
+  "invalid_images": 0,
+  "connected_groups": 2755,
+  "eligible_groups": 2752,
+  "quarantine_cross_class_groups": 3,
+  "quarantine_cross_class_images": 7,
+  "duplicate_images_excluded": 485,
+  "duplicate_edge_counts": {
+    "exact_file_sha256": 1,
+    "exact_rgb_pixel_sha256": 1,
+    "roboflow_source_name": 471,
+    "perceptual_near_duplicate": 32
+  },
+  "split_class_counts": {
+    "train": {
+      "foot-and-mouth": 460,
+      "healthy": 828,
+      "lumpy": 638
+    },
+    "val": {
+      "foot-and-mouth": 98,
+      "healthy": 178,
+      "lumpy": 137
+    },
+    "test": {
+      "foot-and-mouth": 98,
+      "healthy": 178,
+      "lumpy": 137
+    }
+  },
+  "split_counts": {
+    "test": 413,
+    "train": 1926,
+    "val": 413
+  },
+  "largest_groups": [
+    {
+      "group_id": "g-d1b3be76981892086e28",
+      "images": 7,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-5db9e40b96f9103831ab",
+      "images": 6,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-a6f1c68c3eabeffb0836",
+      "images": 6,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-aa53c851dcd99b4f3933",
+      "images": 6,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-02121b36fa073354eba3",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-1c206570006a6a85c5fa",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-1d0e6cb2a831170c9cb7",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-1e6c50341467dfea7215",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-40909e8a31365ba5431e",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-622c8e6b082237afa8eb",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-71be74e1309a736ec9e8",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-74854da01466621a7c09",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-95bd2be044a0b8beb9e8",
+      "images": 5,
+      "labels": [
+        "foot-and-mouth"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-d78a25fc588391d98653",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-dbe86715be6d2bb3fdd7",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-fdbde9dfbe45f8d992f4",
+      "images": 5,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-164fdf7c73b472b3991e",
+      "images": 4,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-1e475eab416a98590772",
+      "images": 4,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-25b6373ced614513386b",
+      "images": 4,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    },
+    {
+      "group_id": "g-26c15b0a880f65fac7e5",
+      "images": 4,
+      "labels": [
+        "lumpy"
+      ],
+      "status": "eligible"
+    }
+  ],
+  "algorithm": {
+    "file_hash": "SHA256 of source bytes",
+    "pixel_hash": "SHA256 of RGB:WIDTHxHEIGHT + NUL + EXIF-transposed decoded RGB bytes",
+    "near_duplicate": "64-bit DCT pHash <=6 AND 64-bit dHash <=10; aspect ratio within 10%; original or horizontal mirror",
+    "rf_names": "strip .rf.* and trailing _jpg/_png/etc; descriptive names global, ambiguous numeric names class-namespaced",
+    "components": "transitive union of exact, pixel, filename and perceptual edges",
+    "representative": "largest decoded pixel area; ties by file SHA256 then source path",
+    "quarantine": "all members of any mixed-source-label component; original raw files left untouched",
+    "limits": "heuristic image grouping cannot infer animal/farm identity or catch every crop, rotation or montage"
+  }
+}

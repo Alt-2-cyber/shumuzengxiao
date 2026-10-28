@@ -1,0 +1,5 @@
+{
+  "onnx_sha256": "3af7163776eaf5be93e0d2c592a7de2dc94bad237f80e806fafa08b78c7541e3",
+  "scope": "research_only",
+  "status": "trained_and_evaluated_cow_roi_candidate"
+}

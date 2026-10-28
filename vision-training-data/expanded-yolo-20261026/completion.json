@@ -1,0 +1,365 @@
+{
+  "completed_utc": "2026-10-26T12:04:47.400262+00:00",
+  "status": "research_only_completed",
+  "onnx_sha256": "3e49e2451993e6e45e452253dd94a456c58ecdee634dfe1ffeb276053aa6cbfb",
+  "best_pt_sha256": "bc0ed384f8904a5cddad49d4b53942d29e3d43159fbdac6a5e421c76a6702b44",
+  "selected_before_test": true,
+  "test_driven_retraining": false,
+  "pt_onnx_parity": {
+    "passed": true,
+    "tested_images": 1034,
+    "maximum_absolute_difference": 2.771615982055664e-06,
+    "mean_image_maximum_absolute_difference": 1.666365640203045e-07,
+    "argmax_agreement": 1.0,
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "pytorch_device": "cuda:0 strict FP32, TF32 disabled",
+    "onnx_provider": "CPUExecutionProvider",
+    "onnx_checker_passed": true,
+    "input_shape": [
+      1,
+      3,
+      224,
+      224
+    ],
+    "output_shape": [
+      1,
+      3
+    ],
+    "softmax_in_graph": true
+  },
+  "metrics": {
+    "frozen_test": {
+      "candidate": {
+        "scope": "Public source-label image groups, not animal/farm-independent clinical accuracy",
+        "n_images": 413,
+        "n_global_image_groups": 413,
+        "correct": 377,
+        "accuracy": 0.9128329297820823,
+        "balanced_accuracy": 0.9142925767042649,
+        "macro_f1": 0.9153305837859187,
+        "macro_f1_present_classes": 0.9153305837859187,
+        "weighted_f1": 0.9126873255692034,
+        "log_loss": 0.31719648838043213,
+        "accuracy_wilson95": [
+          0.8816833398818338,
+          0.9363734843235589
+        ],
+        "interval_limit": "Image-binomial approximation; repeated global groups and unobserved animals/farms are not independent",
+        "label_order": [
+          "foot-and-mouth",
+          "healthy",
+          "lumpy"
+        ],
+        "classes_present": [
+          "foot-and-mouth",
+          "healthy",
+          "lumpy"
+        ],
+        "classification_report": {
+          "foot-and-mouth": {
+            "precision": 0.9207920792079208,
+            "recall": 0.9489795918367347,
+            "f1-score": 0.9346733668341709,
+            "support": 98.0
+          },
+          "healthy": {
+            "precision": 0.8829787234042553,
+            "recall": 0.9325842696629213,
+            "f1-score": 0.907103825136612,
+            "support": 178.0
+          },
+          "lumpy": {
+            "precision": 0.9516129032258065,
+            "recall": 0.8613138686131386,
+            "f1-score": 0.9042145593869731,
+            "support": 137.0
+          },
+          "accuracy": 0.9128329297820823,
+          "macro avg": {
+            "precision": 0.9184612352793277,
+            "recall": 0.9142925767042649,
+            "f1-score": 0.9153305837859187,
+            "support": 413.0
+          },
+          "weighted avg": {
+            "precision": 0.9147186544074314,
+            "recall": 0.9128329297820823,
+            "f1-score": 0.9126873255692034,
+            "support": 413.0
+          }
+        },
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            93,
+            5,
+            0
+          ],
+          [
+            6,
+            166,
+            6
+          ],
+          [
+            2,
+            17,
+            118
+          ]
+        ],
+        "test_used_for_selection": false
+      },
+      "prior_baseline": {
+        "scope": "Public source-label image groups, not animal/farm-independent clinical accuracy",
+        "n_images": 413,
+        "n_global_image_groups": 413,
+        "correct": 380,
+        "accuracy": 0.9200968523002422,
+        "balanced_accuracy": 0.9199604880909141,
+        "macro_f1": 0.9210266083404183,
+        "macro_f1_present_classes": 0.9210266083404183,
+        "weighted_f1": 0.9201390171264834,
+        "log_loss": 0.3547110855579376,
+        "accuracy_wilson95": [
+          0.8899098250381425,
+          0.9425409608834743
+        ],
+        "interval_limit": "Image-binomial approximation; repeated global groups and unobserved animals/farms are not independent",
+        "label_order": [
+          "foot-and-mouth",
+          "healthy",
+          "lumpy"
+        ],
+        "classes_present": [
+          "foot-and-mouth",
+          "healthy",
+          "lumpy"
+        ],
+        "classification_report": {
+          "foot-and-mouth": {
+            "precision": 0.9468085106382979,
+            "recall": 0.9081632653061225,
+            "f1-score": 0.9270833333333334,
+            "support": 98.0
+          },
+          "healthy": {
+            "precision": 0.9257142857142857,
+            "recall": 0.9101123595505618,
+            "f1-score": 0.9178470254957507,
+            "support": 178.0
+          },
+          "lumpy": {
+            "precision": 0.8958333333333334,
+            "recall": 0.9416058394160584,
+            "f1-score": 0.9181494661921709,
+            "support": 137.0
+          },
+          "accuracy": 0.9200968523002422,
+          "macro avg": {
+            "precision": 0.9227853765619723,
+            "recall": 0.9199604880909141,
+            "f1-score": 0.9210266083404183,
+            "support": 413.0
+          },
+          "weighted avg": {
+            "precision": 0.9208076115408299,
+            "recall": 0.9200968523002422,
+            "f1-score": 0.9201390171264834,
+            "support": 413.0
+          }
+        },
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            89,
+            5,
+            4
+          ],
+          [
+            5,
+            162,
+            11
+          ],
+          [
+            0,
+            8,
+            129
+          ]
+        ],
+        "test_used_for_selection": false
+      },
+      "accuracy_change": -0.007263922518159882,
+      "macro_f1_change": -0.005696024554499579,
+      "candidate_only_correct": 19,
+      "baseline_only_correct": 22,
+      "checkpoint_locked_utc": "2026-10-26T12:02:33.197080+00:00",
+      "prediction_started_utc": "2026-10-26T12:03:22.576493+00:00",
+      "source_independence_limit": "Disjoint observed pixel/perceptual/source-name components only; no animal/farm identity or verified clinical reference"
+    },
+    "independent_source_holdout": {
+      "candidate": {
+        "scope": "Public source-label image groups, not animal/farm-independent clinical accuracy",
+        "n_images": 621,
+        "n_global_image_groups": 621,
+        "correct": 559,
+        "accuracy": 0.9001610305958132,
+        "balanced_accuracy": 0.9168189191956754,
+        "macro_f1": 0.8199855588875941,
+        "macro_f1_present_classes": 0.8199855588875941,
+        "weighted_f1": 0.9027330416900161,
+        "log_loss": 0.3455345928668976,
+        "accuracy_wilson95": [
+          0.8740667850466164,
+          0.9213349812478642
+        ],
+        "interval_limit": "Image-binomial approximation; repeated global groups and unobserved animals/farms are not independent",
+        "label_order": [
+          "foot-and-mouth",
+          "healthy",
+          "lumpy"
+        ],
+        "classes_present": [
+          "foot-and-mouth",
+          "healthy",
+          "lumpy"
+        ],
+        "classification_report": {
+          "foot-and-mouth": {
+            "precision": 0.5833333333333334,
+            "recall": 1.0,
+            "f1-score": 0.7368421052631579,
+            "support": 7.0
+          },
+          "healthy": {
+            "precision": 0.9550321199143469,
+            "recall": 0.9158110882956879,
+            "f1-score": 0.9350104821802935,
+            "support": 487.0
+          },
+          "lumpy": {
+            "precision": 0.7464788732394366,
+            "recall": 0.8346456692913385,
+            "f1-score": 0.7881040892193308,
+            "support": 127.0
+          },
+          "accuracy": 0.9001610305958132,
+          "macro avg": {
+            "precision": 0.7616147754957057,
+            "recall": 0.9168189191956754,
+            "f1-score": 0.8199855588875941,
+            "support": 621.0
+          },
+          "weighted avg": {
+            "precision": 0.9081912924847483,
+            "recall": 0.9001610305958132,
+            "f1-score": 0.9027330416900161,
+            "support": 621.0
+          }
+        },
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            7,
+            0,
+            0
+          ],
+          [
+            5,
+            446,
+            36
+          ],
+          [
+            0,
+            21,
+            106
+          ]
+        ],
+        "test_used_for_selection": false
+      },
+      "prior_baseline": {
+        "scope": "Public source-label image groups, not animal/farm-independent clinical accuracy",
+        "n_images": 621,
+        "n_global_image_groups": 621,
+        "correct": 539,
+        "accuracy": 0.8679549114331723,
+        "balanced_accuracy": 0.8914884099446502,
+        "macro_f1": 0.8035071590366889,
+        "macro_f1_present_classes": 0.8035071590366889,
+        "weighted_f1": 0.8721381968822439,
+        "log_loss": 0.5050742626190186,
+        "accuracy_wilson95": [
+          0.8390521485768719,
+          0.8923333789816342
+        ],
+        "interval_limit": "Image-binomial approximation; repeated global groups and unobserved animals/farms are not independent",
+        "label_order": [
+          "foot-and-mouth",
+          "healthy",
+          "lumpy"
+        ],
+        "classes_present": [
+          "foot-and-mouth",
+          "healthy",
+          "lumpy"
+        ],
+        "classification_report": {
+          "foot-and-mouth": {
+            "precision": 0.6363636363636364,
+            "recall": 1.0,
+            "f1-score": 0.7777777777777778,
+            "support": 7.0
+          },
+          "healthy": {
+            "precision": 0.9411764705882353,
+            "recall": 0.8870636550308009,
+            "f1-score": 0.9133192389006343,
+            "support": 487.0
+          },
+          "lumpy": {
+            "precision": 0.6622516556291391,
+            "recall": 0.7874015748031497,
+            "f1-score": 0.7194244604316546,
+            "support": 127.0
+          },
+          "accuracy": 0.8679549114331723,
+          "macro avg": {
+            "precision": 0.7465972541936704,
+            "recall": 0.8914884099446502,
+            "f1-score": 0.8035071590366889,
+            "support": 621.0
+          },
+          "weighted avg": {
+            "precision": 0.8806979821190286,
+            "recall": 0.8679549114331723,
+            "f1-score": 0.8721381968822439,
+            "support": 621.0
+          }
+        },
+        "confusion_matrix_rows_true_columns_predicted": [
+          [
+            7,
+            0,
+            0
+          ],
+          [
+            4,
+            432,
+            51
+          ],
+          [
+            0,
+            27,
+            100
+          ]
+        ],
+        "test_used_for_selection": false
+      },
+      "accuracy_change": 0.032206119162640934,
+      "macro_f1_change": 0.016478399850905157,
+      "candidate_only_correct": 49,
+      "baseline_only_correct": 29,
+      "checkpoint_locked_utc": "2026-10-26T12:02:33.197080+00:00",
+      "prediction_started_utc": "2026-10-26T12:03:22.576493+00:00",
+      "source_independence_limit": "Disjoint observed pixel/perceptual/source-name components only; no animal/farm identity or verified clinical reference"
+    }
+  },
+  "model_use": "research_only",
+  "hardware_deployment": false
+}
